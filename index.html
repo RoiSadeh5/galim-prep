@@ -726,6 +726,48 @@ td.v-info{background:var(--blue-bg);border-color:var(--blue);color:var(--blue)}
   color:var(--fg2);font-size:12px;font-weight:700;white-space:nowrap;
 }
 .ipad-ready .status.offline{color:var(--amber);background:var(--amber-bg)}
+
+/* ===== ארכיון המבחנים ודף הנוסחאות (מיובא מ-waves-prep) ===== */
+.topic-kicker{color:var(--accent);font-size:12px;font-weight:850;letter-spacing:.05em;margin-top:16px}
+.hero-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:20px}
+.hero-actions a{display:inline-flex;align-items:center;justify-content:center;min-height:43px;padding:8px 17px;
+  border-radius:9px;text-decoration:none;font-weight:800;border:1px solid var(--accent)}
+.hero-actions .primary{background:var(--accent);color:var(--accent-fg)}
+.hero-actions .secondary{background:var(--bg2);color:var(--accent)}
+.metric-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0 26px}
+.metric{border:1px solid var(--line);border-radius:12px;background:var(--bg2);padding:15px;text-align:center}
+.metric b{display:block;color:var(--accent);font-size:27px;line-height:1.1}
+.metric span{font-size:12.5px;color:var(--fg2)}
+.formula-pages{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px}
+.formula-page{border:1px solid var(--line);background:var(--bg2);border-radius:12px;padding:14px}
+.formula-page b{color:var(--accent)}
+.archive-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0}
+.archive-summary .metric{margin:0}
+.archive-controls{display:grid;grid-template-columns:minmax(220px,1fr) 180px auto;gap:9px;
+  align-items:center;margin:18px 0}
+.archive-controls input,.archive-controls select{min-height:42px;border:1px solid var(--line2);
+  border-radius:9px;background:var(--bg2);color:var(--fg);padding:8px 12px;font:inherit}
+.archive-count{font-size:13px;color:var(--fg2);font-weight:750;white-space:nowrap}
+.archive-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.archive-card{border:1px solid var(--line);border-radius:14px;background:var(--bg2);padding:16px;
+  display:flex;flex-direction:column;min-width:0}
+.archive-card[hidden]{display:none}
+.archive-card-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.archive-card h3{font-size:20px;margin:7px 0 2px}.archive-card small{color:var(--fg2)}
+.archive-year{font:850 25px/1 var(--mono);color:var(--accent);opacity:.72}
+.archive-topics{font-size:13.5px;color:var(--fg2);padding-inline-start:22px;flex:1}
+.archive-topics li{margin:6px 0}.archive-topics b{color:var(--accent)}
+.archive-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}
+.archive-actions a{text-decoration:none}
+.archive-alias{margin-top:10px;border-top:1px solid var(--line);padding-top:9px;font-size:12px;color:var(--fg3)}
+.archive-alias summary{cursor:pointer;font-weight:750;color:var(--fg2)}
+.archive-task{border:1px solid var(--line);background:var(--bg3);border-radius:10px;padding:11px 14px}
+.archive-task ul{margin-bottom:0}
+@media(max-width:680px){
+  .metric-grid{grid-template-columns:repeat(2,1fr)}
+  .archive-summary{grid-template-columns:repeat(2,1fr)}
+  .archive-controls{grid-template-columns:1fr}.archive-grid{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
@@ -739,6 +781,7 @@ td.v-info{background:var(--blue-bg);border-color:var(--blue);color:var(--blue)}
 <span class="grp">התחלה</span>
 <button data-go="home">עמוד הבית</button>
 <button data-go="map">מפת המבחן</button>
+<button data-go="archive">📁 ארכיון המבחנים</button>
 
 <span class="grp">יסודות</span>
 <button data-go="d01">משוואת הגלים ופתרון כללי</button>
@@ -755,7 +798,7 @@ td.v-info{background:var(--blue-bg);border-color:var(--blue);color:var(--blue)}
 <button data-go="d08">קווי תמסורת</button>
 
 <span class="grp">חומרי עזר</span>
-<button onclick="window.open('formulas.html','_blank')">📄 דף נוסחאות</button>
+<button data-go="formula">📄 דף נוסחאות</button>
 
 <button class="th" onclick="toggleTheme()" title="מצב כהה / בהיר">◐</button>
 </nav>
@@ -928,6 +971,53 @@ td.v-info{background:var(--blue-bg);border-color:var(--blue);color:var(--blue)}
 </div>
 </div>
 </section>
+<!-- ============ ארכיון המבחנים ============ -->
+<section class="pg" id="archive">
+<div class="topic-kicker">כל חומר המקור · 2020–2026</div>
+<h1>ארכיון המבחנים המלא</h1>
+<p class="lead">כל מבחן ייחודי שנמצא בתיקיות המבחנים, יחד עם פתרון מלא.
+עותקים זהים ושמות חלופיים אוחדו — אך מתועדים בתוך הכרטיס המתאים.</p>
+
+<div class="archive-summary" aria-label="סטטיסטיקת ארכיון">
+  <div class="metric"><b>21</b><span>מבחנים ייחודיים</span></div>
+  <div class="metric"><b>84</b><span>שאלות מלאות</span></div>
+  <div class="metric"><b>2020–26</b><span>טווח השנים</span></div>
+  <div class="metric"><b>100%</b><span>עם פתרון</span></div>
+</div>
+
+<div class="note"><b>איך הארכיון עובד:</b> כל שאלה היא גם רשומה במאגר התרגול.
+הכרטיס פותח את הנוסח המקורי והשרטוטים ב־PDF; הפתרון נחשף בנפרד כדי שאפשר יהיה
+לפתור על דף ולסמן הצלחה או טעות. שאלות הארכיון אינן נכנסות לסימולטור הליבה.</div>
+
+<div class="archive-controls">
+  <input id="archiveSearch" type="search" placeholder="חיפוש לפי נושא, שאלון או קטגוריה…" aria-label="חיפוש בארכיון">
+  <select id="archiveYear" aria-label="סינון ארכיון לפי שנה"><option value="">כל השנים</option></select>
+  <span class="archive-count" id="archiveVisibleCount">21 מבחנים מוצגים</span>
+</div>
+<div class="archive-grid" id="examArchiveGrid" aria-live="polite"></div>
+</section>
+
+<!-- ============ דף הנוסחאות ============ -->
+<section class="pg" id="formula">
+<div class="topic-kicker">חומר עזר · מוכן להדפסה</div>
+<h1>דף נוסחאות בן 6 עמודים</h1>
+<p class="lead">ארבעה עמודי ייחוס ושני עמודי תבניות פתרון ממבחני 2025–2026.
+הנוסחאות מוצגות ב־LTR, ההסברים בעברית, וכל עמוד מותאם ל־A4.</p>
+<div class="formula-pages">
+  <div class="formula-page"><b>עמוד 1</b><p>זהויות, משוואת הגלים, גלים חד־כיווניים וד׳אלמבר.</p></div>
+  <div class="formula-page"><b>עמוד 2</b><p>מנועים, כוח, הספק, עבודה ואנרגיה.</p></div>
+  <div class="formula-page"><b>עמוד 3</b><p>מעבר תווך, אמפליטודות, רוחבים ויחסי אנרגיה.</p></div>
+  <div class="formula-page"><b>עמוד 4</b><p>מיתר סופי, פורייה, קווי תמסורת ונספח ארכיון.</p></div>
+  <div class="formula-page"><b>עמוד 5</b><p>תבניות פתורות לשאלות 1–2.</p></div>
+  <div class="formula-page"><b>עמוד 6</b><p>תבניות פתורות לשאלות 3–4 וקווי תמסורת.</p></div>
+</div>
+<div class="ok"><b>מוכן:</b> פתח את הגרסה הייעודית, בחר “הדפס / שמור PDF” ושמור בקנה מידה 100% ללא כותרות דפדפן.
+<div class="hero-actions">
+  <a class="primary" href="formulas.html" target="_blank" rel="noopener">פתח דף נוסחאות להדפסה</a>
+  <a class="secondary" href="output/pdf/waves-90929-formulas.pdf" target="_blank" rel="noopener">הורד PDF מוכן</a>
+</div></div>
+</section>
+
 <!-- ============ מפת המבחן ============ -->
 <section class="pg" id="map">
 <h1>מפת המבחן</h1>
@@ -1689,6 +1779,7 @@ td.v-info{background:var(--blue-bg);border-color:var(--blue);color:var(--blue)}
 <script src="questions-2025-2026.js"></script>
 <script src="questions-samples.js"></script>
 <script src="questions-mc.js"></script>
+<script src="exam-archive.js"></script>
 <script src="walkthrough-2023.js"></script>
 <script src="walkthrough-2024.js"></script>
 <script src="walkthrough-2025.js"></script>
@@ -1820,6 +1911,7 @@ function mountPlayer(id, frames) {
 var courseNameEl = document.getElementById("courseName");
 if (courseNameEl) courseNameEl.textContent = window.COURSE.code || "";
 if (window.mountCodexQuiz) window.mountCodexQuiz();
+if (window.mountExamArchive) window.mountExamArchive();
 </script>
 </body>
 </html>
