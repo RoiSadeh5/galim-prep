@@ -1,0 +1,94 @@
+<section class="pg" id="d07">
+<h1>מיתר רתום — גלים עומדים ופורייה <span class="tag exam">שאלה 4</span></h1>
+<p class="lead">המשבצת של שאלה 4: מיתר סופי רתום בשני קצותיו עם תנאי התחלה נתונים — מחלצים את התדירויות \(\omega_n\), את המקדמים \(c_n\) והפאזות \(\varphi_n\) בעזרת טבלת פאזות, ומסיימים באנרגיה הכוללת ובזמן המחזור המינימלי.</p>
+
+<h2>1 · הנוסחאות והמושגים</h2>
+<div class="tw"><table>
+<thead><tr><th>מושג</th><th>נוסחה</th><th>הערות</th></tr></thead>
+<tbody>
+<tr><td>מהירות הגל</td><td>\(v=\sqrt{T/\rho}\)</td><td>קבועה — אינה תלויה בתדירות.</td></tr>
+<tr><td>אופני התנודה (הרמוניות)</td><td>\(k_n=\dfrac{n\pi}{L},\quad \omega_n=v\,k_n=\dfrac{n\pi v}{L},\quad f_n=\dfrac{n v}{2L}\)</td><td>\(n=1,2,3,\dots\) — נובע מריתום: \(y(0,t)=y(L,t)=0\).</td></tr>
+<tr><td>הפתרון הכללי</td><td>\(y(x,t)=\displaystyle\sum_{n=1}^{\infty} c_n \sin(k_n x)\cos(\omega_n t+\varphi_n)\)</td><td>תקף בכל התחום \(0\le x\le L\) ולכל \(t\).</td></tr>
+<tr><td>מקדם הצורה</td><td>\(C_n\equiv c_n\cos\varphi_n=\dfrac{2}{L}\displaystyle\int_0^L y(x,0)\sin(k_n x)\,dx\)</td><td>מהשוואת \(y(x,0)\) לטור ברגע \(t=0\).</td></tr>
+<tr><td>מקדם המהירות</td><td>\(S_n\equiv c_n\sin\varphi_n=-\dfrac{2}{n\pi v}\displaystyle\int_0^L \dot y(x,0)\sin(k_n x)\,dx\)</td><td>שקול: המקדם של \(\sin(k_n x)\) בתוך \(\dot y(x,0)\) הוא \(-c_n\omega_n\sin\varphi_n\).</td></tr>
+<tr><td>שחזור אמפליטודה ופאזה</td><td>\(c_n=\sqrt{C_n^2+S_n^2},\quad \varphi_n=\operatorname{arctg}(S_n,C_n)\)</td><td>ארקטנגנס דו-ארגומנטי — הרביע נקבע לפי הסימנים של שני המקדמים.</td></tr>
+<tr><td>אנרגיה לאופן</td><td>\(E_n=\tfrac14\rho L\,\omega_n^2 c_n^2\)</td><td>\(E_{\text{tot}}=\sum_n E_n\) — האופנים אורתוגונליים, אין איברים מעורבים.</td></tr>
+<tr><td>זמן מחזור מינימלי</td><td>\(T_{\min}=\dfrac{2\pi}{\omega_1}\)</td><td>כאשר האופן \(n=1\) מופיע; אז \(T_1=2T_2=3T_3=4T_4\).</td></tr>
+<tr><td>מיתר מרוט (משיכה משולשת במרכז לגובה \(H\))</td><td>\(c_n=\dfrac{8H}{\pi^2 n^2}\sin\!\Big(\dfrac{n\pi}{2}\Big)\ \Rightarrow\ c_1=\dfrac{8H}{\pi^2}\)</td><td>\(E_{\text{tot}}=\dfrac{2TH^2}{L}\); שלוש ההרמוניות הראשונות שאינן מתאפסות מכילות כ-93.3% מהאנרגיה (גליון 6 שאלה 8).</td></tr>
+</tbody>
+</table></div>
+
+<div class="note">מאיפה מגיע הטור? כל איבר \(\sin(k_n x)\cos(\omega_n t+\varphi_n)\) הוא גל עומד — סופרפוזיציה של גל ימינה וגל שמאלה באותה אמפליטודה: \(\sin(k_n x)\cos(\omega_n t)=\tfrac12\sin(k_n x-\omega_n t)+\tfrac12\sin(k_n x+\omega_n t)\). לכן התנועה במיתר רתום <b>לעולם אינה גל חד-כיווני</b>.</div>
+
+<h2>2 · השיטה — צעד אחר צעד</h2>
+<p>זה המתכון כפי שמופיע בפתרונות הרשמיים (2026 שאלה 4, Y-2025 שאלה 4):</p>
+<ol>
+<li>מחשבים \(v=\sqrt{T/\rho}\), וכותבים \(k_n=\dfrac{n\pi}{L}\), \(\omega_n=v k_n\).</li>
+<li>כותבים את הטור ואת נגזרתו בזמן:
+<div class="eq">$$ y(x,t)=\sum_{n} c_n\sin(k_n x)\cos(\omega_n t+\varphi_n),\qquad \dot y(x,t)=-\sum_{n} c_n\omega_n\sin(k_n x)\sin(\omega_n t+\varphi_n). $$</div></li>
+<li>מציבים \(t=0\) ומשווים לתנאי ההתחלה:
+<div class="eq">$$ y(x,0)=\sum_n \underbrace{c_n\cos\varphi_n}_{C_n}\sin(k_n x),\qquad \dot y(x,0)=\sum_n \underbrace{(-c_n\omega_n\sin\varphi_n)}_{-\omega_n S_n}\sin(k_n x). $$</div>
+אם תנאי ההתחלה כבר נתונים כסכום סופי של \(\sin(k_n x)\) — קוראים את המקדמים ישירות, <b>בלי אינטגרלים</b>. אחרת מחשבים את אינטגרלי פורייה שבטבלה למעלה.</li>
+<li>לכל \(n\) מוצאים: \(C_n=\) המקדם של \(\sin(k_n x)\) ב-\(y(x,0)\), ו-\(S_n=-\dfrac{b_n}{\omega_n}\) כאשר \(b_n\) הוא המקדם של \(\sin(k_n x)\) ב-\(\dot y(x,0)\). שימו לב למינוס.</li>
+<li>בונים <b>טבלת פאזות</b>: שורה לכל \(n\) עם העמודות \(C_n\;|\;S_n\;|\;c_n=\sqrt{C_n^2+S_n^2}\;|\;\varphi_n=\operatorname{arctg}(S_n,C_n)\). את הרביע קובעים משני הסימנים: למשל \(C_n&lt;0,\;S_n=0\Rightarrow\varphi_n=\pi\) (לא אפס!).</li>
+<li>כותבים את \(y(x,t)\) המפורש עם כל האיברים.</li>
+<li>אנרגיה: \(E_n=\tfrac14\rho L\,\omega_n^2 c_n^2\) לכל אופן, מחברים ל-\(E_{\text{tot}}\), ואם נשאל — אחוז האנרגיה בהרמוניה הראשונה \(E_1/E_{\text{tot}}\).</li>
+<li>זמן מחזור מינימלי: אם \(n=1\) מופיע — \(T_{\min}=T_1=2\pi/\omega_1\), כי כל הרמוניה \(n\) משלימה בדיוק \(n\) מחזורים בזמן הזה. אם ההרמוניה הראשונה חסרה — \(T_{\min}=2\pi/(d\,\omega_1)\) כאשר \(d\) הוא המחלק המשותף הגדול ביותר של ערכי ה-\(n\) המופיעים.</li>
+</ol>
+
+<h2>3 · אנימציה</h2>
+<div id="d07_p1"></div>
+<p>הנגן מראה איך שני אופנים (\(n=1\), \(n=2\)) מתחברים לצורה אחת: כל אופן רוקד במקומו בקצב \(\cos(\omega_n t)\) משלו, הסכום משנה צורה כל רגע — ובזמן \(T_1=2\pi/\omega_1\) הכול חוזר בדיוק לצורה ההתחלתית.</p>
+
+<h2>4 · דוגמה פתורה מהמבחן</h2>
+<p><span class="tag exam">מבחן 2026 מועד א' · שאלה 4</span> מיתר רתום: \(L=6.0\,\mathrm{m}\), \(T=900\,\mathrm{N}\), \(\rho=0.040\,\mathrm{kg/m}\). ברגע \(t=0\), עבור \(0\le x\le L\):</p>
+<div class="eq">$$ y(x,0)=0.020\sin\!\Big(\frac{\pi x}{L}\Big)-0.006\sin\!\Big(\frac{2\pi x}{L}\Big)+0.004\sin\!\Big(\frac{4\pi x}{L}\Big), $$</div>
+<div class="eq">$$ \dot y(x,0)=0.50\pi\sin\!\Big(\frac{\pi x}{L}\Big)-0.30\pi\sin\!\Big(\frac{3\pi x}{L}\Big)+0.40\pi\sin\!\Big(\frac{4\pi x}{L}\Big). $$</div>
+<p>(א) מצאו את \(v\), את \(\omega_n\) של האופנים המופיעים, ואת \(y(x,t)\) בצורת הטור. (ב) האם זה גל חד-כיווני? (ג) זמן המחזור המינימלי. (ד) האנרגיה בכל אופן והאנרגיה הכוללת.</p>
+<details class="sol"><summary>פתרון</summary><div class="body">
+<p><b>(א) מהירות ותדירויות.</b></p>
+<div class="eq">$$ v=\sqrt{T/\rho}=\sqrt{900/0.040}=150\ \mathrm{m/s},\qquad k_n=\frac{n\pi}{6},\qquad \omega_n=v k_n=25\pi n\ \mathrm{rad/s}. $$</div>
+<p><b>מקדמים ופאזות.</b> תנאי ההתחלה כבר נתונים כסכומי \(\sin(k_n x)\), אז קוראים ישירות: \(C_n\) הוא המקדם ב-\(y(x,0)\), והמקדם \(b_n\) ב-\(\dot y(x,0)\) שווה \(-c_n\omega_n\sin\varphi_n\), כלומר \(S_n=-b_n/\omega_n\):</p>
+<div class="tw"><table>
+<thead><tr><th>\(n\)</th><th>\(C_n=c_n\cos\varphi_n\)</th><th>\(S_n=c_n\sin\varphi_n\)</th><th>\(c_n=\sqrt{C_n^2+S_n^2}\)</th><th>\(\varphi_n=\operatorname{arctg}(S_n,C_n)\)</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>\(0.020\)</td><td>\(-\dfrac{0.50\pi}{25\pi}=-0.020\)</td><td>\(0.020\sqrt2\approx0.0283\)</td><td>\(-\pi/4\)</td></tr>
+<tr><td>2</td><td>\(-0.006\)</td><td>\(0\)</td><td>\(0.006\)</td><td>\(\pi\)</td></tr>
+<tr><td>3</td><td>\(0\)</td><td>\(+\dfrac{0.30\pi}{75\pi}=0.004\)</td><td>\(0.004\)</td><td>\(\pi/2\)</td></tr>
+<tr><td>4</td><td>\(0.004\)</td><td>\(-\dfrac{0.40\pi}{100\pi}=-0.004\)</td><td>\(0.004\sqrt2\approx0.00566\)</td><td>\(-\pi/4\)</td></tr>
+</tbody>
+</table></div>
+<p>שימו לב לשורה \(n=2\): שם \(C_2&lt;0\) ו-\(S_2=0\), ולכן \(\varphi_2=\pi\) והאמפליטודה נכתבת חיובית \(c_2=0.006\). ולשורה \(n=3\): \(C_3=0,\ S_3&gt;0\Rightarrow\varphi_3=\pi/2\).</p>
+<div class="eq">$$ y(x,t)=0.020\sqrt2\,\sin\!\Big(\frac{\pi x}{L}\Big)\cos\!\Big(25\pi t-\frac{\pi}{4}\Big)+0.006\sin\!\Big(\frac{2\pi x}{L}\Big)\cos(50\pi t+\pi) $$</div>
+<div class="eq">$$ +\,0.004\sin\!\Big(\frac{3\pi x}{L}\Big)\cos\!\Big(75\pi t+\frac{\pi}{2}\Big)+0.004\sqrt2\,\sin\!\Big(\frac{4\pi x}{L}\Big)\cos\!\Big(100\pi t-\frac{\pi}{4}\Big), $$</div>
+<p>תקף עבור \(0\le x\le L\) ולכל \(t\).</p>
+<p><b>(ב)</b> התנועה <b>אינה</b> גל חד-כיווני, אלא סופרפוזיציה של גלים עומדים — אי אפשר לכתוב אותה כ-\(f(x-vt)\) יחיד (כל גל עומד הוא כבר סכום של גל ימינה וגל שמאלה).</p>
+<p><b>(ג)</b> מכיוון שהאופן \(n=1\) מופיע, זמן המחזור המינימלי הוא של ההרמוניה האיטית ביותר:</p>
+<div class="eq">$$ T_{\min}=T_1=\frac{2\pi}{\omega_1}=\frac{2\pi}{25\pi}=0.080\ \mathrm{s}, $$</div>
+<p>כי בזמן הזה כל הרמוניה משלימה מספר שלם של מחזורים: \(T_1=2T_2=3T_3=4T_4\). הגל השקול חוזר על עצמו בכל כפולה שלמה של \(T_{\min}\).</p>
+<p><b>(ד)</b> לכל אופן \(E_n=\tfrac14\rho L\,\omega_n^2 c_n^2\), עם \(\rho L=0.24\ \mathrm{kg}\):</p>
+<div class="eq">$$ E_1=\tfrac14\cdot0.24\,(25\pi)^2(0.020\sqrt2)^2=0.030\pi^2\approx0.296\ \mathrm{J},\qquad E_2=\tfrac14\cdot0.24\,(50\pi)^2(0.006)^2=0.0054\pi^2\approx0.0533\ \mathrm{J}, $$</div>
+<div class="eq">$$ E_3=\tfrac14\cdot0.24\,(75\pi)^2(0.004)^2=0.0054\pi^2\approx0.0533\ \mathrm{J},\qquad E_4=\tfrac14\cdot0.24\,(100\pi)^2(0.004\sqrt2)^2=0.0192\pi^2\approx0.189\ \mathrm{J}. $$</div>
+<div class="eq">$$ E_{\text{tot}}=E_1+E_2+E_3+E_4=0.060\pi^2\approx0.592\ \mathrm{J}. $$</div>
+<p class="ok">בדיקה: אחוז האנרגיה בהרמוניה הראשונה — \(E_1/E_{\text{tot}}=0.030/0.060=50\%\). שימו לב ש-\(E_4&gt;E_2+E_3\) למרות שהאמפליטודה קטנה — בגלל הגורם \(\omega_n^2\propto n^2\).</p>
+</div></details>
+
+<h2>5 · מלכודות</h2>
+<div class="warn"><b>הרביע של \(\varphi_n\).</b> הנוסחה היא ארקטנגנס דו-ארגומנטי \(\operatorname{arctg}(S_n,C_n)\) — שני הסימנים קובעים. \(C_n&lt;0,\ S_n=0\Rightarrow\varphi_n=\pi\) (לא 0); \(C_n=0,\ S_n&gt;0\Rightarrow\varphi_n=\pi/2\). חלוקה עיוורת \(\tan\varphi_n=S_n/C_n\) מאבדת את הרביע.</div>
+<div class="warn"><b>המינוס במקדם המהירות.</b> המקדם של \(\sin(k_n x)\) ב-\(\dot y(x,0)\) הוא \(-c_n\omega_n\sin\varphi_n\). שכחת המינוס הופכת את הסימן של כל הפאזות. וגם: לחלק ב-\(\omega_n\) — לכל \(n\) יש \(\omega_n\) אחר.</div>
+<div class="warn"><b>תנאי התחלה על חצי תחום ⇒ כל ההרמוניות קיימות.</b> אם \(y(x,0)\) או \(\dot y(x,0)\) נתונים רק על חלק מהמיתר (למשל \(0\le x\le L/2\)), אינטגרל פורייה אינו מתאפס באופן כללי לאף \(n\) — אין סימטריה שמוחקת זוגיות או אי-זוגיות (כך ב-X-2025 שאלה 2).</div>
+<div class="warn"><b>גל עומד אינו גל חד-כיווני.</b> כשנשאלים "האם זה גל מתקדם?" — התשובה במיתר רתום היא תמיד לא: כל איבר בטור הוא סכום של גל ימינה וגל שמאלה באמפליטודות שוות.</div>
+<div class="warn"><b>זמן מחזור מינימלי כשההרמוניה הראשונה חסרה.</b> \(T_{\min}=2\pi/\omega_1\) נכון רק אם \(n=1\) מופיע. אם מופיעים למשל רק \(n=2,4\) — המחזור הוא \(2\pi/\omega_2\).</div>
+<div class="warn"><b>אנרגיה: לא לשכוח את \(\omega_n^2\).</b> הרמוניה גבוהה עם אמפליטודה קטנה יכולה לשאת יותר אנרגיה מהרמוניה נמוכה עם אמפליטודה גדולה (\(E_4\) בדוגמה). וכן: מחשבים \(E_n\) לכל אופן בנפרד ומחברים — האורתוגונליות מבטיחה שאין איברי הצלבה.</div>
+<div class="warn"><b>השרטוטים להמחשה בלבד</b> — אסור למדוד מהם אמפליטודות או מקומות; הכול מהנוסחאות.</div>
+
+<h2>6 · מה לשים בדף הנוסחאות</h2>
+<div class="tip"><ul>
+<li>\(k_n=\dfrac{n\pi}{L},\ \omega_n=\dfrac{n\pi v}{L},\ f_n=\dfrac{nv}{2L}\), והטור \(y=\sum c_n\sin(k_n x)\cos(\omega_n t+\varphi_n)\).</li>
+<li>זוג נוסחאות החילוץ: \(c_n\cos\varphi_n=\dfrac{2}{L}\int_0^L y(x,0)\sin(k_n x)dx\), \(\ c_n\sin\varphi_n=-\dfrac{2}{n\pi v}\int_0^L \dot y(x,0)\sin(k_n x)dx\).</li>
+<li>תבנית טבלת הפאזות: \(n\;|\;C_n\;|\;S_n\;|\;c_n\;|\;\varphi_n\) + תזכורת רביעים (\(C&lt;0,S=0\Rightarrow\pi\); \(C=0,S&gt;0\Rightarrow\pi/2\); \(C&gt;0,S&lt;0\Rightarrow-\pi/4\) כששווים בגודלם).</li>
+<li>\(E_n=\tfrac14\rho L\,\omega_n^2c_n^2\), \(T_{\min}=2\pi/\omega_1\).</li>
+<li>מיתר מרוט במרכז: \(c_n=\dfrac{8H}{\pi^2n^2}\sin\dfrac{n\pi}{2}\), \(E_{\text{tot}}=\dfrac{2TH^2}{L}\), 93.3% בשלוש הראשונות שאינן מתאפסות.</li>
+<li>אינטגרל אורתוגונליות: \(\int_0^L\sin\dfrac{n\pi x}{L}\sin\dfrac{m\pi x}{L}dx=\dfrac{L}{2}\delta_{nm}\).</li>
+</ul></div>
+</section>
