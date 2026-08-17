@@ -9,6 +9,8 @@ window.EXAM_WALKTHROUGHS["2025-X"] = {
   label: "מבחן 2025 שאלון X",
   year: 2025,
   term: "X",
+  questionHref: "assets/exams/2025-x-question.pdf",
+  solutionHref: "assets/exams/2025-x-solution.pdf",
   questions: [
 
     /* ---------- שאלה 1: מיתר מונע בקצה — פולס פרבולי ---------- */
@@ -169,6 +171,8 @@ window.EXAM_WALKTHROUGHS["2025-Y"] = {
   label: "מבחן 2025 שאלון Y",
   year: 2025,
   term: "Y",
+  questionHref: "assets/exams/2025-y-question.pdf",
+  solutionHref: "assets/exams/2025-y-solution.pdf",
   questions: [
     /* Y-MORE */
   ]
