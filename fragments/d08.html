@@ -1,0 +1,106 @@
+<section class="pg" id="d08">
+<h1>קווי תמסורת — משוואות הטלגרף והאנלוגיה למיתר <span class="tag exam">שאלה 2 / שאלה 4</span></h1>
+<p class="lead">נושא משני שחוזר לסירוגין: הופיע בכל שאלוני 2023 ו-2025, נעדר לחלוטין ממועד א' 2026 — ולכן סיכוי סביר שיחזור במועד ב'. אותה פיזיקה של המיתר בדיוק, עם \(V\) ו-\(I\) במקום הכוח והמהירות החומרית: קו אינסופי נפתר בדלמבר (משבצת שאלה 2), וקו סופי מקוצר/פתוח נפתר בטור גלים עומדים (משבצת שאלה 4).</p>
+
+<h2>1 · הנוסחאות והמושגים</h2>
+<div class="tw"><table>
+<thead><tr><th>מושג</th><th>נוסחה</th><th>הערות</th></tr></thead>
+<tbody>
+<tr><td>משוואות הטלגרף</td><td>\(\dfrac{\partial V}{\partial x}=-L\dfrac{\partial I}{\partial t},\qquad \dfrac{\partial I}{\partial x}=-C\dfrac{\partial V}{\partial t}\)</td><td>\(L,C\) — השראות וקיבול <b>ליחידת אורך</b>. שתי משוואות מסדר ראשון שקושרות את \(V\) ו-\(I\).</td></tr>
+<tr><td>משוואת הגלים</td><td>\(\dfrac{\partial^2 V}{\partial t^2}=v_w^2\dfrac{\partial^2 V}{\partial x^2},\qquad v_w=\dfrac{1}{\sqrt{LC}}\)</td><td>גם \(I\) מקיים את אותה משוואה. מתקבל מהצבת משוואה אחת בשנייה.</td></tr>
+<tr><td>אימפדנס</td><td>\(Z=\sqrt{\dfrac{L}{C}}\)</td><td>שימושי: \(\dfrac{1}{C}=Z\,v_w\) וגם \(L=\dfrac{Z}{v_w}\).</td></tr>
+<tr><td>גל חד-כיווני ימינה</td><td>\(V=V(x-v_w t),\qquad I=\dfrac{V}{Z}\)</td><td>כלומר \(V=+Z I\).</td></tr>
+<tr><td>גל חד-כיווני שמאלה</td><td>\(V=-Z I\)</td><td><b>הסימן!</b> מלכודת רשמית — ראו סעיף 5.</td></tr>
+<tr><td>פירוק לגלים חד-כיווניים</td><td>\(V=V_p(x-v_w t)+V_n(x+v_w t),\qquad I=\dfrac{1}{Z}\big(V_p-V_n\big)\)</td><td>ומכאן ברגע \(t=0\): \(V_p=\tfrac12\big(V+ZI\big),\ \ V_n=\tfrac12\big(V-ZI\big)\).</td></tr>
+<tr><td>צפיפות אנרגיה ליחידת אורך</td><td>\(\rho_E=\tfrac12 C V^2+\tfrac12 L I^2\)</td><td>האיבר עם \(C\) — "פוטנציאלי" (חשמלי), עם \(L\) — "קינטי" (מגנטי). אנרגיה אגורה: \(E=\displaystyle\int_0^{\ell}\rho_E\,dx\).</td></tr>
+<tr><td>הספק</td><td>\(P=V I\)</td><td>בגל חד-כיווני ימינה \(P=I^2Z\ge 0\); שמאלה \(P=-I^2Z\le 0\).</td></tr>
+<tr><td>קו סופי <b>מקוצר</b> בקצוות</td><td>\(V(0,t)=V(\ell,t)=0\ \Rightarrow\ V(x,t)=\displaystyle\sum_{n=1}^{\infty} b_n\sin(k_n x)\cos(\omega_n t+\phi_n)\)</td><td>\(k_n=\dfrac{n\pi}{\ell},\ \omega_n=v_w k_n\). הפתרון עבור \(V\) — כמו \(y\) של מיתר רתום.</td></tr>
+<tr><td>הזרם הנגזר מהטור</td><td>\(I(x,t)=-\dfrac{1}{Z}\displaystyle\sum_{n=1}^{\infty} b_n\cos(k_n x)\sin(\omega_n t+\phi_n)\)</td><td>מתקבל מ-\(\dfrac{\partial I}{\partial t}=-\dfrac1L\dfrac{\partial V}{\partial x}\) — <b>אין ל-\(I\) מקדמים ופאזות עצמאיים</b>.</td></tr>
+<tr><td>קו סופי <b>פתוח</b> בקצוות</td><td>\(I(0,t)=I(\ell,t)=0\ \Rightarrow\ I(x,t)=\displaystyle\sum_n a_n\sin(k_n x)\cos(\omega_n t+\psi_n)\)</td><td>התפקידים מתחלפים: הפתרון עבור \(I\) כמו מיתר רתום, ו-\(V\) מקבל \(\cos(k_n x)\).</td></tr>
+<tr><td>אנרגיה אגורה לאופן (קו מקוצר)</td><td>\(E_n=\tfrac14 C\,\ell\, b_n^2,\qquad E_{\text{tot}}=\sum_n E_n\)</td><td>קבועה בזמן; מתקבלת מ-\(\int_0^{\ell}\big(\tfrac12CV_n^2+\tfrac12LI_n^2\big)dx\) עם \(L/Z^2=C\). בקו פתוח באופן סימטרי \(E_n=\tfrac14 L\,\ell\, a_n^2\).</td></tr>
+</tbody>
+</table></div>
+
+<h3>טבלת האנלוגיה המלאה למיתר</h3>
+<div class="tw"><table>
+<thead><tr><th>קו תמסורת</th><th>מיתר</th><th>הערה</th></tr></thead>
+<tbody>
+<tr><td>\(I(x,t)\)</td><td>\(v_y(x,t)\)</td><td>המשתנה "הקינטי".</td></tr>
+<tr><td>\(V(x,t)\)</td><td>\(F(x,t)=-T\,\dfrac{\partial y}{\partial x}\)</td><td>המשתנה "הכוחי" — הכוח הרוחבי, לא ההעתק \(y\) עצמו.</td></tr>
+<tr><td>\(L\)</td><td>\(\rho\)</td><td>אינרציה ליחידת אורך.</td></tr>
+<tr><td>\(C\)</td><td>\(1/T\)</td><td>"גמישות" ליחידת אורך.</td></tr>
+<tr><td>\(v_w=\dfrac{1}{\sqrt{LC}}\)</td><td>\(v=\sqrt{T/\rho}\)</td><td>אותה הצבה של האנלוגיה.</td></tr>
+<tr><td>\(Z=\sqrt{L/C}\)</td><td>\(Z=\sqrt{T\rho}\)</td><td>יחידות שונות, תפקיד זהה.</td></tr>
+<tr><td>\(V=\pm ZI\)</td><td>\(F=\pm Z v_y\)</td><td>‎+‎ לגל ימינה, ‎−‎ לגל שמאלה.</td></tr>
+<tr><td>\(\rho_E=\tfrac12CV^2+\tfrac12LI^2\)</td><td>\(\rho_E=\tfrac12\rho v_y^2+\tfrac12 T y_x^2\)</td><td>קינטי↔מגנטי, פוטנציאלי↔חשמלי.</td></tr>
+<tr><td>\(P=VI\)</td><td>\(P=-T\,y_x\,y_t=F\,v_y\)</td><td>אותו מבנה "כוח × מהירות".</td></tr>
+<tr><td>קצה מקוצר: \(V=0\)</td><td>הטור של \(V\) כמו \(y\) של מיתר רתום</td><td>כך מנוסח בדף הנוסחאות של הקורס.</td></tr>
+<tr><td>קצה פתוח: \(I=0\)</td><td>הטור של \(I\) כמו \(y\) של מיתר רתום</td><td>המשתנה שמתאפס בקצוות מקבל טור \(\sin(k_n x)\).</td></tr>
+</tbody>
+</table></div>
+
+<div class="note">בגלל האנלוגיה, <b>כל</b> המתכונים מהעמודים הקודמים עוברים כמו שהם: קו אינסופי עם \(V(x,0),I(x,0)\) נתונים נפתר בדלמבר או בפירוק \(V_p,V_n\) (עמוד d03), וקו סופי נפתר בטור פורייה עם טבלת פאזות (עמוד d07). ההבדל היחיד: במיתר תנאי ההתחלה הם \(y\) ו-\(\dot y\); בקו הם \(V\) ו-\(I\) — ואת "\(\dot V\)" משיגים ממשוואת טלגרף, לא מנתון ישיר.</div>
+
+<h2>2 · השיטה — צעד אחר צעד (קו סופי)</h2>
+<p>המתכון כפי שמופיע בפתרון הרשמי של X-2025 שאלה 2 (וגם Y-2025 שאלה 4, X-2023):</p>
+<ol>
+<li>מזהים את תנאי השפה: קו <b>מקוצר</b> ⇒ \(V(0,t)=V(\ell,t)=0\) והטור נכתב על \(V\); קו <b>פתוח</b> ⇒ \(I=0\) בקצוות והטור נכתב על \(I\). כותבים:
+<div class="eq">$$ V(x,t)=\sum_{n=1}^{\infty} b_n\sin\!\Big(\frac{n\pi}{\ell}x\Big)\cos\!\Big(\frac{n\pi v_w}{\ell}t+\phi_n\Big). $$</div></li>
+<li>תנאי ההתחלה הנתונים הם \(V(x,0)\) ו-\(I(x,0)\). את הנגזרת בזמן של \(V\) ברגע ההתחלתי משיגים <b>ממשוואת הטלגרף</b>:
+<div class="eq">$$ \frac{\partial V}{\partial t}(x,0)=-\frac{1}{C}\,\frac{\partial I}{\partial x}(x,0),\qquad \frac{1}{C}=Z\,v_w, $$</div>
+וכך התשובה מתנסחת בפרמטרים \(Z,v_w\) שניתנו בשאלה.</li>
+<li>מחלצים את המקדמים בדיוק כמו במיתר רתום (עמוד d07):
+<div class="eq">$$ b_n\cos\phi_n=\frac{2}{\ell}\int_0^{\ell} V(x,0)\sin(k_n x)\,dx,\qquad b_n\sin\phi_n=-\frac{2}{n\pi v_w}\int_0^{\ell}\frac{\partial V}{\partial t}(x,0)\sin(k_n x)\,dx. $$</div>
+אם \(V(x,0)\) כבר סכום של \(\sin(k_n x)\) — קוראים את \(b_n\cos\phi_n\) ישירות בלי אינטגרל.</li>
+<li>בונים טבלת פאזות \(n\;|\;b_n\cos\phi_n\;|\;b_n\sin\phi_n\;|\;b_n\;|\;\phi_n\) וקובעים את הרביע לפי שני הסימנים (ארקטנגנס דו-ארגומנטי).</li>
+<li>את הזרם <b>לא</b> מפתחים מחדש — גוזרים אותו מהטור של \(V\) דרך \(\partial I/\partial t=-\frac1L\partial V/\partial x\):
+<div class="eq">$$ I(x,t)=-\frac{1}{Z}\sum_n b_n\cos(k_n x)\sin(\omega_n t+\phi_n). $$</div></li>
+<li>אנרגיה אגורה: \(E=\displaystyle\int_0^{\ell}\Big(\tfrac12CV^2+\tfrac12LI^2\Big)dx=\sum_n \tfrac14 C\ell\,b_n^2\) — קבועה בזמן (הקצוות לא מעבירים הספק).</li>
+<li>הספק נקודתי: \(P(x,t)=V\,I\); ברגע ההתחלתי פשוט מכפילים את הנתונים: \(P(x,0)=V(x,0)\,I(x,0)\), עם חלונות התוקף של כל נתון.</li>
+</ol>
+
+<h2>3 · אנימציה</h2>
+<div id="d08_p1"></div>
+<p>הנגן עוקב אחרי הדוגמה הפתורה: קו מקוצר בשני קצותיו עם \(V(x,0)\) סינוסי ו-\(I(x,0)\) על חצי תחום בלבד — ורואים איך ההרמוניה הראשונה של \(V\), עם הפאזה \(\phi_1=-\pi/4\), מתלכדת ברגע \(t=0\) עם הפרופיל ההתחלתי ומגיעה לשיא \(8\sqrt2\,ZI_0\) רק ברגע \(t=T_1/8\).</p>
+
+<h2>4 · דוגמה פתורה מהמבחן</h2>
+<p><span class="tag exam">מבחן X-2025 · שאלה 2</span> קו תמסורת סופי שאורכו \(\ell\) <b>מקוצר בשני קצותיו</b>; מהירות הגלים \(v_w\) והאימפדנס \(Z\) נתונים כפרמטרים. נתון:</p>
+<div class="eq">$$ I(x,0)=\begin{cases}3\pi I_0\cos\!\Big(2\pi\dfrac{x}{\ell}\Big) & 0\le x\le \ell/2\\[2pt] 0 & \text{אחרת}\end{cases}\qquad V(x,0)=8ZI_0\sin\!\Big(\pi\dfrac{x}{\ell}\Big),\quad 0\le x\le\ell. $$</div>
+<p>(א) הביעו את \(\dfrac{\partial V}{\partial t}(x,0)\). (ב) חשבו את זווית הפאזה של ההרמוניה הראשונה. (ג) רשמו את \(V(x,t)\) בקירוב שתי הרמוניות ראשונות. (ד) קבלו את ההספק ההתחלתי \(P(x,0)\).</p>
+<details class="sol"><summary>פתרון</summary><div class="body">
+<p><b>(א) ממשוואת הטלגרף.</b> \(\dfrac{\partial V}{\partial t}=-\dfrac1C\dfrac{\partial I}{\partial x}\) עם \(\dfrac1C=Zv_w\). גוזרים את \(I(x,0)\) לפי \(x\):</p>
+<div class="eq">$$ \frac{\partial V}{\partial t}(x,0)=-Zv_w\cdot 3\pi I_0\cdot\Big(-\frac{2\pi}{\ell}\Big)\sin\!\Big(2\pi\frac{x}{\ell}\Big)=\begin{cases}\dfrac{6\pi^2}{\ell}Zv_w I_0\sin\!\Big(2\pi\dfrac{x}{\ell}\Big) & 0\le x\le \ell/2\\[2pt] 0 & \text{אחרת}\end{cases} $$</div>
+<p><b>(ב) ההרמוניה הראשונה.</b> המתח מקיים "ריתום" (\(V=0\) בקצוות) ולכן:</p>
+<div class="eq">$$ V(x,t)=\sum_{n=1}^{\infty} b_n\sin\!\Big(\frac{n\pi}{\ell}x\Big)\cos\!\Big(\frac{n\pi v_w}{\ell}t+\phi_n\Big). $$</div>
+<p>מקדם הצורה: \(V(x,0)\) הוא בדיוק ההרמוניה הראשונה, לכן בלי אינטגרל: \(b_1\cos\phi_1=8ZI_0\) (וכל \(b_n\cos\phi_n=0\) עבור \(n\ge2\)). מקדם המהירות:</p>
+<div class="eq">$$ b_1\sin\phi_1=-\frac{2}{\pi v_w}\int_0^{\ell/2}\frac{6\pi^2}{\ell}Zv_wI_0\sin\!\Big(\frac{2\pi x}{\ell}\Big)\sin\!\Big(\frac{\pi x}{\ell}\Big)dx=-\frac{6\pi ZI_0}{\ell}\int_0^{\ell/2}\Big[\cos\!\Big(\frac{\pi x}{\ell}\Big)-\cos\!\Big(\frac{3\pi x}{\ell}\Big)\Big]dx=-8ZI_0, $$</div>
+<p>כאשר השתמשנו בזהות \(2\sin\alpha\sin\beta=\cos(\alpha-\beta)-\cos(\alpha+\beta)\), והאינטגרל מחושב ישירות: \(\Big[\frac{\ell}{\pi}\sin\frac{\pi x}{\ell}-\frac{\ell}{3\pi}\sin\frac{3\pi x}{\ell}\Big]_0^{\ell/2}=\frac{\ell}{\pi}-\frac{\ell}{3\pi}\cdot(-1)=\frac{4\ell}{3\pi}\), ואז \(-\frac{6\pi ZI_0}{\ell}\cdot\frac{4\ell}{3\pi}=-8ZI_0\). לכן:</p>
+<div class="eq">$$ \tan\phi_1=\frac{b_1\sin\phi_1}{b_1\cos\phi_1}=\frac{-8ZI_0}{8ZI_0}=-1,\qquad \cos\phi_1&gt;0\ \Rightarrow\ \boxed{\phi_1=-\frac{\pi}{4}},\qquad b_1=8\sqrt2\,ZI_0. $$</div>
+<p><b>(ג) ההרמוניה השנייה והקירוב.</b> \(b_2\cos\phi_2=0\), ואילו:</p>
+<div class="eq">$$ b_2\sin\phi_2=-\frac{6\pi}{\ell}ZI_0\int_0^{\ell/2}\sin^2\!\Big(\frac{2\pi x}{\ell}\Big)dx=-\frac{3\pi ZI_0}{\ell}\int_0^{\ell/2}\Big[1-\cos\!\Big(\frac{4\pi x}{\ell}\Big)\Big]dx=-\frac{3\pi ZI_0}{2}. $$</div>
+<p>מכיוון ש-\(b_2\cos\phi_2=0\) ו-\(b_2\sin\phi_2&lt;0\), הפתרון הרשמי בוחר \(\phi_2=\dfrac{\pi}{2}\) עם \(b_2=-\dfrac{3\pi ZI_0}{2}\) (שקול לחלוטין לבחירה \(b_2=+\frac{3\pi ZI_0}{2},\ \phi_2=-\frac{\pi}{2}\)). ולכן בקירוב שתי הרמוניות:</p>
+<div class="eq">$$ V(x,t)\approx 8\sqrt2\,ZI_0\sin\!\Big(\frac{\pi}{\ell}x\Big)\cos\!\Big(\frac{\pi v_w}{\ell}t-\frac{\pi}{4}\Big)-\frac{3\pi ZI_0}{2}\sin\!\Big(\frac{2\pi}{\ell}x\Big)\cos\!\Big(\frac{2\pi v_w}{\ell}t+\frac{\pi}{2}\Big), $$</div>
+<p>תקף לכל \(0\le x\le\ell\) ולכל \(t\). שימו לב: הזרם על חצי תחום מזין את <b>כל</b> ההרמוניות — אין כאן סימטריה שמאפסת \(n\)-ים.</p>
+<p><b>(ד) הספק התחלתי.</b> פשוט מכפלת הנתונים \(P=VI\), עם חלון התוקף של \(I(x,0)\):</p>
+<div class="eq">$$ P(x,0)=V(x,0)\,I(x,0)=\begin{cases}24\pi ZI_0^2\,\sin\!\Big(\pi\dfrac{x}{\ell}\Big)\cos\!\Big(2\pi\dfrac{x}{\ell}\Big) & 0\le x\le\ell/2\\[2pt] 0 & \text{אחרת}\end{cases} $$</div>
+<p class="ok">בדיקות: ברגע \(t=0\) ההרמוניה הראשונה נותנת \(8\sqrt2\,ZI_0\cos(-\frac{\pi}{4})=8ZI_0\) — בדיוק \(V(x,0)\), והשנייה נותנת \(\cos(\frac{\pi}{2})=0\) — עקבי עם זה ש-\(V(x,0)\) הוא סינוס טהור. וכן \(P(0,0)=P(\ell,0)=0\) — קצה מקוצר (\(V=0\)) לא מעביר הספק.</p>
+</div></details>
+
+<h2>5 · מלכודות</h2>
+<div class="warn"><b>הסימן של גל שמאלה: \(V=-ZI\).</b> הקשר \(V=+ZI\) נכון רק לגל שנע בכיוון החיובי. בפירוק \(V_p,V_n\) המינוס הזה הוא שמייצר את \(I=\frac1Z(V_p-V_n)\), וממנו את נוסחאות החילוץ \(V_{p,n}=\tfrac12(V\pm ZI)\). החלפת סימן — כל ההמשך קורס (מלכודת רשמית מ-EXAM-MAP).</div>
+<div class="warn"><b>מי מקבל טור \(\sin\)?</b> המשתנה שמתאפס בקצוות: קו <b>מקוצר</b> ⇒ \(V\) כמו מיתר רתום; קו <b>פתוח</b> ⇒ \(I\) כמו מיתר רתום. לכתוב טור \(\sin(k_nx)\) על \(I\) בקו מקוצר זו שגיאה מבנית שממיתה את כל השאלה.</div>
+<div class="warn"><b>"\(\dot V\)" אינו נתון — הוא מחושב.</b> בקו נתונים \(V(x,0)\) ו-\(I(x,0)\); את \(\frac{\partial V}{\partial t}(x,0)\) חייבים ממשוואת הטלגרף \(\frac{\partial V}{\partial t}=-\frac1C\frac{\partial I}{\partial x}\), ומציבים \(\frac1C=Zv_w\) כדי להתנסח בפרמטרים הנתונים. לשכוח את הגזירה של \(I\) לפי \(x\) (או את המינוס) — טעות נפוצה.</div>
+<div class="warn"><b>נתון על חצי תחום ⇒ כל ההרמוניות קיימות.</b> ב-X-2025 הזרם נתון רק על \(0\le x\le\ell/2\) — אינטגרל פורייה אינו מתאפס לאף \(n\), כולל \(n\) שנראים "לא מתאימים". אל תניחו שרק ההרמוניה שמופיעה בנוסחה קיימת.</div>
+<div class="warn"><b>ל-\(I\) אין פאזות עצמאיות.</b> הטור של \(I\) נגזר מהטור של \(V\) דרך משוואות הטלגרף: אותם \(b_n,\phi_n\), עם \(\cos(k_nx)\) במקום \(\sin(k_nx)\) ו-\(\sin(\omega_nt+\phi_n)\) במקום \(\cos\) (ומקדם \(-1/Z\)). קיצור דרך שימושי: אם \(I(x,0)\equiv0\), כל האיברים בטור של \(I\) חייבים להתחיל מאפס — התלות בזמן שלהם היא \(\sin(\omega_n t)\) טהור (פאזה \(\pi/2\) בכתיב \(\cos\)), ולכן בטור של \(V\) כל הפאזות הן \(0\) או \(\pi\).</div>
+<div class="warn"><b>תחומי תוקף.</b> כשנתון מוגדר בחלונות (\(0\le x\le\ell/2\) ואפס אחרת) — כל תשובה שמשתמשת בו, כמו \(P(x,0)\) בסעיף ד', חייבת לגרור את החלון. דרישה מפורשת החל מ-2026.</div>
+
+<h2>6 · מה לשים בדף הנוסחאות</h2>
+<div class="tip"><ul>
+<li>משוואות הטלגרף: \(\ \partial V/\partial x=-L\,\partial I/\partial t,\ \ \partial I/\partial x=-C\,\partial V/\partial t\); \(\ v_w=1/\sqrt{LC},\ Z=\sqrt{L/C}\), וההצבות \(1/C=Zv_w\), \(L=Z/v_w\).</li>
+<li>גל ימינה \(V=ZI\), גל שמאלה \(V=-ZI\); פירוק: \(V_p=\tfrac12(V+ZI),\ V_n=\tfrac12(V-ZI)\), \(I=\frac1Z(V_p-V_n)\).</li>
+<li>טבלת אנלוגיה: \(I\leftrightarrow v_y,\ V\leftrightarrow -T y_x,\ L\leftrightarrow\rho,\ C\leftrightarrow1/T,\ Z=\sqrt{L/C}\leftrightarrow\sqrt{T\rho}\).</li>
+<li>קו מקוצר: \(V=\sum b_n\sin(k_nx)\cos(\omega_nt+\phi_n)\), \(I=-\frac1Z\sum b_n\cos(k_nx)\sin(\omega_nt+\phi_n)\), \(k_n=n\pi/\ell\), \(\omega_n=v_wk_n\); קו פתוח — להחליף תפקידים בין \(V\) ל-\(I\).</li>
+<li>נוסחאות החילוץ (זהות למיתר): \(b_n\cos\phi_n=\frac2\ell\int_0^\ell V(x,0)\sin(k_nx)dx\), \(\ b_n\sin\phi_n=-\frac{2}{n\pi v_w}\int_0^\ell \dot V(x,0)\sin(k_nx)dx\), כאשר \(\dot V(x,0)=-\frac1C I_x(x,0)\).</li>
+<li>\(\rho_E=\tfrac12CV^2+\tfrac12LI^2\), \(\ P=VI\), \(\ E_n=\tfrac14C\ell\,b_n^2\) (קו מקוצר; בקו פתוח \(\tfrac14L\ell\,a_n^2\)).</li>
+</ul></div>
+</section>

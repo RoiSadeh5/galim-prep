@@ -1305,8 +1305,176 @@ td.v-info{background:var(--blue-bg);border-color:var(--blue);color:var(--blue)}
 </ul>
 </div>
 </section>
-<section class="pg" id="d05"><h1>אנרגיה והספק</h1><p class="lead">בבנייה…</p></section>
-<section class="pg" id="d06"><h1>צמתים — החזרה והעברה</h1><p class="lead">בבנייה…</p></section>
+<section class="pg" id="d05">
+<h1>אנרגיה והספק <span class="tag hot">סעיף בכל שאלה</span></h1>
+<p class="lead">אנרגיה והספק אינם משבצת עצמאית — הם <b>סעיף הסיום של כמעט כל שאלה במבחן</b>: צפיפויות אנרגיה, הספק רגעי וממוצע, עבודת המנוע, אנרגיית פולס, אחוזי אנרגיה בצומת ואנרגיה להרמוניה במיתר רתום. מי ששולט בעמוד הזה גוזר את 5–8 הנקודות האחרונות של כל שאלה.</p>
+
+<h2>1 · הנוסחאות והמושגים</h2>
+<div class="tw"><table>
+<thead><tr><th>מושג</th><th>נוסחה</th><th>הערות</th></tr></thead>
+<tbody>
+<tr><td>צפיפות אנרגיה קינטית</td><td>\(\rho_K(x,t)=\dfrac{\rho}{2}\,y_t^2\)</td><td>יחידות J/m — אנרגיה ליחידת אורך</td></tr>
+<tr><td>צפיפות אנרגיה פוטנציאלית</td><td>\(\rho_P(x,t)=\dfrac{T}{2}\,y_x^2\)</td><td>נובעת ממתיחת המיתר (זוויות קטנות)</td></tr>
+<tr><td>גל חד־כיווני — שוויון</td><td>\(\rho_K=\rho_P\;\Rightarrow\;\rho_E=2\rho_K=\rho\,v_y^2\)</td><td>כי \(y_x=\mp\dfrac{1}{v}y_t\) ו-\(T=\rho v^2\). <b>רק</b> לגל חד־כיווני!</td></tr>
+<tr><td>אנרגיה כוללת</td><td>\(E(t)=\displaystyle\int \rho_E(x,t)\,dx\)</td><td>האינטגרל רק על החלון שבו הגל קיים</td></tr>
+<tr><td>הספק רגעי</td><td>\(P(x,t)=-T\,y_x\,y_t\)</td><td>שטף אנרגיה דרך הנקודה; \(P&gt;0\) = זרימה בכיוון \(+x\)</td></tr>
+<tr><td>הספק — גל ימינה</td><td>\(P=Z\,v_y^2\ge 0\qquad(=v\,\rho_E)\)</td><td>האנרגיה זורמת תמיד בכיוון ההתקדמות</td></tr>
+<tr><td>הספק ממוצע — גל הרמוני</td><td>\(\langle P\rangle=\dfrac{1}{2}ZA^2\omega^2\)</td><td>מ-\(\langle\cos^2\rangle=\langle\sin^2\rangle=\dfrac12\) על מחזור שלם</td></tr>
+<tr><td>אנרגיה שעברה דרך נקודה</td><td>\(W=\displaystyle\int_{t_1}^{t_2}P(x_0,t)\,dt\)</td><td>למנוע: \(W=\int_0^t P_D\,dt'\) = האנרגיה שנכנסה למיתר</td></tr>
+<tr><td>אנרגיית פולס חד־כיווני</td><td>\(E=\displaystyle\int T\,y_x^2\,dx=\displaystyle\int \rho\,v_y^2\,dx\)</td><td>סופית — כי התומך סופי; קבועה בזמן</td></tr>
+<tr><td>אנרגיה להרמוניה (מיתר רתום)</td><td>\(E_n=\dfrac{1}{4}\rho L\,c_n^2\,\omega_n^2\)</td><td>\(E_{\mathrm{tot}}=\sum_n E_n\); אחוז ההרמוניה הראשונה: \(E_1/E_{\mathrm{tot}}\)</td></tr>
+<tr><td>אנרגיה לאורך גל</td><td>\(E_\lambda=\dfrac{1}{2}\rho A^2\omega^2\lambda=\langle P\rangle\cdot T_{\mathrm{per}}\)</td><td>לא תלויה במיקום הקטע שנבחר (גליון 4 ש' 9)</td></tr>
+</tbody>
+</table></div>
+
+<div class="warn"><b>אנרגיה כוללת של גל הרמוני אינסופי אינה מוגדרת</b> — \(\int_{-\infty}^{\infty}\rho_E\,dx\) מתבדר. מותר לדבר רק על צפיפות ממוצעת \(\langle\rho_E\rangle=\tfrac12\rho A^2\omega^2\), על אנרגיה לאורך גל \(E_\lambda\), או על הספק ממוצע. זו מלכודת "האם ייתכן? נמקו" חוזרת.</div>
+
+<h2>2 · השיטה — צעד אחר צעד</h2>
+<ol>
+<li>גזרו \(y_t\) ו-\(y_x\) מהגל שבניתם בסעיפים הקודמים — <b>כולל כלל השרשרת</b>: הריבוע מכניס \(\omega^2\) לנגזרת הזמן ו-\(k^2\) לנגזרת המקום.</li>
+<li>בדקו אם הגל חד־כיווני. אם כן — קיצור דרך: \(\rho_E=\rho\,v_y^2\) ו-\(P=Z\,v_y^2=v\,\rho_E\), בלי לגזור לפי \(x\) בכלל. אם זו סופרפוזיציה (גל עומד, שני פולסים חופפים) — אין קיצור, חובה \(P=-T\,y_x\,y_t\) עם הנגזרות המלאות.</li>
+<li>רשמו את <b>החלון</b> שבו הגל קיים והציבו אותו בגבולות האינטגרל: \(E=\int_0^{vt}\rho_E\,dx\) למיתר מונע, \(E=\int_{\text{תומך}}\) לפולס. הגבולות תלויי זמן!</li>
+<li>לממוצעים על מחזור: החליפו \(\cos^2\to\tfrac12\). מכאן \(\langle P\rangle=\tfrac12 ZA^2\omega^2\).</li>
+<li>אנרגיה שעברה דרך נקודה \(x_0\) בפרק זמן: \(W=\int_{t_1}^{t_2}P(x_0,t)\,dt\). למנוע: \(W=\int_0^t Z\,v_y^2(0,t')\,dt'\) — <b>בדיקת עקביות מצוינת:</b> חייב לצאת שווה ל-\(E(t)\) שבמיתר.</li>
+<li>במיתר רתום: חשבו \(E_n=\tfrac14\rho L c_n^2\omega_n^2\) לכל הרמוניה וסכמו; אחוז ההרמוניה הראשונה הוא \(E_1/E_{\mathrm{tot}}\) (מבחן 2026 שאלה 4: \(E_{\mathrm{tot}}=0.060\pi^2=0.592\ \mathrm{J}\)).</li>
+</ol>
+
+<h2>3 · אנימציה</h2>
+<div id="d05_p1"></div>
+<p>הנגן עוקב אחרי פולס חד־כיווני שנושא את האנרגיה שלו איתו (\(P=Z\,v_y^2\ge0\)), מראה את האנרגיה עוברת דרך נקודת מדידה, ומסיים בגל עומד — שבו אין הובלת אנרגיה נטו וההספק מתאפס תמידית בצמתים ובבטנים.</p>
+
+<h2>4 · דוגמה פתורה מהמבחן <span class="tag hot">מבחן 2026 מועד א' · שאלה 1 סעיף ד'</span></h2>
+<div class="card">
+<p><b>המשך ישיר של הדוגמה בעמוד "מיתר מונע בקצה":</b> מיתר חצי־אינסופי, \(\rho=0.2\ \mathrm{kg/m}\), \(T=180\ \mathrm{N}\), \(v=30\ \mathrm{m/s}\), \(Z=6\ \mathrm{kg/s}\), והגל שנבנה בסעיפים א'–ג':</p>
+<div class="eq">$v_y(x,t)=\frac{\pi}{50}\cos\!\left(\frac{\pi}{60}x-\frac{\pi}{2}t\right),\qquad 0\le x\le 30t$</div>
+<p><b>ד'</b> (8 נק') הביעו את צפיפות האנרגיה הכללית במיתר כפונקציה של המקום והזמן, ואת האנרגיה הכוללת במיתר כפונקציה של הזמן, עבור \(0\le t\le 4\ \mathrm{s}\).</p>
+</div>
+<details class="sol"><summary>פתרון</summary><div class="body">
+<p><b>צפיפות האנרגיה.</b> הגל חד־כיווני, ולכן הצפיפויות הקינטית והפוטנציאלית שוות ומקבלים ישירות:</p>
+<div class="eq">$\rho_E(x,t)=2\rho_{K}=\rho\,v_y^2(x,t)=0.2\cdot\left(\frac{\pi}{50}\right)^2\cos^2(\cdots)=
+\begin{cases}8\pi^2\cdot10^{-5}\cos^2\!\left(\dfrac{\pi}{60}x-\dfrac{\pi}{2}t\right) & 0\le x\le 30t\\[4pt] 0 & \text{אחרת}\end{cases}$</div>
+<p><b>האנרגיה הכוללת.</b> אינטגרל רק על החלון \(0\le x\le 30t\), עם \(\cos^2\theta=\tfrac12(1+\cos2\theta)\):</p>
+<div class="eq">$E(t)=\int_0^{30t}8\pi^2\cdot10^{-5}\cos^2\!\left(\frac{\pi}{60}x-\frac{\pi}{2}t\right)dx
+=8\pi^2\cdot10^{-5}\left[15t+\frac{15}{\pi}\sin(\pi t)\right]=1.2\cdot10^{-3}\pi^2\left[t+\frac{1}{\pi}\sin(\pi t)\right]\ \mathrm{J}$</div>
+<p>(פירוט האינטגרל: \(\int_0^{30t}\cos2\theta\,dx=\dfrac{30}{\pi}\big[\sin2\theta\big]_0^{30t}=\dfrac{30}{\pi}\sin(\pi t)\), כי בקצה העליון \(2\theta=0\) ובתחתון \(2\theta=-\pi t\).)</p>
+<p><b>בדיקת עקביות — עבודת המנוע.</b> ההספק שהמנוע מספק הוא \(P_D=Z\,v_y^2(0,t)=6\cdot\left(\dfrac{\pi}{50}\right)^2\cos^2\!\left(\dfrac{\pi}{2}t\right)=2.4\cdot10^{-3}\pi^2\cos^2\!\left(\dfrac{\pi}{2}t\right)\), ולכן:</p>
+<div class="eq">$W(t)=\int_0^t P_D\,dt'=2.4\cdot10^{-3}\pi^2\left[\frac{t}{2}+\frac{\sin(\pi t)}{2\pi}\right]=1.2\cdot10^{-3}\pi^2\left[t+\frac{1}{\pi}\sin(\pi t)\right]=E(t)\ \checkmark$</div>
+<p>כל האנרגיה שהמנוע השקיע נמצאת במיתר — הבדיקה סוגרת את השאלה. מספרית ב-\(t=4\): \(E=4.8\cdot10^{-3}\pi^2\approx0.0474\ \mathrm{J}\).</p>
+</div></details>
+
+<p style="margin-top:1em"><b>ועוד תרגיל קצר על הספק ממוצע</b> <span class="tag">גליון 4 · שאלה 7</span>:</p>
+<div class="card">מיתר חצי־אינסופי, \(\rho=0.03\ \mathrm{kg/m}\), \(T=1200\ \mathrm{N}\). מנוע בקצה מייצר גל הרמוני עם \(A=1.5\ \mathrm{cm}\) ו-\(f=150\ \mathrm{Hz}\). <b>א'</b> חשבו את ההספק הממוצע של המנוע. <b>ב'</b> מה יקרה אם מכפילים את האמפליטודה? <b>ג'</b> ואם מקטינים את התדירות פי 2?</div>
+<details class="sol"><summary>פתרון</summary><div class="body">
+<div class="eq">$Z=\sqrt{T\rho}=\sqrt{1200\cdot0.03}=6\ \mathrm{kg/s},\qquad \omega=2\pi f=300\pi\ \mathrm{rad/s}$</div>
+<div class="eq">$\langle P\rangle=\frac{1}{2}ZA^2\omega^2=\frac{1}{2}\cdot6\cdot(0.015)^2\cdot(300\pi)^2=60.75\,\pi^2\approx 599.6\ \mathrm{W}$</div>
+<p><b>ב'</b> \(\langle P\rangle\propto A^2\): הכפלת האמפליטודה ⇒ ההספק גדל <b>פי 4</b>. <b>ג'</b> \(\langle P\rangle\propto\omega^2\): הקטנת התדירות פי 2 ⇒ ההספק קטן <b>פי 4</b>.</p>
+</div></details>
+
+<h2>5 · מלכודות</h2>
+<div class="warn"><b>\(\rho_K=\rho_P\) רק בגל חד־כיווני.</b> בגל עומד או בשני פולסים חופפים אסור לכתוב \(\rho_E=\rho v_y^2\) — שם חובה לחשב את שתי הצפיפויות בנפרד עם הנגזרות המלאות.</div>
+<div class="warn"><b>אנרגיה כוללת של גל הרמוני אינסופי אינה מוגדרת.</b> אם סעיף "האם ייתכן?" שואל על \(E\) של \(A\sin(kx-\omega t)\) על מיתר אינסופי — התשובה היא שהאינטגרל מתבדר; מוגדרות רק \(\langle\rho_E\rangle\), \(E_\lambda\) ו-\(\langle P\rangle\).</div>
+<div class="warn"><b>\(\langle\cos^2\rangle=\tfrac12\) רק על מחזור שלם.</b> על חלק ממחזור חובה לבצע את האינטגרל במפורש (עם \(\cos^2\theta=\tfrac12(1+\cos2\theta)\) מדף הזהויות).</div>
+<div class="warn"><b>גבולות אינטגרציה תלויי זמן.</b> \(E(t)=\int_0^{30t}\) ולא \(\int_0^{\infty}\) סתם — מחוץ לחלון \(\rho_E=0\), והגבול הנע הוא שמכניס את התלות בזמן לתוצאה (האיבר \(\sin(\pi t)\) בדוגמה).</div>
+<div class="warn"><b>הסימן של \(P\).</b> \(P=-T\,y_x\,y_t\) שלילי פירושו שטף אנרגיה בכיוון \(-x\) (כמו \(P=-1.93\ \mathrm{kW}\) במבחן 2026 שאלה 2 סעיף ד'). אבל לגל חד־כיווני <b>ימינה</b> תמיד \(P=Zv_y^2\ge0\) — אם יצא לכם שלילי, טעות סימן.</div>
+<div class="warn"><b>עבודת המנוע = אנרגיית המיתר.</b> אם \(W=\int_0^t P_D\,dt'\) לא יוצא שווה ל-\(E(t)=\int\rho_E\,dx\) — יש שגיאה באחד מהם. השתמשו בזה כבדיקה, הפתרונות הרשמיים עושים זאת.</div>
+
+<h2>6 · מה לשים בדף הנוסחאות</h2>
+<div class="tip"><ul>
+<li>\(\rho_K=\tfrac{\rho}{2}y_t^2\) · \(\rho_P=\tfrac{T}{2}y_x^2\) · חד־כיווני: \(\rho_K=\rho_P\Rightarrow\rho_E=\rho v_y^2\)</li>
+<li>\(P=-T\,y_x\,y_t\) · גל ימינה: \(P=Zv_y^2=v\rho_E\ge0\) · \(\langle P\rangle=\tfrac12 ZA^2\omega^2\)</li>
+<li>\(E=\int\rho_E\,dx\) (על החלון!) · \(W=\int_{t_1}^{t_2}P(x_0,t)\,dt\) · עבודת מנוע = \(E\) במיתר</li>
+<li>אנרגיית פולס: \(E=\int T y_x^2\,dx=\int\rho v_y^2\,dx\)</li>
+<li>מיתר רתום: \(E_n=\tfrac14\rho L c_n^2\omega_n^2\), \(E_{\mathrm{tot}}=\sum E_n\)</li>
+<li>\(E_\lambda=\tfrac12\rho A^2\omega^2\lambda\) · \(\langle\cos^2\rangle=\tfrac12\) (מחזור שלם) · גל הרמוני אינסופי: \(E\) לא מוגדר</li>
+</ul></div>
+</section>
+<section class="pg" id="d06">
+<h1>צמתים — החזרה והעברה <span class="tag exam">שאלה 3</span> <span class="tag hot">בכל מבחן</span></h1>
+<p class="lead">זו המשבצת של <b>שאלה 3 — בכל מבחן</b>: פולס (משולש / פרבולה / sin² / חצי־סינוס) פוגע בצומת בין שני מיתרים בעלי צפיפויות שונות. מחלצים \(v_1,v_2\) מרוחבי הפולסים וזמן המעבר, בונים \(Z_1,Z_2\), מחשבים את מקדמי ההחזרה וההעברה, את הגבהים והרוחבים החדשים ואת חלוקת האנרגיה — ומ־2024 גם "הנדסה הפוכה" של \(\rho_2\) מנתוני הגל החוזר/עובר.</p>
+
+<h2>1 · הנוסחאות והמושגים</h2>
+<div class="tw"><table>
+<thead><tr><th>מושג</th><th>נוסחה</th><th>הערות</th></tr></thead>
+<tbody>
+<tr><td>מהירויות בשני התווכים</td><td>\(v_1=\sqrt{T/\rho_1}\;,\;\;v_2=\sqrt{T/\rho_2}\)</td><td>המתיחות \(T\) <b>זהה</b> בשני הצדדים — מיתר אחד מתוח</td></tr>
+<tr><td>אימפדנסים</td><td>\(Z_i=\sqrt{T\rho_i}=\dfrac{T}{v_i}=\rho_i v_i\)</td><td>יחידות kg/s</td></tr>
+<tr><td>מקדם החזרה</td><td>\(R=\dfrac{Z_1-Z_2}{Z_1+Z_2}\)</td><td>\(-1\le R\le 1\); שלילי כאשר \(Z_2&gt;Z_1\) ⇒ הגל החוזר <b>מתהפך</b></td></tr>
+<tr><td>מקדם העברה</td><td>\(\tau=1+R=\dfrac{2Z_1}{Z_1+Z_2}\)</td><td>\(0\le\tau\le 2\) — תמיד חיובי: העובר <b>לעולם לא מתהפך</b></td></tr>
+<tr><td>גבהים</td><td>\(H_r=R\,H_i\;,\;\;H_t=\tau\,H_i\)</td><td>עם הסימן! נובע מרציפות בצומת: \(y_i+y_r=y_t\)</td></tr>
+<tr><td>רוחבים</td><td>\(b_r=b_i\;,\;\;b_t=b_i\cdot\dfrac{v_2}{v_1}\)</td><td>החוזר נשאר באותו תווך — רוחב ללא שינוי; העובר נמתח/מתכווץ ביחס המהירויות</td></tr>
+<tr><td>חילוץ מהירויות מנתוני זמן</td><td>\(v_1=\dfrac{b_i}{\Delta t}\;,\;\;v_2=\dfrac{b_t}{\Delta t}\)</td><td>\(\Delta t\) = זמן המעבר של הפולס דרך הצומת — <b>זהה</b> לשלושת הפולסים</td></tr>
+<tr><td>יחסי אנרגיה</td><td>\(\dfrac{E_r}{E_i}=R^2\;,\;\;\dfrac{E_t}{E_i}=1-R^2=\dfrac{4Z_1Z_2}{(Z_1+Z_2)^2}\)</td><td>שימור: \(R^2+(1-R^2)=1\). שימו לב: \(E_t/E_i\ne\tau^2\)!</td></tr>
+<tr><td>גל עובר — פונקציה</td><td>\(y_t(0,t)=\tau\,y_i(0,t)\;\Rightarrow\;\) ואז \(u_2=x-v_2t\)</td><td>בונים מתנועת הצומת ומפיצים במהירות \(v_2\) (פתרון 2026 ש3 סעיף ג')</td></tr>
+</tbody>
+</table></div>
+
+<div class="note"><b>מקרים מיוחדים</b> — שווה לזכור בעל־פה:
+<ul>
+<li>\(Z_2=Z_1\) (תווך מותאם): \(R=0,\;\tau=1\) — הכול עובר, אין החזרה.</li>
+<li>\(Z_2\to\infty\) (קצה רתום / קיר): \(R=-1,\;\tau=0\) — החזרה מלאה עם היפוך.</li>
+<li>\(Z_2\to0\) (קצה חופשי): \(R=+1,\;\tau=2\) — החזרה מלאה ללא היפוך; בקצה עצמו אמפליטודה כפולה.</li>
+</ul></div>
+
+<h2>2 · השיטה — צעד אחר צעד</h2>
+<ol>
+<li><b>\(v_1\):</b> מ-\(v_1=\sqrt{T/\rho_1}\) אם \(\rho_1\) נתונה, או מרוחב הפולס הפוגע וזמן המעבר: \(v_1=b_i/\Delta t\).</li>
+<li><b>\(v_2\):</b> מרוחב הפולס העובר עם <b>אותו</b> \(\Delta t\): \(v_2=b_t/\Delta t\) — כי זמן יצירת העובר זהה לזמן שלוקח לפוגע לחצות את הצומת.</li>
+<li><b>צפיפויות ואימפדנסים:</b> \(\rho_i=T/v_i^2\), \(Z_i=T/v_i=\sqrt{T\rho_i}\).</li>
+<li><b>מקדמים:</b> \(R=\dfrac{Z_1-Z_2}{Z_1+Z_2}\), \(\tau=1+R\). בדקו סימן: \(Z_2&gt;Z_1\iff R&lt;0\iff\) החוזר הפוך.</li>
+<li><b>גבהים ורוחבים:</b> \(H_r=RH_i\), \(H_t=\tau H_i\) (הגובה \(H_i\) נמדד בשיא הפולס הפוגע); \(b_r=b_i\), \(b_t=b_i\,v_2/v_1\).</li>
+<li><b>אנרגיות:</b> \(E_r/E_i=R^2\), \(E_t/E_i=1-R^2\) — ולכתוב באחוזים.</li>
+<li><b>פונקציות הגל עם חלונות:</b> העובר מקיים \(y_t(0,t)=\tau\,y_i(0,t)\) בצומת; זהו גל חד־כיווני ב-\(u_2=x-v_2t\), ומחזירים תלות ב-\(x,t\) עם החלון המתאים (\(100t\ge x\ge0\) וכד'). לחוזר: \(u=x+v_1t\) בתווך 1.</li>
+<li><b>הנדסה הפוכה (טוויסט 2024–2026):</b> אם \(\rho_2\) לא נתונה אלא נתון גובה/אנרגיה של החוזר או העובר — כתבו משוואה ב-\(Z_2\) (למשל \(R^2=0.36\Rightarrow R=\pm0.6\)). מתמטית יש <b>שני שורשים</b>; בוחרים לפי נתון פיזי: אם החוזר התהפך ⇒ \(R&lt;0\Rightarrow Z_2&gt;Z_1\), ואם לא ⇒ \(Z_2&lt;Z_1\).</li>
+</ol>
+
+<h2>3 · אנימציה</h2>
+<div id="d06_p1"></div>
+<p>הנגן מריץ פולס חצי־סינוס לתוך צומת עם \(v_2=v_1/2\) (כלומר \(\rho_2=4\rho_1\), \(Z_2=2Z_1\) — בדיוק היחסים של מבחן 2026 שאלה 3): נוצרים גל חוזר הפוך בגובה \(\tfrac13\) באותו רוחב, וגל עובר בגובה \(\tfrac23\) ברוחב מכווץ פי 2.</p>
+
+<h2>4 · דוגמה פתורה מהמבחן <span class="tag hot">מבחן X-2025 · שאלה 3</span></h2>
+<div class="card">
+<p>מיתר בנוי משני חלקים בעלי צפיפויות מסה שונות, המחוברים בנקודה \(x=0\). לשני החלקים מתיחות זהה \(T=3\cdot10^4\ \mathrm{N}\). פולס פרבולי מתקדם מהחלק השלילי של ציר \(x\) לעבר החלק החיובי ופוגע בצומת. ברגע \(t=0\) צורת הפולס היא:</p>
+<div class="eq">$y_i(x,t=0)=\begin{cases}-0.01(x^2+2x) & -2\le x\le 0\\ 0 & \text{אחרת}\end{cases}$</div>
+<p>הפולס הפוגע עובר את הצומת במלואו תוך \(\Delta t=0.002\ \mathrm{s}\). רוחב הפולס <u>העובר</u> הוא \(8\ \mathrm{m}\).</p>
+<p><b>א'</b> (9 נק') חשבו את מהירויות הגל \(v_1,v_2\) ואת האימפדנסים \(Z_1,Z_2\) של שני חלקי המיתר. <b>ב'</b> (8 נק') מהו גובהו המקסימלי של הגל העובר וגובהו המקסימלי של הגל החוזר? <b>ג'</b> (6 נק') איזה אחוז מהאנרגיה הפוגעת בצומת עובר דרכה ואיזה אחוז מוחזר ממנה?</p>
+</div>
+<details class="sol"><summary>פתרון</summary><div class="body">
+<p><b>א' — מהירויות ואימפדנסים.</b> רוחב הפולס הפוגע: \(b_i=0-(-2)=2\ \mathrm{m}\), והוא חוצה את הצומת בזמן \(\Delta t\):</p>
+<div class="eq">$v_1=\frac{b_i}{\Delta t}=\frac{2}{0.002}=1000\ \mathrm{m/s}$</div>
+<p>הגל העובר נוצר בדיוק באותו פרק זמן, ולכן מרוחבו:</p>
+<div class="eq">$v_2=\frac{b_t}{\Delta t}=\frac{8}{0.002}=4000\ \mathrm{m/s}$</div>
+<p>מהקשר \(v=\sqrt{T/\rho}\) מחלצים את הצפיפויות והאימפדנסים:</p>
+<div class="eq">$\rho_1=\frac{T}{v_1^2}=\frac{3\cdot10^4}{10^6}=0.03\ \mathrm{kg/m},\qquad \rho_2=\frac{T}{v_2^2}=1.875\cdot10^{-3}\ \mathrm{kg/m}$</div>
+<div class="eq">$Z_1=\sqrt{T\rho_1}=\frac{T}{v_1}=30\ \mathrm{kg/s},\qquad Z_2=\sqrt{T\rho_2}=\frac{T}{v_2}=7.5\ \mathrm{kg/s}$</div>
+<p><b>ב' — מקדמים וגבהים.</b></p>
+<div class="eq">$R=\frac{Z_1-Z_2}{Z_1+Z_2}=\frac{30-7.5}{37.5}=0.6,\qquad \tau=1+R=\frac{2Z_1}{Z_1+Z_2}=1.6$</div>
+<p>הגובה המקסימלי של הפוגע נמצא במרכז הפולס \(x=-1\): \(H_i=-0.01(1-2)=0.01\ \mathrm{m}\). לכן:</p>
+<div class="eq">$H_t=\tau H_i=0.016\ \mathrm{m},\qquad H_r=R\,H_i=0.006\ \mathrm{m}$</div>
+<p>כאן \(Z_2&lt;Z_1\) ולכן \(R&gt;0\) — הגל החוזר <b>אינו מתהפך</b> (ורוחבו נשאר \(2\ \mathrm{m}\); העובר נמתח פי \(v_2/v_1=4\) לרוחב \(8\ \mathrm{m}\), בעקביות עם הנתון).</p>
+<p><b>ג' — חלוקת האנרגיה.</b> יחסי האנרגיות הם יחסי ההספקים:</p>
+<div class="eq">$\frac{E_t}{E_i}=\frac{4Z_1Z_2}{(Z_1+Z_2)^2}=\frac{4\cdot30\cdot7.5}{37.5^2}=0.64,\qquad \frac{E_r}{E_i}=R^2=0.36$</div>
+<p>כלומר <b>64% מהאנרגיה עוברת</b> לחלק החיובי ו-<b>36% מוחזרת</b> לאחור. בדיקה: \(0.64+0.36=1\) ✓.</p>
+</div></details>
+
+<h2>5 · מלכודות</h2>
+<div class="warn"><b>היפוך — רק בגל החוזר, ורק כש-\(Z_2&gt;Z_1\).</b> \(\tau\) תמיד חיובי, ולכן הגל העובר לעולם באותו סימן כמו הפוגע. אם ציירתם גל עובר הפוך — טעות ודאית.</div>
+<div class="warn"><b>רוחב העובר משתנה, רוחב החוזר לא.</b> \(b_t=b_i\,v_2/v_1\) (נמתח כש-\(v_2&gt;v_1\), מתכווץ כש-\(v_2&lt;v_1\)); \(b_r=b_i\) תמיד, כי החוזר נשאר באותו תווך. לערבב ביניהם = לאבד את כל הסעיף.</div>
+<div class="warn"><b>אותו \(\Delta t\) לשלושת הפולסים.</b> זמן חציית הצומת של הפוגע = זמן יצירת העובר = זמן יצירת החוזר. זה המפתח לחילוץ \(v_2=b_t/\Delta t\) — אל תמציאו זמן נפרד.</div>
+<div class="warn"><b>אנרגיה ≠ אמפליטודה בריבוע של המקדם.</b> \(E_t/E_i=\dfrac{4Z_1Z_2}{(Z_1+Z_2)^2}\) ו<b>לא</b> \(\tau^2\) (ההספק תלוי גם ב-\(Z\) של התווך: \(P=Zv_y^2\)). רק לחוזר מותר \(E_r/E_i=R^2\), כי הוא באותו תווך כמו הפוגע.</div>
+<div class="warn"><b>הנדסה הפוכה — שני שורשים.</b> ממשוואה כמו \(R^2=0.36\) יוצאים \(R=\pm0.6\), כלומר שני ערכי \(Z_2\) אפשריים מתמטית. בחרו לפי הנתון הפיזי: החוזר התהפך ⇒ \(R&lt;0\) ⇒ \(Z_2&gt;Z_1\) (\(\rho_2&gt;\rho_1\)); לא התהפך ⇒ להפך. נמקו את הבחירה — על זה הנקודות.</div>
+<div class="warn"><b>המתיחות זהה בשני הצדדים.</b> \(T\) אינה קופצת בצומת (אותו מיתר מתוח) — רק \(\rho\), \(v\) ו-\(Z\) משתנים. אל תחשבו \(T_2\) נפרד.</div>
+<div class="warn"><b>"השרטוטים להמחשה בלבד"</b> — את \(H_i\) מחשבים מהפונקציה (שיא הפרבולה ב-\(x=-1\)), לא מודדים מהציור.</div>
+
+<h2>6 · מה לשים בדף הנוסחאות</h2>
+<div class="tip"><ul>
+<li>\(R=\dfrac{Z_1-Z_2}{Z_1+Z_2}\) · \(\tau=1+R=\dfrac{2Z_1}{Z_1+Z_2}\) · \(Z_i=\sqrt{T\rho_i}=T/v_i\)</li>
+<li>גבהים: \(H_r=RH_i\), \(H_t=\tau H_i\) · רוחבים: \(b_r=b_i\), \(b_t=b_i\,v_2/v_1\)</li>
+<li>מהזמנים: \(v_1=b_i/\Delta t\), \(v_2=b_t/\Delta t\) (אותו \(\Delta t\))</li>
+<li>אנרגיות: \(E_r/E_i=R^2\), \(E_t/E_i=1-R^2=\dfrac{4Z_1Z_2}{(Z_1+Z_2)^2}\)</li>
+<li>מקרים מיוחדים: מותאם \(R=0\) · קיר \(R=-1,\tau=0\) · קצה חופשי \(R=+1,\tau=2\)</li>
+<li>גל עובר: \(y_t(0,t)=\tau y_i(0,t)\) ואז \(u_2=x-v_2t\) + חלון · היפוך חוזר ⟺ \(Z_2&gt;Z_1\)</li>
+</ul></div>
+</section>
 <section class="pg" id="d07">
 <h1>מיתר רתום — גלים עומדים ופורייה <span class="tag exam">שאלה 4</span></h1>
 <p class="lead">המשבצת של שאלה 4: מיתר סופי רתום בשני קצותיו עם תנאי התחלה נתונים — מחלצים את התדירויות \(\omega_n\), את המקדמים \(c_n\) והפאזות \(\varphi_n\) בעזרת טבלת פאזות, ומסיימים באנרגיה הכוללת ובזמן המחזור המינימלי.</p>
@@ -1401,7 +1569,112 @@ td.v-info{background:var(--blue-bg);border-color:var(--blue);color:var(--blue)}
 <li>אינטגרל אורתוגונליות: \(\int_0^L\sin\dfrac{n\pi x}{L}\sin\dfrac{m\pi x}{L}dx=\dfrac{L}{2}\delta_{nm}\).</li>
 </ul></div>
 </section>
-<section class="pg" id="d08"><h1>קווי תמסורת</h1><p class="lead">בבנייה…</p></section>
+<section class="pg" id="d08">
+<h1>קווי תמסורת — משוואות הטלגרף והאנלוגיה למיתר <span class="tag exam">שאלה 2 / שאלה 4</span></h1>
+<p class="lead">נושא משני שחוזר לסירוגין: הופיע בכל שאלוני 2023 ו-2025, נעדר לחלוטין ממועד א' 2026 — ולכן סיכוי סביר שיחזור במועד ב'. אותה פיזיקה של המיתר בדיוק, עם \(V\) ו-\(I\) במקום הכוח והמהירות החומרית: קו אינסופי נפתר בדלמבר (משבצת שאלה 2), וקו סופי מקוצר/פתוח נפתר בטור גלים עומדים (משבצת שאלה 4).</p>
+
+<h2>1 · הנוסחאות והמושגים</h2>
+<div class="tw"><table>
+<thead><tr><th>מושג</th><th>נוסחה</th><th>הערות</th></tr></thead>
+<tbody>
+<tr><td>משוואות הטלגרף</td><td>\(\dfrac{\partial V}{\partial x}=-L\dfrac{\partial I}{\partial t},\qquad \dfrac{\partial I}{\partial x}=-C\dfrac{\partial V}{\partial t}\)</td><td>\(L,C\) — השראות וקיבול <b>ליחידת אורך</b>. שתי משוואות מסדר ראשון שקושרות את \(V\) ו-\(I\).</td></tr>
+<tr><td>משוואת הגלים</td><td>\(\dfrac{\partial^2 V}{\partial t^2}=v_w^2\dfrac{\partial^2 V}{\partial x^2},\qquad v_w=\dfrac{1}{\sqrt{LC}}\)</td><td>גם \(I\) מקיים את אותה משוואה. מתקבל מהצבת משוואה אחת בשנייה.</td></tr>
+<tr><td>אימפדנס</td><td>\(Z=\sqrt{\dfrac{L}{C}}\)</td><td>שימושי: \(\dfrac{1}{C}=Z\,v_w\) וגם \(L=\dfrac{Z}{v_w}\).</td></tr>
+<tr><td>גל חד-כיווני ימינה</td><td>\(V=V(x-v_w t),\qquad I=\dfrac{V}{Z}\)</td><td>כלומר \(V=+Z I\).</td></tr>
+<tr><td>גל חד-כיווני שמאלה</td><td>\(V=-Z I\)</td><td><b>הסימן!</b> מלכודת רשמית — ראו סעיף 5.</td></tr>
+<tr><td>פירוק לגלים חד-כיווניים</td><td>\(V=V_p(x-v_w t)+V_n(x+v_w t),\qquad I=\dfrac{1}{Z}\big(V_p-V_n\big)\)</td><td>ומכאן ברגע \(t=0\): \(V_p=\tfrac12\big(V+ZI\big),\ \ V_n=\tfrac12\big(V-ZI\big)\).</td></tr>
+<tr><td>צפיפות אנרגיה ליחידת אורך</td><td>\(\rho_E=\tfrac12 C V^2+\tfrac12 L I^2\)</td><td>האיבר עם \(C\) — "פוטנציאלי" (חשמלי), עם \(L\) — "קינטי" (מגנטי). אנרגיה אגורה: \(E=\displaystyle\int_0^{\ell}\rho_E\,dx\).</td></tr>
+<tr><td>הספק</td><td>\(P=V I\)</td><td>בגל חד-כיווני ימינה \(P=I^2Z\ge 0\); שמאלה \(P=-I^2Z\le 0\).</td></tr>
+<tr><td>קו סופי <b>מקוצר</b> בקצוות</td><td>\(V(0,t)=V(\ell,t)=0\ \Rightarrow\ V(x,t)=\displaystyle\sum_{n=1}^{\infty} b_n\sin(k_n x)\cos(\omega_n t+\phi_n)\)</td><td>\(k_n=\dfrac{n\pi}{\ell},\ \omega_n=v_w k_n\). הפתרון עבור \(V\) — כמו \(y\) של מיתר רתום.</td></tr>
+<tr><td>הזרם הנגזר מהטור</td><td>\(I(x,t)=-\dfrac{1}{Z}\displaystyle\sum_{n=1}^{\infty} b_n\cos(k_n x)\sin(\omega_n t+\phi_n)\)</td><td>מתקבל מ-\(\dfrac{\partial I}{\partial t}=-\dfrac1L\dfrac{\partial V}{\partial x}\) — <b>אין ל-\(I\) מקדמים ופאזות עצמאיים</b>.</td></tr>
+<tr><td>קו סופי <b>פתוח</b> בקצוות</td><td>\(I(0,t)=I(\ell,t)=0\ \Rightarrow\ I(x,t)=\displaystyle\sum_n a_n\sin(k_n x)\cos(\omega_n t+\psi_n)\)</td><td>התפקידים מתחלפים: הפתרון עבור \(I\) כמו מיתר רתום, ו-\(V\) מקבל \(\cos(k_n x)\).</td></tr>
+<tr><td>אנרגיה אגורה לאופן (קו מקוצר)</td><td>\(E_n=\tfrac14 C\,\ell\, b_n^2,\qquad E_{\text{tot}}=\sum_n E_n\)</td><td>קבועה בזמן; מתקבלת מ-\(\int_0^{\ell}\big(\tfrac12CV_n^2+\tfrac12LI_n^2\big)dx\) עם \(L/Z^2=C\). בקו פתוח באופן סימטרי \(E_n=\tfrac14 L\,\ell\, a_n^2\).</td></tr>
+</tbody>
+</table></div>
+
+<h3>טבלת האנלוגיה המלאה למיתר</h3>
+<div class="tw"><table>
+<thead><tr><th>קו תמסורת</th><th>מיתר</th><th>הערה</th></tr></thead>
+<tbody>
+<tr><td>\(I(x,t)\)</td><td>\(v_y(x,t)\)</td><td>המשתנה "הקינטי".</td></tr>
+<tr><td>\(V(x,t)\)</td><td>\(F(x,t)=-T\,\dfrac{\partial y}{\partial x}\)</td><td>המשתנה "הכוחי" — הכוח הרוחבי, לא ההעתק \(y\) עצמו.</td></tr>
+<tr><td>\(L\)</td><td>\(\rho\)</td><td>אינרציה ליחידת אורך.</td></tr>
+<tr><td>\(C\)</td><td>\(1/T\)</td><td>"גמישות" ליחידת אורך.</td></tr>
+<tr><td>\(v_w=\dfrac{1}{\sqrt{LC}}\)</td><td>\(v=\sqrt{T/\rho}\)</td><td>אותה הצבה של האנלוגיה.</td></tr>
+<tr><td>\(Z=\sqrt{L/C}\)</td><td>\(Z=\sqrt{T\rho}\)</td><td>יחידות שונות, תפקיד זהה.</td></tr>
+<tr><td>\(V=\pm ZI\)</td><td>\(F=\pm Z v_y\)</td><td>‎+‎ לגל ימינה, ‎−‎ לגל שמאלה.</td></tr>
+<tr><td>\(\rho_E=\tfrac12CV^2+\tfrac12LI^2\)</td><td>\(\rho_E=\tfrac12\rho v_y^2+\tfrac12 T y_x^2\)</td><td>קינטי↔מגנטי, פוטנציאלי↔חשמלי.</td></tr>
+<tr><td>\(P=VI\)</td><td>\(P=-T\,y_x\,y_t=F\,v_y\)</td><td>אותו מבנה "כוח × מהירות".</td></tr>
+<tr><td>קצה מקוצר: \(V=0\)</td><td>הטור של \(V\) כמו \(y\) של מיתר רתום</td><td>כך מנוסח בדף הנוסחאות של הקורס.</td></tr>
+<tr><td>קצה פתוח: \(I=0\)</td><td>הטור של \(I\) כמו \(y\) של מיתר רתום</td><td>המשתנה שמתאפס בקצוות מקבל טור \(\sin(k_n x)\).</td></tr>
+</tbody>
+</table></div>
+
+<div class="note">בגלל האנלוגיה, <b>כל</b> המתכונים מהעמודים הקודמים עוברים כמו שהם: קו אינסופי עם \(V(x,0),I(x,0)\) נתונים נפתר בדלמבר או בפירוק \(V_p,V_n\) (עמוד d03), וקו סופי נפתר בטור פורייה עם טבלת פאזות (עמוד d07). ההבדל היחיד: במיתר תנאי ההתחלה הם \(y\) ו-\(\dot y\); בקו הם \(V\) ו-\(I\) — ואת "\(\dot V\)" משיגים ממשוואת טלגרף, לא מנתון ישיר.</div>
+
+<h2>2 · השיטה — צעד אחר צעד (קו סופי)</h2>
+<p>המתכון כפי שמופיע בפתרון הרשמי של X-2025 שאלה 2 (וגם Y-2025 שאלה 4, X-2023):</p>
+<ol>
+<li>מזהים את תנאי השפה: קו <b>מקוצר</b> ⇒ \(V(0,t)=V(\ell,t)=0\) והטור נכתב על \(V\); קו <b>פתוח</b> ⇒ \(I=0\) בקצוות והטור נכתב על \(I\). כותבים:
+<div class="eq">$ V(x,t)=\sum_{n=1}^{\infty} b_n\sin\!\Big(\frac{n\pi}{\ell}x\Big)\cos\!\Big(\frac{n\pi v_w}{\ell}t+\phi_n\Big). $</div></li>
+<li>תנאי ההתחלה הנתונים הם \(V(x,0)\) ו-\(I(x,0)\). את הנגזרת בזמן של \(V\) ברגע ההתחלתי משיגים <b>ממשוואת הטלגרף</b>:
+<div class="eq">$ \frac{\partial V}{\partial t}(x,0)=-\frac{1}{C}\,\frac{\partial I}{\partial x}(x,0),\qquad \frac{1}{C}=Z\,v_w, $</div>
+וכך התשובה מתנסחת בפרמטרים \(Z,v_w\) שניתנו בשאלה.</li>
+<li>מחלצים את המקדמים בדיוק כמו במיתר רתום (עמוד d07):
+<div class="eq">$ b_n\cos\phi_n=\frac{2}{\ell}\int_0^{\ell} V(x,0)\sin(k_n x)\,dx,\qquad b_n\sin\phi_n=-\frac{2}{n\pi v_w}\int_0^{\ell}\frac{\partial V}{\partial t}(x,0)\sin(k_n x)\,dx. $</div>
+אם \(V(x,0)\) כבר סכום של \(\sin(k_n x)\) — קוראים את \(b_n\cos\phi_n\) ישירות בלי אינטגרל.</li>
+<li>בונים טבלת פאזות \(n\;|\;b_n\cos\phi_n\;|\;b_n\sin\phi_n\;|\;b_n\;|\;\phi_n\) וקובעים את הרביע לפי שני הסימנים (ארקטנגנס דו-ארגומנטי).</li>
+<li>את הזרם <b>לא</b> מפתחים מחדש — גוזרים אותו מהטור של \(V\) דרך \(\partial I/\partial t=-\frac1L\partial V/\partial x\):
+<div class="eq">$ I(x,t)=-\frac{1}{Z}\sum_n b_n\cos(k_n x)\sin(\omega_n t+\phi_n). $</div></li>
+<li>אנרגיה אגורה: \(E=\displaystyle\int_0^{\ell}\Big(\tfrac12CV^2+\tfrac12LI^2\Big)dx=\sum_n \tfrac14 C\ell\,b_n^2\) — קבועה בזמן (הקצוות לא מעבירים הספק).</li>
+<li>הספק נקודתי: \(P(x,t)=V\,I\); ברגע ההתחלתי פשוט מכפילים את הנתונים: \(P(x,0)=V(x,0)\,I(x,0)\), עם חלונות התוקף של כל נתון.</li>
+</ol>
+
+<h2>3 · אנימציה</h2>
+<div id="d08_p1"></div>
+<p>הנגן עוקב אחרי הדוגמה הפתורה: קו מקוצר בשני קצותיו עם \(V(x,0)\) סינוסי ו-\(I(x,0)\) על חצי תחום בלבד — ורואים איך ההרמוניה הראשונה של \(V\), עם הפאזה \(\phi_1=-\pi/4\), מתלכדת ברגע \(t=0\) עם הפרופיל ההתחלתי ומגיעה לשיא \(8\sqrt2\,ZI_0\) רק ברגע \(t=T_1/8\).</p>
+
+<h2>4 · דוגמה פתורה מהמבחן</h2>
+<p><span class="tag exam">מבחן X-2025 · שאלה 2</span> קו תמסורת סופי שאורכו \(\ell\) <b>מקוצר בשני קצותיו</b>; מהירות הגלים \(v_w\) והאימפדנס \(Z\) נתונים כפרמטרים. נתון:</p>
+<div class="eq">$ I(x,0)=\begin{cases}3\pi I_0\cos\!\Big(2\pi\dfrac{x}{\ell}\Big) & 0\le x\le \ell/2\\[2pt] 0 & \text{אחרת}\end{cases}\qquad V(x,0)=8ZI_0\sin\!\Big(\pi\dfrac{x}{\ell}\Big),\quad 0\le x\le\ell. $</div>
+<p>(א) הביעו את \(\dfrac{\partial V}{\partial t}(x,0)\). (ב) חשבו את זווית הפאזה של ההרמוניה הראשונה. (ג) רשמו את \(V(x,t)\) בקירוב שתי הרמוניות ראשונות. (ד) קבלו את ההספק ההתחלתי \(P(x,0)\).</p>
+<details class="sol"><summary>פתרון</summary><div class="body">
+<p><b>(א) ממשוואת הטלגרף.</b> \(\dfrac{\partial V}{\partial t}=-\dfrac1C\dfrac{\partial I}{\partial x}\) עם \(\dfrac1C=Zv_w\). גוזרים את \(I(x,0)\) לפי \(x\):</p>
+<div class="eq">$ \frac{\partial V}{\partial t}(x,0)=-Zv_w\cdot 3\pi I_0\cdot\Big(-\frac{2\pi}{\ell}\Big)\sin\!\Big(2\pi\frac{x}{\ell}\Big)=\begin{cases}\dfrac{6\pi^2}{\ell}Zv_w I_0\sin\!\Big(2\pi\dfrac{x}{\ell}\Big) & 0\le x\le \ell/2\\[2pt] 0 & \text{אחרת}\end{cases} $</div>
+<p><b>(ב) ההרמוניה הראשונה.</b> המתח מקיים "ריתום" (\(V=0\) בקצוות) ולכן:</p>
+<div class="eq">$ V(x,t)=\sum_{n=1}^{\infty} b_n\sin\!\Big(\frac{n\pi}{\ell}x\Big)\cos\!\Big(\frac{n\pi v_w}{\ell}t+\phi_n\Big). $</div>
+<p>מקדם הצורה: \(V(x,0)\) הוא בדיוק ההרמוניה הראשונה, לכן בלי אינטגרל: \(b_1\cos\phi_1=8ZI_0\) (וכל \(b_n\cos\phi_n=0\) עבור \(n\ge2\)). מקדם המהירות:</p>
+<div class="eq">$ b_1\sin\phi_1=-\frac{2}{\pi v_w}\int_0^{\ell/2}\frac{6\pi^2}{\ell}Zv_wI_0\sin\!\Big(\frac{2\pi x}{\ell}\Big)\sin\!\Big(\frac{\pi x}{\ell}\Big)dx=-\frac{6\pi ZI_0}{\ell}\int_0^{\ell/2}\Big[\cos\!\Big(\frac{\pi x}{\ell}\Big)-\cos\!\Big(\frac{3\pi x}{\ell}\Big)\Big]dx=-8ZI_0, $</div>
+<p>כאשר השתמשנו בזהות \(2\sin\alpha\sin\beta=\cos(\alpha-\beta)-\cos(\alpha+\beta)\), והאינטגרל מחושב ישירות: \(\Big[\frac{\ell}{\pi}\sin\frac{\pi x}{\ell}-\frac{\ell}{3\pi}\sin\frac{3\pi x}{\ell}\Big]_0^{\ell/2}=\frac{\ell}{\pi}-\frac{\ell}{3\pi}\cdot(-1)=\frac{4\ell}{3\pi}\), ואז \(-\frac{6\pi ZI_0}{\ell}\cdot\frac{4\ell}{3\pi}=-8ZI_0\). לכן:</p>
+<div class="eq">$ \tan\phi_1=\frac{b_1\sin\phi_1}{b_1\cos\phi_1}=\frac{-8ZI_0}{8ZI_0}=-1,\qquad \cos\phi_1&gt;0\ \Rightarrow\ \boxed{\phi_1=-\frac{\pi}{4}},\qquad b_1=8\sqrt2\,ZI_0. $</div>
+<p><b>(ג) ההרמוניה השנייה והקירוב.</b> \(b_2\cos\phi_2=0\), ואילו:</p>
+<div class="eq">$ b_2\sin\phi_2=-\frac{6\pi}{\ell}ZI_0\int_0^{\ell/2}\sin^2\!\Big(\frac{2\pi x}{\ell}\Big)dx=-\frac{3\pi ZI_0}{\ell}\int_0^{\ell/2}\Big[1-\cos\!\Big(\frac{4\pi x}{\ell}\Big)\Big]dx=-\frac{3\pi ZI_0}{2}. $</div>
+<p>מכיוון ש-\(b_2\cos\phi_2=0\) ו-\(b_2\sin\phi_2&lt;0\), הפתרון הרשמי בוחר \(\phi_2=\dfrac{\pi}{2}\) עם \(b_2=-\dfrac{3\pi ZI_0}{2}\) (שקול לחלוטין לבחירה \(b_2=+\frac{3\pi ZI_0}{2},\ \phi_2=-\frac{\pi}{2}\)). ולכן בקירוב שתי הרמוניות:</p>
+<div class="eq">$ V(x,t)\approx 8\sqrt2\,ZI_0\sin\!\Big(\frac{\pi}{\ell}x\Big)\cos\!\Big(\frac{\pi v_w}{\ell}t-\frac{\pi}{4}\Big)-\frac{3\pi ZI_0}{2}\sin\!\Big(\frac{2\pi}{\ell}x\Big)\cos\!\Big(\frac{2\pi v_w}{\ell}t+\frac{\pi}{2}\Big), $</div>
+<p>תקף לכל \(0\le x\le\ell\) ולכל \(t\). שימו לב: הזרם על חצי תחום מזין את <b>כל</b> ההרמוניות — אין כאן סימטריה שמאפסת \(n\)-ים.</p>
+<p><b>(ד) הספק התחלתי.</b> פשוט מכפלת הנתונים \(P=VI\), עם חלון התוקף של \(I(x,0)\):</p>
+<div class="eq">$ P(x,0)=V(x,0)\,I(x,0)=\begin{cases}24\pi ZI_0^2\,\sin\!\Big(\pi\dfrac{x}{\ell}\Big)\cos\!\Big(2\pi\dfrac{x}{\ell}\Big) & 0\le x\le\ell/2\\[2pt] 0 & \text{אחרת}\end{cases} $</div>
+<p class="ok">בדיקות: ברגע \(t=0\) ההרמוניה הראשונה נותנת \(8\sqrt2\,ZI_0\cos(-\frac{\pi}{4})=8ZI_0\) — בדיוק \(V(x,0)\), והשנייה נותנת \(\cos(\frac{\pi}{2})=0\) — עקבי עם זה ש-\(V(x,0)\) הוא סינוס טהור. וכן \(P(0,0)=P(\ell,0)=0\) — קצה מקוצר (\(V=0\)) לא מעביר הספק.</p>
+</div></details>
+
+<h2>5 · מלכודות</h2>
+<div class="warn"><b>הסימן של גל שמאלה: \(V=-ZI\).</b> הקשר \(V=+ZI\) נכון רק לגל שנע בכיוון החיובי. בפירוק \(V_p,V_n\) המינוס הזה הוא שמייצר את \(I=\frac1Z(V_p-V_n)\), וממנו את נוסחאות החילוץ \(V_{p,n}=\tfrac12(V\pm ZI)\). החלפת סימן — כל ההמשך קורס (מלכודת רשמית מ-EXAM-MAP).</div>
+<div class="warn"><b>מי מקבל טור \(\sin\)?</b> המשתנה שמתאפס בקצוות: קו <b>מקוצר</b> ⇒ \(V\) כמו מיתר רתום; קו <b>פתוח</b> ⇒ \(I\) כמו מיתר רתום. לכתוב טור \(\sin(k_nx)\) על \(I\) בקו מקוצר זו שגיאה מבנית שממיתה את כל השאלה.</div>
+<div class="warn"><b>"\(\dot V\)" אינו נתון — הוא מחושב.</b> בקו נתונים \(V(x,0)\) ו-\(I(x,0)\); את \(\frac{\partial V}{\partial t}(x,0)\) חייבים ממשוואת הטלגרף \(\frac{\partial V}{\partial t}=-\frac1C\frac{\partial I}{\partial x}\), ומציבים \(\frac1C=Zv_w\) כדי להתנסח בפרמטרים הנתונים. לשכוח את הגזירה של \(I\) לפי \(x\) (או את המינוס) — טעות נפוצה.</div>
+<div class="warn"><b>נתון על חצי תחום ⇒ כל ההרמוניות קיימות.</b> ב-X-2025 הזרם נתון רק על \(0\le x\le\ell/2\) — אינטגרל פורייה אינו מתאפס לאף \(n\), כולל \(n\) שנראים "לא מתאימים". אל תניחו שרק ההרמוניה שמופיעה בנוסחה קיימת.</div>
+<div class="warn"><b>ל-\(I\) אין פאזות עצמאיות.</b> הטור של \(I\) נגזר מהטור של \(V\) דרך משוואות הטלגרף: אותם \(b_n,\phi_n\), עם \(\cos(k_nx)\) במקום \(\sin(k_nx)\) ו-\(\sin(\omega_nt+\phi_n)\) במקום \(\cos\) (ומקדם \(-1/Z\)). קיצור דרך שימושי: אם \(I(x,0)\equiv0\), כל האיברים בטור של \(I\) חייבים להתחיל מאפס — התלות בזמן שלהם היא \(\sin(\omega_n t)\) טהור (פאזה \(\pi/2\) בכתיב \(\cos\)), ולכן בטור של \(V\) כל הפאזות הן \(0\) או \(\pi\).</div>
+<div class="warn"><b>תחומי תוקף.</b> כשנתון מוגדר בחלונות (\(0\le x\le\ell/2\) ואפס אחרת) — כל תשובה שמשתמשת בו, כמו \(P(x,0)\) בסעיף ד', חייבת לגרור את החלון. דרישה מפורשת החל מ-2026.</div>
+
+<h2>6 · מה לשים בדף הנוסחאות</h2>
+<div class="tip"><ul>
+<li>משוואות הטלגרף: \(\ \partial V/\partial x=-L\,\partial I/\partial t,\ \ \partial I/\partial x=-C\,\partial V/\partial t\); \(\ v_w=1/\sqrt{LC},\ Z=\sqrt{L/C}\), וההצבות \(1/C=Zv_w\), \(L=Z/v_w\).</li>
+<li>גל ימינה \(V=ZI\), גל שמאלה \(V=-ZI\); פירוק: \(V_p=\tfrac12(V+ZI),\ V_n=\tfrac12(V-ZI)\), \(I=\frac1Z(V_p-V_n)\).</li>
+<li>טבלת אנלוגיה: \(I\leftrightarrow v_y,\ V\leftrightarrow -T y_x,\ L\leftrightarrow\rho,\ C\leftrightarrow1/T,\ Z=\sqrt{L/C}\leftrightarrow\sqrt{T\rho}\).</li>
+<li>קו מקוצר: \(V=\sum b_n\sin(k_nx)\cos(\omega_nt+\phi_n)\), \(I=-\frac1Z\sum b_n\cos(k_nx)\sin(\omega_nt+\phi_n)\), \(k_n=n\pi/\ell\), \(\omega_n=v_wk_n\); קו פתוח — להחליף תפקידים בין \(V\) ל-\(I\).</li>
+<li>נוסחאות החילוץ (זהות למיתר): \(b_n\cos\phi_n=\frac2\ell\int_0^\ell V(x,0)\sin(k_nx)dx\), \(\ b_n\sin\phi_n=-\frac{2}{n\pi v_w}\int_0^\ell \dot V(x,0)\sin(k_nx)dx\), כאשר \(\dot V(x,0)=-\frac1C I_x(x,0)\).</li>
+<li>\(\rho_E=\tfrac12CV^2+\tfrac12LI^2\), \(\ P=VI\), \(\ E_n=\tfrac14C\ell\,b_n^2\) (קו מקוצר; בקו פתוח \(\tfrac14L\ell\,a_n^2\)).</li>
+</ul></div>
+</section>
 
 </div>
 

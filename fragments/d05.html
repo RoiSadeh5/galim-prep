@@ -1,0 +1,83 @@
+<section class="pg" id="d05">
+<h1>אנרגיה והספק <span class="tag hot">סעיף בכל שאלה</span></h1>
+<p class="lead">אנרגיה והספק אינם משבצת עצמאית — הם <b>סעיף הסיום של כמעט כל שאלה במבחן</b>: צפיפויות אנרגיה, הספק רגעי וממוצע, עבודת המנוע, אנרגיית פולס, אחוזי אנרגיה בצומת ואנרגיה להרמוניה במיתר רתום. מי ששולט בעמוד הזה גוזר את 5–8 הנקודות האחרונות של כל שאלה.</p>
+
+<h2>1 · הנוסחאות והמושגים</h2>
+<div class="tw"><table>
+<thead><tr><th>מושג</th><th>נוסחה</th><th>הערות</th></tr></thead>
+<tbody>
+<tr><td>צפיפות אנרגיה קינטית</td><td>\(\rho_K(x,t)=\dfrac{\rho}{2}\,y_t^2\)</td><td>יחידות J/m — אנרגיה ליחידת אורך</td></tr>
+<tr><td>צפיפות אנרגיה פוטנציאלית</td><td>\(\rho_P(x,t)=\dfrac{T}{2}\,y_x^2\)</td><td>נובעת ממתיחת המיתר (זוויות קטנות)</td></tr>
+<tr><td>גל חד־כיווני — שוויון</td><td>\(\rho_K=\rho_P\;\Rightarrow\;\rho_E=2\rho_K=\rho\,v_y^2\)</td><td>כי \(y_x=\mp\dfrac{1}{v}y_t\) ו-\(T=\rho v^2\). <b>רק</b> לגל חד־כיווני!</td></tr>
+<tr><td>אנרגיה כוללת</td><td>\(E(t)=\displaystyle\int \rho_E(x,t)\,dx\)</td><td>האינטגרל רק על החלון שבו הגל קיים</td></tr>
+<tr><td>הספק רגעי</td><td>\(P(x,t)=-T\,y_x\,y_t\)</td><td>שטף אנרגיה דרך הנקודה; \(P&gt;0\) = זרימה בכיוון \(+x\)</td></tr>
+<tr><td>הספק — גל ימינה</td><td>\(P=Z\,v_y^2\ge 0\qquad(=v\,\rho_E)\)</td><td>האנרגיה זורמת תמיד בכיוון ההתקדמות</td></tr>
+<tr><td>הספק ממוצע — גל הרמוני</td><td>\(\langle P\rangle=\dfrac{1}{2}ZA^2\omega^2\)</td><td>מ-\(\langle\cos^2\rangle=\langle\sin^2\rangle=\dfrac12\) על מחזור שלם</td></tr>
+<tr><td>אנרגיה שעברה דרך נקודה</td><td>\(W=\displaystyle\int_{t_1}^{t_2}P(x_0,t)\,dt\)</td><td>למנוע: \(W=\int_0^t P_D\,dt'\) = האנרגיה שנכנסה למיתר</td></tr>
+<tr><td>אנרגיית פולס חד־כיווני</td><td>\(E=\displaystyle\int T\,y_x^2\,dx=\displaystyle\int \rho\,v_y^2\,dx\)</td><td>סופית — כי התומך סופי; קבועה בזמן</td></tr>
+<tr><td>אנרגיה להרמוניה (מיתר רתום)</td><td>\(E_n=\dfrac{1}{4}\rho L\,c_n^2\,\omega_n^2\)</td><td>\(E_{\mathrm{tot}}=\sum_n E_n\); אחוז ההרמוניה הראשונה: \(E_1/E_{\mathrm{tot}}\)</td></tr>
+<tr><td>אנרגיה לאורך גל</td><td>\(E_\lambda=\dfrac{1}{2}\rho A^2\omega^2\lambda=\langle P\rangle\cdot T_{\mathrm{per}}\)</td><td>לא תלויה במיקום הקטע שנבחר (גליון 4 ש' 9)</td></tr>
+</tbody>
+</table></div>
+
+<div class="warn"><b>אנרגיה כוללת של גל הרמוני אינסופי אינה מוגדרת</b> — \(\int_{-\infty}^{\infty}\rho_E\,dx\) מתבדר. מותר לדבר רק על צפיפות ממוצעת \(\langle\rho_E\rangle=\tfrac12\rho A^2\omega^2\), על אנרגיה לאורך גל \(E_\lambda\), או על הספק ממוצע. זו מלכודת "האם ייתכן? נמקו" חוזרת.</div>
+
+<h2>2 · השיטה — צעד אחר צעד</h2>
+<ol>
+<li>גזרו \(y_t\) ו-\(y_x\) מהגל שבניתם בסעיפים הקודמים — <b>כולל כלל השרשרת</b>: הריבוע מכניס \(\omega^2\) לנגזרת הזמן ו-\(k^2\) לנגזרת המקום.</li>
+<li>בדקו אם הגל חד־כיווני. אם כן — קיצור דרך: \(\rho_E=\rho\,v_y^2\) ו-\(P=Z\,v_y^2=v\,\rho_E\), בלי לגזור לפי \(x\) בכלל. אם זו סופרפוזיציה (גל עומד, שני פולסים חופפים) — אין קיצור, חובה \(P=-T\,y_x\,y_t\) עם הנגזרות המלאות.</li>
+<li>רשמו את <b>החלון</b> שבו הגל קיים והציבו אותו בגבולות האינטגרל: \(E=\int_0^{vt}\rho_E\,dx\) למיתר מונע, \(E=\int_{\text{תומך}}\) לפולס. הגבולות תלויי זמן!</li>
+<li>לממוצעים על מחזור: החליפו \(\cos^2\to\tfrac12\). מכאן \(\langle P\rangle=\tfrac12 ZA^2\omega^2\).</li>
+<li>אנרגיה שעברה דרך נקודה \(x_0\) בפרק זמן: \(W=\int_{t_1}^{t_2}P(x_0,t)\,dt\). למנוע: \(W=\int_0^t Z\,v_y^2(0,t')\,dt'\) — <b>בדיקת עקביות מצוינת:</b> חייב לצאת שווה ל-\(E(t)\) שבמיתר.</li>
+<li>במיתר רתום: חשבו \(E_n=\tfrac14\rho L c_n^2\omega_n^2\) לכל הרמוניה וסכמו; אחוז ההרמוניה הראשונה הוא \(E_1/E_{\mathrm{tot}}\) (מבחן 2026 שאלה 4: \(E_{\mathrm{tot}}=0.060\pi^2=0.592\ \mathrm{J}\)).</li>
+</ol>
+
+<h2>3 · אנימציה</h2>
+<div id="d05_p1"></div>
+<p>הנגן עוקב אחרי פולס חד־כיווני שנושא את האנרגיה שלו איתו (\(P=Z\,v_y^2\ge0\)), מראה את האנרגיה עוברת דרך נקודת מדידה, ומסיים בגל עומד — שבו אין הובלת אנרגיה נטו וההספק מתאפס תמידית בצמתים ובבטנים.</p>
+
+<h2>4 · דוגמה פתורה מהמבחן <span class="tag hot">מבחן 2026 מועד א' · שאלה 1 סעיף ד'</span></h2>
+<div class="card">
+<p><b>המשך ישיר של הדוגמה בעמוד "מיתר מונע בקצה":</b> מיתר חצי־אינסופי, \(\rho=0.2\ \mathrm{kg/m}\), \(T=180\ \mathrm{N}\), \(v=30\ \mathrm{m/s}\), \(Z=6\ \mathrm{kg/s}\), והגל שנבנה בסעיפים א'–ג':</p>
+<div class="eq">$$v_y(x,t)=\frac{\pi}{50}\cos\!\left(\frac{\pi}{60}x-\frac{\pi}{2}t\right),\qquad 0\le x\le 30t$$</div>
+<p><b>ד'</b> (8 נק') הביעו את צפיפות האנרגיה הכללית במיתר כפונקציה של המקום והזמן, ואת האנרגיה הכוללת במיתר כפונקציה של הזמן, עבור \(0\le t\le 4\ \mathrm{s}\).</p>
+</div>
+<details class="sol"><summary>פתרון</summary><div class="body">
+<p><b>צפיפות האנרגיה.</b> הגל חד־כיווני, ולכן הצפיפויות הקינטית והפוטנציאלית שוות ומקבלים ישירות:</p>
+<div class="eq">$$\rho_E(x,t)=2\rho_{K}=\rho\,v_y^2(x,t)=0.2\cdot\left(\frac{\pi}{50}\right)^2\cos^2(\cdots)=
+\begin{cases}8\pi^2\cdot10^{-5}\cos^2\!\left(\dfrac{\pi}{60}x-\dfrac{\pi}{2}t\right) & 0\le x\le 30t\\[4pt] 0 & \text{אחרת}\end{cases}$$</div>
+<p><b>האנרגיה הכוללת.</b> אינטגרל רק על החלון \(0\le x\le 30t\), עם \(\cos^2\theta=\tfrac12(1+\cos2\theta)\):</p>
+<div class="eq">$$E(t)=\int_0^{30t}8\pi^2\cdot10^{-5}\cos^2\!\left(\frac{\pi}{60}x-\frac{\pi}{2}t\right)dx
+=8\pi^2\cdot10^{-5}\left[15t+\frac{15}{\pi}\sin(\pi t)\right]=1.2\cdot10^{-3}\pi^2\left[t+\frac{1}{\pi}\sin(\pi t)\right]\ \mathrm{J}$$</div>
+<p>(פירוט האינטגרל: \(\int_0^{30t}\cos2\theta\,dx=\dfrac{30}{\pi}\big[\sin2\theta\big]_0^{30t}=\dfrac{30}{\pi}\sin(\pi t)\), כי בקצה העליון \(2\theta=0\) ובתחתון \(2\theta=-\pi t\).)</p>
+<p><b>בדיקת עקביות — עבודת המנוע.</b> ההספק שהמנוע מספק הוא \(P_D=Z\,v_y^2(0,t)=6\cdot\left(\dfrac{\pi}{50}\right)^2\cos^2\!\left(\dfrac{\pi}{2}t\right)=2.4\cdot10^{-3}\pi^2\cos^2\!\left(\dfrac{\pi}{2}t\right)\), ולכן:</p>
+<div class="eq">$$W(t)=\int_0^t P_D\,dt'=2.4\cdot10^{-3}\pi^2\left[\frac{t}{2}+\frac{\sin(\pi t)}{2\pi}\right]=1.2\cdot10^{-3}\pi^2\left[t+\frac{1}{\pi}\sin(\pi t)\right]=E(t)\ \checkmark$$</div>
+<p>כל האנרגיה שהמנוע השקיע נמצאת במיתר — הבדיקה סוגרת את השאלה. מספרית ב-\(t=4\): \(E=4.8\cdot10^{-3}\pi^2\approx0.0474\ \mathrm{J}\).</p>
+</div></details>
+
+<p style="margin-top:1em"><b>ועוד תרגיל קצר על הספק ממוצע</b> <span class="tag">גליון 4 · שאלה 7</span>:</p>
+<div class="card">מיתר חצי־אינסופי, \(\rho=0.03\ \mathrm{kg/m}\), \(T=1200\ \mathrm{N}\). מנוע בקצה מייצר גל הרמוני עם \(A=1.5\ \mathrm{cm}\) ו-\(f=150\ \mathrm{Hz}\). <b>א'</b> חשבו את ההספק הממוצע של המנוע. <b>ב'</b> מה יקרה אם מכפילים את האמפליטודה? <b>ג'</b> ואם מקטינים את התדירות פי 2?</div>
+<details class="sol"><summary>פתרון</summary><div class="body">
+<div class="eq">$$Z=\sqrt{T\rho}=\sqrt{1200\cdot0.03}=6\ \mathrm{kg/s},\qquad \omega=2\pi f=300\pi\ \mathrm{rad/s}$$</div>
+<div class="eq">$$\langle P\rangle=\frac{1}{2}ZA^2\omega^2=\frac{1}{2}\cdot6\cdot(0.015)^2\cdot(300\pi)^2=60.75\,\pi^2\approx 599.6\ \mathrm{W}$$</div>
+<p><b>ב'</b> \(\langle P\rangle\propto A^2\): הכפלת האמפליטודה ⇒ ההספק גדל <b>פי 4</b>. <b>ג'</b> \(\langle P\rangle\propto\omega^2\): הקטנת התדירות פי 2 ⇒ ההספק קטן <b>פי 4</b>.</p>
+</div></details>
+
+<h2>5 · מלכודות</h2>
+<div class="warn"><b>\(\rho_K=\rho_P\) רק בגל חד־כיווני.</b> בגל עומד או בשני פולסים חופפים אסור לכתוב \(\rho_E=\rho v_y^2\) — שם חובה לחשב את שתי הצפיפויות בנפרד עם הנגזרות המלאות.</div>
+<div class="warn"><b>אנרגיה כוללת של גל הרמוני אינסופי אינה מוגדרת.</b> אם סעיף "האם ייתכן?" שואל על \(E\) של \(A\sin(kx-\omega t)\) על מיתר אינסופי — התשובה היא שהאינטגרל מתבדר; מוגדרות רק \(\langle\rho_E\rangle\), \(E_\lambda\) ו-\(\langle P\rangle\).</div>
+<div class="warn"><b>\(\langle\cos^2\rangle=\tfrac12\) רק על מחזור שלם.</b> על חלק ממחזור חובה לבצע את האינטגרל במפורש (עם \(\cos^2\theta=\tfrac12(1+\cos2\theta)\) מדף הזהויות).</div>
+<div class="warn"><b>גבולות אינטגרציה תלויי זמן.</b> \(E(t)=\int_0^{30t}\) ולא \(\int_0^{\infty}\) סתם — מחוץ לחלון \(\rho_E=0\), והגבול הנע הוא שמכניס את התלות בזמן לתוצאה (האיבר \(\sin(\pi t)\) בדוגמה).</div>
+<div class="warn"><b>הסימן של \(P\).</b> \(P=-T\,y_x\,y_t\) שלילי פירושו שטף אנרגיה בכיוון \(-x\) (כמו \(P=-1.93\ \mathrm{kW}\) במבחן 2026 שאלה 2 סעיף ד'). אבל לגל חד־כיווני <b>ימינה</b> תמיד \(P=Zv_y^2\ge0\) — אם יצא לכם שלילי, טעות סימן.</div>
+<div class="warn"><b>עבודת המנוע = אנרגיית המיתר.</b> אם \(W=\int_0^t P_D\,dt'\) לא יוצא שווה ל-\(E(t)=\int\rho_E\,dx\) — יש שגיאה באחד מהם. השתמשו בזה כבדיקה, הפתרונות הרשמיים עושים זאת.</div>
+
+<h2>6 · מה לשים בדף הנוסחאות</h2>
+<div class="tip"><ul>
+<li>\(\rho_K=\tfrac{\rho}{2}y_t^2\) · \(\rho_P=\tfrac{T}{2}y_x^2\) · חד־כיווני: \(\rho_K=\rho_P\Rightarrow\rho_E=\rho v_y^2\)</li>
+<li>\(P=-T\,y_x\,y_t\) · גל ימינה: \(P=Zv_y^2=v\rho_E\ge0\) · \(\langle P\rangle=\tfrac12 ZA^2\omega^2\)</li>
+<li>\(E=\int\rho_E\,dx\) (על החלון!) · \(W=\int_{t_1}^{t_2}P(x_0,t)\,dt\) · עבודת מנוע = \(E\) במיתר</li>
+<li>אנרגיית פולס: \(E=\int T y_x^2\,dx=\int\rho v_y^2\,dx\)</li>
+<li>מיתר רתום: \(E_n=\tfrac14\rho L c_n^2\omega_n^2\), \(E_{\mathrm{tot}}=\sum E_n\)</li>
+<li>\(E_\lambda=\tfrac12\rho A^2\omega^2\lambda\) · \(\langle\cos^2\rangle=\tfrac12\) (מחזור שלם) · גל הרמוני אינסופי: \(E\) לא מוגדר</li>
+</ul></div>
+</section>
