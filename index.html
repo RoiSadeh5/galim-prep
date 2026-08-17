@@ -1,0 +1,1131 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>גלים 90929 — הכנה למבחן</title>
+<link rel="stylesheet" href="katex/katex.min.css">
+<script defer src="katex/katex.min.js"></script>
+<script defer src="katex/auto-render.min.js"></script>
+<style>
+/* ===== מערכת עיצוב משותפת — הכנה למבחן 10804 ===== */
+:root{
+  --bg:#f7f7f5; --bg2:#fff; --bg3:#efeee9;
+  --fg:#1a1a18; --fg2:#5c5b55; --fg3:#8a887f;
+  --line:#dedcd4; --line2:#c9c6bb;
+  --accent:#0b6b53; --accent2:#e8f3ef; --accent-fg:#fff;
+  --red:#a3341f; --red-bg:#fbeae6;
+  --amber:#8a6100; --amber-bg:#fdf3dd;
+  --blue:#1d4f8c; --blue-bg:#e7effa;
+  --purple:#5b3a8e; --purple-bg:#f0eafb;
+  --code-bg:#f4f3ef; --code-fg:#24231f;
+  --radius:10px;
+  --mono:"SF Mono",Menlo,Consolas,"DejaVu Sans Mono",monospace;
+  --sans:-apple-system,"Segoe UI","Noto Sans Hebrew","Arial Hebrew",Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#16171a; --bg2:#1d1f23; --bg3:#25282d;
+    --fg:#e8e8e4; --fg2:#a5a49e; --fg3:#77766f;
+    --line:#33363c; --line2:#454951;
+    --accent:#4fbe9c; --accent2:#12302a; --accent-fg:#08130f;
+    --red:#f08b73; --red-bg:#3a1d17;
+    --amber:#e0b24c; --amber-bg:#382c11;
+    --blue:#77aae8; --blue-bg:#17253a;
+    --purple:#b394e8; --purple-bg:#261a3a;
+    --code-bg:#141518; --code-fg:#dcdbd5;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#16171a; --bg2:#1d1f23; --bg3:#25282d;
+  --fg:#e8e8e4; --fg2:#a5a49e; --fg3:#77766f;
+  --line:#33363c; --line2:#454951;
+  --accent:#4fbe9c; --accent2:#12302a; --accent-fg:#08130f;
+  --red:#f08b73; --red-bg:#3a1d17;
+  --amber:#e0b24c; --amber-bg:#382c11;
+  --blue:#77aae8; --blue-bg:#17253a;
+  --purple:#b394e8; --purple-bg:#261a3a;
+  --code-bg:#141518; --code-fg:#dcdbd5;
+}
+:root[data-theme="light"]{
+  --bg:#f7f7f5; --bg2:#fff; --bg3:#efeee9;
+  --fg:#1a1a18; --fg2:#5c5b55; --fg3:#8a887f;
+  --line:#dedcd4; --line2:#c9c6bb;
+  --accent:#0b6b53; --accent2:#e8f3ef; --accent-fg:#fff;
+  --red:#a3341f; --red-bg:#fbeae6;
+  --amber:#8a6100; --amber-bg:#fdf3dd;
+  --blue:#1d4f8c; --blue-bg:#e7effa;
+  --purple:#5b3a8e; --purple-bg:#f0eafb;
+  --code-bg:#f4f3ef; --code-fg:#24231f;
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; padding:0; direction:rtl; text-align:right;
+  background:var(--bg); color:var(--fg);
+  font-family:var(--sans); font-size:16px; line-height:1.65;
+  overflow-x:hidden;
+}
+.wrap{max-width:940px; margin:0 auto; padding:0 18px 90px}
+
+/* ---- ראש הדף ---- */
+header.top{
+  position:sticky; top:0; z-index:50;
+  background:color-mix(in srgb,var(--bg) 88%,transparent);
+  backdrop-filter:saturate(1.6) blur(12px);
+  border-bottom:1px solid var(--line);
+  padding:10px 0; margin-bottom:26px;
+}
+header.top .inner{max-width:940px;margin:0 auto;padding:0 18px;display:flex;align-items:center;gap:12px}
+header.top a.home{color:var(--fg2);text-decoration:none;font-size:14px;font-weight:600;white-space:nowrap}
+header.top a.home:hover{color:var(--accent)}
+header.top .spacer{flex:1}
+.chip{
+  font-size:12px;font-weight:700;padding:3px 9px;border-radius:99px;
+  background:var(--accent2);color:var(--accent);white-space:nowrap;
+}
+button.theme{
+  background:var(--bg2);border:1px solid var(--line);color:var(--fg2);
+  border-radius:8px;cursor:pointer;font-size:15px;padding:5px 9px;line-height:1;
+}
+button.theme:hover{border-color:var(--accent);color:var(--accent)}
+
+h1{font-size:clamp(26px,5vw,36px);line-height:1.2;margin:.4em 0 .2em;letter-spacing:-.02em}
+h2{font-size:clamp(20px,3.6vw,26px);line-height:1.25;margin:2em 0 .5em;
+   padding-bottom:.3em;border-bottom:2px solid var(--line);letter-spacing:-.01em}
+h3{font-size:clamp(17px,2.8vw,20px);margin:1.6em 0 .4em}
+h4{font-size:16px;margin:1.2em 0 .3em;color:var(--fg2)}
+p{margin:.7em 0}
+.lead{font-size:18px;color:var(--fg2);margin-bottom:1.4em}
+a{color:var(--accent)}
+small{color:var(--fg3)}
+hr{border:0;border-top:1px solid var(--line);margin:2.4em 0}
+
+/* ---- קוד ---- */
+pre,code{font-family:var(--mono)}
+pre{
+  direction:ltr;text-align:left;background:var(--code-bg);color:var(--code-fg);
+  border:1px solid var(--line);border-radius:var(--radius);
+  padding:13px 15px;overflow-x:auto;font-size:13.5px;line-height:1.55;margin:.8em 0;
+  white-space:pre; tab-size:4;
+}
+pre.sm{font-size:12.5px;line-height:1.5;padding:10px 12px}
+code:not(pre code){
+  direction:ltr;unicode-bidi:embed;background:var(--bg3);border:1px solid var(--line);
+  padding:.08em .38em;border-radius:5px;font-size:.9em;
+}
+.kw{color:var(--purple);font-weight:600}
+.cm{color:var(--fg3);font-style:italic}
+.st{color:var(--red)}
+.fn{color:var(--blue)}
+.hl{background:var(--amber-bg);border-radius:3px;padding:0 2px}
+
+/* ---- כרטיסים ---- */
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;margin:1em 0}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));margin:1em 0}
+.note{border-right:4px solid var(--blue);background:var(--blue-bg);padding:12px 15px;border-radius:8px;margin:1em 0}
+.warn{border-right:4px solid var(--red);background:var(--red-bg);padding:12px 15px;border-radius:8px;margin:1em 0}
+.tip{border-right:4px solid var(--amber);background:var(--amber-bg);padding:12px 15px;border-radius:8px;margin:1em 0}
+.ok{border-right:4px solid var(--accent);background:var(--accent2);padding:12px 15px;border-radius:8px;margin:1em 0}
+.note>:first-child,.warn>:first-child,.tip>:first-child,.ok>:first-child{margin-top:0}
+.note>:last-child,.warn>:last-child,.tip>:last-child,.ok>:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;font-weight:700;padding:2px 8px;border-radius:99px;
+     background:var(--bg3);color:var(--fg2);margin-inline-start:6px;vertical-align:middle;border:1px solid var(--line)}
+.tag.exam{background:var(--red-bg);color:var(--red);border-color:transparent}
+.tag.hot{background:var(--amber-bg);color:var(--amber);border-color:transparent}
+
+/* ---- טבלאות ---- */
+.tw{overflow-x:auto;margin:1em 0;border:1px solid var(--line);border-radius:var(--radius);background:var(--bg2)}
+table{border-collapse:collapse;width:100%;font-size:14.5px}
+th,td{padding:8px 11px;text-align:right;border-bottom:1px solid var(--line);vertical-align:top}
+thead th{background:var(--bg3);font-weight:700;font-size:13.5px;white-space:nowrap;position:sticky;top:0}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:hover{background:var(--bg3)}
+td.c,th.c{text-align:center}
+td.mono{font-family:var(--mono);direction:ltr;text-align:left;font-size:13px}
+
+/* ---- פתרון מתקפל ---- */
+details.sol{border:1px solid var(--line);border-radius:var(--radius);background:var(--bg2);margin:.7em 0;overflow:hidden}
+details.sol>summary{
+  cursor:pointer;padding:11px 15px;font-weight:600;font-size:14.5px;color:var(--accent);
+  background:var(--accent2);list-style:none;user-select:none;
+}
+details.sol>summary::-webkit-details-marker{display:none}
+details.sol>summary::before{content:"◂ ";font-size:11px;display:inline-block;transition:transform .15s}
+details.sol[open]>summary::before{transform:rotate(-90deg)}
+details.sol>summary:hover{filter:brightness(.97)}
+details.sol .body{padding:14px 16px;border-top:1px solid var(--line)}
+details.sol .body>:first-child{margin-top:0}
+details.sol .body>:last-child{margin-bottom:0}
+
+/* ---- כרטיס תרגול ---- */
+.q{border:1px solid var(--line);border-radius:var(--radius);background:var(--bg2);padding:15px 17px;margin:1.1em 0}
+.q>.qh{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:.5em}
+.q>.qh b{font-size:15px}
+.q>.qh .src{font-size:11.5px;color:var(--fg3);font-weight:600}
+
+/* ---- נגן שלבים (אנימציה) ---- */
+.player{border:1px solid var(--line2);border-radius:var(--radius);background:var(--bg2);margin:1.2em 0;overflow:hidden}
+.player .stage{padding:18px 16px;min-height:120px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:var(--bg)}
+.player .cap{padding:11px 15px;border-top:1px solid var(--line);font-size:14.5px;background:var(--bg2);min-height:3.2em}
+.player .cap b{color:var(--accent)}
+.player .bar{display:flex;align-items:center;gap:8px;padding:9px 12px;border-top:1px solid var(--line);background:var(--bg3)}
+.player button{
+  background:var(--accent);color:var(--accent-fg);border:0;border-radius:7px;
+  padding:6px 14px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;
+}
+.player button:disabled{opacity:.35;cursor:default}
+.player button.sec{background:var(--bg2);color:var(--fg2);border:1px solid var(--line2)}
+.player .pos{font-size:13px;color:var(--fg2);font-variant-numeric:tabular-nums;margin-inline-start:auto;font-weight:600}
+
+/* ---- מערך / תאים ---- */
+.arr{display:flex;gap:0;flex-wrap:wrap;justify-content:center;direction:ltr}
+.cell{
+  min-width:42px;height:42px;display:flex;align-items:center;justify-content:center;
+  border:1px solid var(--line2);margin-inline-start:-1px;background:var(--bg2);
+  font-family:var(--mono);font-size:14px;font-weight:600;transition:background .18s,color .18s;
+}
+.cell .ix{position:absolute;margin-top:-46px;font-size:10px;color:var(--fg3);font-weight:500}
+.cell.a{background:var(--amber-bg);color:var(--amber)}
+.cell.b{background:var(--accent2);color:var(--accent)}
+.cell.c{background:var(--red-bg);color:var(--red)}
+.cell.d{background:var(--blue-bg);color:var(--blue)}
+.cell.dim{opacity:.35}
+.ixrow{display:flex;direction:ltr;justify-content:center}
+.ixrow span{min-width:42px;text-align:center;font-size:10.5px;color:var(--fg3);margin-inline-start:-1px;font-family:var(--mono)}
+
+/* ---- svg stage ---- */
+.player svg{max-width:100%;height:auto;display:block}
+svg text{font-family:var(--sans)}
+.nd{fill:var(--bg2);stroke:var(--line2);stroke-width:1.5}
+.nd.on{fill:var(--accent2);stroke:var(--accent);stroke-width:2.5}
+.nd.hot{fill:var(--amber-bg);stroke:var(--amber);stroke-width:2.5}
+.nd.bad{fill:var(--red-bg);stroke:var(--red);stroke-width:2.5}
+.ndt{fill:var(--fg);font-size:13px;font-weight:600;text-anchor:middle;dominant-baseline:central}
+.edg{stroke:var(--line2);stroke-width:1.6;fill:none}
+.edg.on{stroke:var(--accent);stroke-width:2.5}
+
+/* ---- ניווט/רשימת דקים ---- */
+.decks{display:grid;gap:11px;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));margin:1.2em 0}
+a.deck{
+  display:block;text-decoration:none;color:inherit;background:var(--bg2);
+  border:1px solid var(--line);border-radius:var(--radius);padding:14px 15px;transition:.15s;
+}
+a.deck:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 4px 14px rgba(0,0,0,.07)}
+a.deck .n{font-size:11.5px;font-weight:700;color:var(--fg3);letter-spacing:.04em}
+a.deck .t{font-size:16.5px;font-weight:700;margin:2px 0 4px;line-height:1.3}
+a.deck .d{font-size:13px;color:var(--fg2);line-height:1.45}
+a.deck .m{margin-top:8px;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.dot{width:9px;height:9px;border-radius:99px;display:inline-block;flex:none}
+.dot.p1{background:#d9534f} .dot.p2{background:#e8a33d} .dot.p3{background:#7aa87a}
+
+/* ---- מעקב התקדמות ---- */
+.trk{display:flex;align-items:center;gap:10px;margin:1em 0;flex-wrap:wrap}
+.trk .barwrap{flex:1;min-width:170px;height:9px;background:var(--bg3);border-radius:99px;overflow:hidden;border:1px solid var(--line)}
+.trk .fill{height:100%;background:var(--accent);width:0;transition:width .3s}
+label.chk{display:flex;align-items:center;gap:7px;font-size:13.5px;cursor:pointer;color:var(--fg2);user-select:none}
+label.chk input{accent-color:var(--accent);width:15px;height:15px;cursor:pointer;flex:none}
+
+@media(max-width:600px){
+  body{font-size:15.5px}
+  .wrap{padding:0 14px 70px}
+  th,td{padding:7px 8px;font-size:13.5px}
+  pre{font-size:12.5px}
+  .cell{min-width:36px;height:36px;font-size:13px}
+  .ixrow span{min-width:36px}
+}
+@media print{
+  header.top,.player .bar,button,nav.tabs{display:none}
+  body{background:#fff;color:#000;padding-right:0}
+  details.sol[open] .body{display:block}
+}
+
+.pg{display:none} .pg.on{display:block}
+/* --- תפריט צד ימני (במסכים רחבים) --- */
+nav.tabs{position:fixed;top:0;right:0;bottom:0;width:210px;z-index:60;
+  background:color-mix(in srgb,var(--bg) 92%,transparent);
+  backdrop-filter:saturate(1.6) blur(12px);border-left:1px solid var(--line);
+  display:flex;flex-direction:column;gap:4px;overflow-y:auto;overflow-x:hidden;
+  padding:14px 12px;scrollbar-width:thin}
+nav.tabs .grp{font:700 11.5px var(--sans);color:var(--fg3);letter-spacing:.04em;
+  margin:12px 4px 3px;flex:none}
+nav.tabs .grp:first-child{margin-top:2px}
+nav.tabs button{flex:none;width:100%;text-align:right;background:var(--bg2);
+  border:1px solid var(--line);color:var(--fg2);
+  border-radius:8px;padding:7px 12px;font:600 13.5px var(--sans);cursor:pointer;white-space:nowrap}
+nav.tabs button:hover{border-color:var(--accent);color:var(--accent)}
+nav.tabs button.on{background:var(--accent);border-color:var(--accent);color:var(--accent-fg)}
+nav.tabs button.cta{background:var(--accent);border-color:var(--accent);color:var(--accent-fg);
+  font-size:14.5px;padding:10px 12px;box-shadow:0 2px 8px color-mix(in srgb,var(--accent) 35%,transparent)}
+nav.tabs button.cta:hover{opacity:.92;color:var(--accent-fg)}
+nav.tabs button .qn{display:inline-flex;align-items:center;justify-content:center;
+  width:19px;height:19px;border-radius:50%;background:var(--bg3);color:var(--fg3);
+  font-size:11px;font-weight:800;margin-inline-end:8px;vertical-align:-3px}
+nav.tabs button.on .qn{background:color-mix(in srgb,var(--accent-fg) 25%,transparent);
+  color:var(--accent-fg)}
+nav.tabs .th{margin-top:auto;position:sticky;bottom:0;text-align:center;background:var(--bg2)}
+body{padding-right:210px}
+/* --- במסכים צרים: חוזר לפס עליון נגלל --- */
+@media (max-width:900px){
+  body{padding-right:0}
+  nav.tabs{position:sticky;top:0;right:auto;bottom:auto;width:auto;
+    flex-direction:row;border-left:0;border-bottom:1px solid var(--line);
+    gap:5px;overflow-x:auto;overflow-y:hidden;padding:9px 14px;margin-bottom:22px}
+  nav.tabs .grp{display:none}
+  nav.tabs button{width:auto;text-align:center;border-radius:99px;padding:6px 13px}
+  nav.tabs .th{margin-top:0;margin-inline-start:auto;bottom:auto;position:sticky;left:0}
+}
+/* --- סימון הצלחתי/טעיתי על שאלות --- */
+.qmark{display:flex;gap:8px;margin-top:10px;align-items:center;flex-wrap:wrap}
+.qmark span.lbl{font:600 12.5px var(--sans);opacity:.75}
+.qmark button{background:var(--bg2);border:1px solid var(--line);color:var(--fg2);
+  border-radius:99px;padding:3px 12px;font:600 12.5px var(--sans);cursor:pointer}
+.qmark button:hover{border-color:var(--accent)}
+.qmark button.on-right{background:var(--accent);border-color:var(--accent);color:var(--accent-fg,#fff)}
+.qmark button.on-wrong{background:var(--red);border-color:var(--red);color:#fff}
+.q.q-wrong{border-color:var(--red)!important}
+.q.q-right{border-color:var(--accent)!important}
+#wrongPanel ul{margin:8px 0 0;padding-inline-start:20px}
+#wrongPanel li{margin-bottom:4px}
+#wrongPanel a{cursor:pointer}
+a.golink{color:var(--accent);cursor:pointer;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+a.golink:hover{opacity:.8}
+/* --- רמות קושי + סינון --- */
+.diff{font:700 11px var(--sans);border-radius:99px;padding:1.5px 9px;margin-inline-start:8px;vertical-align:2px}
+.diff-e{background:color-mix(in srgb, var(--accent) 16%, transparent);color:var(--accent);border:1px solid var(--accent)}
+.diff-m{background:color-mix(in srgb, var(--amber) 16%, transparent);color:var(--amber);border:1px solid var(--amber)}
+.diff-h{background:color-mix(in srgb, var(--red) 16%, transparent);color:var(--red);border:1px solid var(--red)}
+.diffbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:10px 0;padding:8px 12px;border:1px solid var(--line);border-radius:var(--radius)}
+.diffbar b{font-size:13.5px}
+.diffbar button{background:var(--bg2);border:1px solid var(--line);color:var(--fg2);border-radius:99px;padding:4px 14px;font:600 13px var(--sans);cursor:pointer}
+.diffbar button.on{background:var(--accent);border-color:var(--accent);color:var(--accent-fg,#fff)}
+.diff.srcb{background:color-mix(in srgb, var(--blue) 14%, transparent);color:var(--blue);border:1px solid var(--blue)}
+.q.diff-hidden{display:none}
+
+/* ===== מרכז התרגול — מוזג מהעמוד הנפרד ===== */
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{
+  outline:3px solid color-mix(in srgb,var(--accent) 55%,transparent);
+  outline-offset:3px;
+}
+.quiz-hero{
+  background:linear-gradient(135deg,var(--accent2),var(--bg2));
+  border:1px solid var(--line2);border-radius:16px;padding:20px;margin:1.2em 0;
+}
+.quiz-stats{display:grid;grid-template-columns:repeat(6,minmax(100px,1fr));gap:10px;margin:14px 0}
+.quiz-stat{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:12px;text-align:center}
+.quiz-stat b{display:block;font-size:24px;line-height:1.15;color:var(--accent)}
+.quiz-stat span{font-size:12px;color:var(--fg2)}
+.quiz-progress{height:10px;border:1px solid var(--line);border-radius:99px;overflow:hidden;background:var(--bg3)}
+.quiz-progress>i{display:block;width:0;height:100%;background:var(--accent);transition:width .25s}
+.quiz-controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:14px 0}
+.quiz-controls input,.quiz-controls select{
+  min-height:40px;border:1px solid var(--line2);border-radius:8px;background:var(--bg2);
+  color:var(--fg);font:inherit;padding:7px 10px;
+}
+.quiz-controls input{flex:1;min-width:220px}
+.quiz-btn{
+  min-height:40px;border:1px solid var(--line2);border-radius:8px;background:var(--bg2);
+  color:var(--fg2);font:600 13.5px var(--sans);padding:7px 12px;cursor:pointer;
+}
+.quiz-btn:hover,.quiz-btn.on{border-color:var(--accent);color:var(--accent);background:var(--accent2)}
+.quiz-btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-fg)}
+.quiz-pills{display:flex;gap:7px;overflow-x:auto;padding:4px 1px 10px;scrollbar-width:thin}
+.quiz-pills .quiz-btn{white-space:nowrap;min-height:34px;padding:5px 10px}
+.quiz-shell{border:1px solid var(--line2);border-radius:14px;background:var(--bg2);overflow:hidden;margin:1em 0}
+.quiz-head{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:12px 15px;background:var(--bg3);border-bottom:1px solid var(--line)}
+.quiz-index{font:700 12px var(--mono);color:var(--fg3)}
+.quiz-body{padding:18px}
+.quiz-prompt{font-size:17px;font-weight:650;line-height:1.7}
+.quiz-options{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:15px}
+.quiz-option{
+  display:flex;gap:10px;align-items:flex-start;text-align:right;border:1px solid var(--line2);
+  border-radius:9px;background:var(--bg2);color:var(--fg);padding:11px 12px;cursor:pointer;font:inherit;
+}
+.quiz-option:hover{border-color:var(--accent);background:var(--accent2)}
+.quiz-option .key{
+  display:flex;align-items:center;justify-content:center;flex:none;width:25px;height:25px;
+  border-radius:7px;background:var(--bg3);font:700 12px var(--mono);
+}
+.quiz-option.good{border-color:var(--accent);background:var(--accent2)}
+.quiz-option.bad{border-color:var(--red);background:var(--red-bg)}
+.quiz-option.answer{box-shadow:inset 0 0 0 2px var(--accent)}
+.quiz-option:disabled{cursor:default;color:var(--fg)}
+.bank-card{margin-top:14px}
+.bank-card .qh{margin-bottom:8px}
+.quiz-selfgrade{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-top:15px}
+.quiz-selfgrade .selfgrade-hint{flex-basis:100%;font-size:13.5px;color:var(--fg2);font-weight:600}
+.quiz-selfgrade .quiz-option{flex:1;min-width:150px;justify-content:center}
+.quiz-prompt{font-size:17px;font-weight:600;line-height:1.6;margin-bottom:4px}
+.q-given{font-size:13px;color:var(--fg2);font-weight:700;margin:14px 0 -4px}
+.q-extra{margin:10px 0}
+.q-hint{margin:10px 0;border:1px solid var(--amber);background:var(--amber-bg);
+  border-radius:var(--radius);padding:8px 13px;font-size:14px}
+.q-hint summary{cursor:pointer;font-weight:700;color:var(--amber)}
+.q-hint div{margin-top:7px}
+.q-solution{margin-top:16px;border:1px solid var(--accent);border-radius:var(--radius);
+  padding:13px 16px;background:var(--accent2)}
+.q-solution>b{display:block;margin-bottom:7px;color:var(--accent)}
+.quiz-option.primary-check{background:var(--accent);border-color:var(--accent);
+  color:var(--accent-fg);font-weight:700;justify-content:center;flex:1;min-width:220px}
+.quiz-option.primary-check:hover{opacity:.92;background:var(--accent)}
+.quiz-option.primary-check .key{background:transparent;border-color:currentColor}
+.code-editor{margin:15px 0;border:1px solid var(--line2);border-radius:var(--radius);
+  overflow:hidden;background:var(--bg2)}
+.code-editor-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  padding:9px 13px;background:var(--bg3);border-bottom:1px solid var(--line);font-size:14px}
+.code-editor-head .sig{font-family:var(--mono);font-size:13px;background:var(--bg2);
+  border:1px solid var(--line);border-radius:5px;padding:2px 8px}
+textarea.code-input{width:100%;min-height:190px;border:0;resize:vertical;display:block;
+  font-family:var(--mono);font-size:13.5px;line-height:1.6;padding:13px 15px;
+  background:var(--code-bg);color:var(--code-fg);tab-size:4}
+textarea.code-input:focus{outline:2px solid var(--accent);outline-offset:-2px}
+.code-editor-foot{padding:8px 13px;font-size:12.5px;color:var(--fg3);
+  border-top:1px solid var(--line)}
+.v-rows{display:flex;flex-direction:column;gap:14px;align-items:center}
+.v-cap{font-size:12.5px;color:var(--fg2);margin-top:7px;text-align:center}
+.v-array,.v-queue,.v-tree{display:flex;flex-direction:column;align-items:center}
+.v-row,.v-ixrow,.v-labels{display:flex;gap:6px;justify-content:center}
+.v-ix{display:block;width:40px;text-align:center;font-size:11px;color:var(--fg3);
+  font-family:var(--mono)}
+.v-labels span{display:block;width:40px;text-align:center;font-size:11px;color:var(--fg2);
+  margin-top:4px}
+.v-cell{width:40px;height:40px;display:flex;align-items:center;justify-content:center;
+  border:1.5px solid var(--line2);border-radius:7px;background:var(--bg2);
+  font-family:var(--mono);font-size:14px;font-weight:600;position:relative;flex:none}
+.v-cell.v-empty{border-style:dashed;color:var(--fg3);background:transparent}
+.v-brace{margin-top:6px;border-top:2px solid var(--accent);color:var(--accent);
+  font-size:11.5px;font-weight:700;text-align:center;padding-top:3px}
+.v-arrow{color:var(--fg3);align-self:center;font-size:13px}
+.v-tip{position:absolute;top:-16px;right:0;font-size:10px;color:var(--accent);
+  font-weight:700;white-space:nowrap}
+.v-tip.v-tail{right:auto;left:0;color:var(--blue)}
+.v-hot,.v-cell.v-hot,.v-slot.v-hot,.v-node.v-hot,.v-frame.v-hot,.v-var.v-hot,
+td.v-hot{background:var(--amber-bg);border-color:var(--amber);color:var(--amber)}
+.v-good,.v-cell.v-good,.v-slot.v-good,.v-node.v-good,.v-frame.v-good,.v-var.v-good,
+td.v-good{background:var(--accent2);border-color:var(--accent);color:var(--accent)}
+.v-bad,.v-cell.v-bad,.v-slot.v-bad,.v-node.v-bad,.v-frame.v-bad,.v-var.v-bad,
+td.v-bad{background:var(--red-bg);border-color:var(--red);color:var(--red)}
+.v-info,.v-cell.v-info,.v-slot.v-info,.v-node.v-info,.v-frame.v-info,.v-var.v-info,
+td.v-info{background:var(--blue-bg);border-color:var(--blue);color:var(--blue)}
+.v-dim,.v-cell.v-dim,.v-slot.v-dim,.v-node.v-dim{opacity:.4}
+.v-stack,.v-call{display:flex;flex-direction:column;gap:4px;align-items:stretch;
+  min-width:180px;max-width:340px;margin:0 auto}
+.v-slot,.v-frame{border:1.5px solid var(--line2);border-radius:7px;background:var(--bg2);
+  padding:8px 13px;font-family:var(--mono);font-size:13.5px;text-align:center;position:relative}
+.v-frame{font-size:13px}
+.v-slot .v-tip,.v-frame .v-tip{position:static;display:inline-block;
+  margin-inline-start:8px;font-size:10.5px}
+.v-base{border-top:3px solid var(--line2);padding-top:5px;text-align:center;
+  font-size:11.5px;color:var(--fg3);font-weight:700}
+.v-list{display:flex;align-items:center;gap:5px;flex-wrap:wrap;justify-content:center}
+.v-node{border:1.5px solid var(--line2);border-radius:7px;background:var(--bg2);
+  padding:8px 14px;font-family:var(--mono);font-size:14px;font-weight:600}
+.v-link{color:var(--fg3);font-size:15px}
+.v-null{font-family:var(--mono);font-size:12px;color:var(--fg3)}
+.v-head-tag,.v-cap-inline{font-size:11px;color:var(--accent);font-weight:700}
+.v-tree svg{max-width:100%;height:auto}
+.v-edge{stroke:var(--line2);stroke-width:1.6}
+.v-tnode circle{fill:var(--bg2);stroke:var(--line2);stroke-width:1.6}
+.v-tnode text{fill:var(--fg);font:600 13px var(--mono);text-anchor:middle}
+.v-tnode.v-hot circle{fill:var(--amber-bg);stroke:var(--amber);stroke-width:2.4}
+.v-tnode.v-good circle{fill:var(--accent2);stroke:var(--accent);stroke-width:2.4}
+.v-tnode.v-bad circle{fill:var(--red-bg);stroke:var(--red);stroke-width:2.4}
+.v-tnode.v-info circle{fill:var(--blue-bg);stroke:var(--blue);stroke-width:2.4}
+.v-tnode.v-dim circle{opacity:.4}
+.v-tnode.v-dim text{opacity:.4}
+.v-code{background:var(--code-bg);border:1px solid var(--line);border-radius:var(--radius);
+  padding:9px 0;font-family:var(--mono);font-size:13px;line-height:1.65;
+  overflow-x:auto;width:100%}
+.v-line{display:flex;gap:11px;padding:0 13px;white-space:pre}
+.v-line-on{background:var(--amber-bg);border-inline-start:3px solid var(--amber);
+  padding-inline-start:10px}
+.v-lineno{color:var(--fg3);min-width:18px;text-align:left;user-select:none}
+.v-linetext{color:var(--code-fg)}
+.v-table{width:100%;overflow-x:auto}
+.v-table table{font-size:13px;margin:0}
+.v-vars{display:flex;gap:9px;flex-wrap:wrap;justify-content:center}
+.v-var{display:flex;align-items:center;gap:7px;border:1.5px solid var(--line2);
+  border-radius:7px;background:var(--bg2);padding:5px 12px}
+.v-var .v-k{font-family:var(--mono);font-size:12.5px;color:var(--fg2)}
+.v-var .v-v{font-family:var(--mono);font-size:14px;font-weight:700}
+.v-note{border-inline-start:3px solid var(--accent);background:var(--accent2);
+  padding:9px 13px;border-radius:0 7px 7px 0;font-size:14px}
+/* ===== ויזואל גלים (viz.js: wave / tline) ===== */
+.v-wave{width:100%;max-width:640px;display:flex;flex-direction:column;align-items:center}
+.v-wave svg{width:100%;height:auto;display:block}
+.vw-axis{stroke:var(--fg3);stroke-width:1.3}
+.vw-yaxis{stroke-dasharray:3 3;opacity:.6}
+.vw-tick{stroke:var(--fg3);stroke-width:1}
+.vw-tlabel{fill:var(--fg3);font:600 10.5px var(--mono);text-anchor:middle}
+.vw-ylabel{text-anchor:end}
+.vw-curve{fill:none;stroke-width:2.4;stroke-linejoin:round;stroke-linecap:round}
+.vw-dash{stroke-dasharray:6 5}
+.vwc-hot{stroke:var(--amber)} .vwc-good{stroke:var(--accent)}
+.vwc-bad{stroke:var(--red)}   .vwc-info{stroke:var(--blue)}
+.vwc-dim{stroke:var(--fg3);opacity:.55}
+.vw-marker{stroke:var(--fg2);stroke-width:1.4;stroke-dasharray:4 4}
+.vw-mlabel{fill:var(--fg2);font:700 11px var(--sans);text-anchor:middle}
+.vw-region{fill:var(--bg3);opacity:.55}
+.vwr-info{fill:var(--blue-bg)} .vwr-hot{fill:var(--amber-bg)}
+.vwr-good{fill:var(--accent2)} .vwr-bad{fill:var(--red-bg)}
+.vw-rlabel{fill:var(--fg2);font:700 11.5px var(--sans);text-anchor:middle}
+.vw-arrow line{stroke-width:2.2}
+.vw-arrow path{stroke:none}
+.vwc-hot path,.vw-arrow.vwc-hot path{fill:var(--amber)}
+.vw-arrow.vwc-good path{fill:var(--accent)} .vw-arrow.vwc-bad path{fill:var(--red)}
+.vw-arrow.vwc-info path{fill:var(--blue)}   .vw-arrow.vwc-dim path{fill:var(--fg3)}
+.vw-arrow text{font:700 11px var(--sans);text-anchor:middle;fill:var(--fg2);stroke:none}
+.vw-legend{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:6px}
+.vw-leg{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--fg2);font-weight:600}
+.vw-leg i{display:inline-block;width:22px;height:0;border-top:2.6px solid var(--fg3);border-radius:2px}
+.vw-leg i.vwl-hot{border-color:var(--amber)} .vw-leg i.vwl-good{border-color:var(--accent)}
+.vw-leg i.vwl-bad{border-color:var(--red)}   .vw-leg i.vwl-info{border-color:var(--blue)}
+.vw-leg i.vwl-dim{border-color:var(--fg3)}
+.vw-leg i.vw-dash{border-top-style:dashed}
+.vw-rail{stroke:var(--fg2);stroke-width:2.2}
+.vw-short{stroke-width:3}
+.vw-open{fill:var(--bg2);stroke:var(--fg2);stroke-width:2}
+/* ===== מתמטיקה (KaTeX) ===== */
+.katex{font-size:1.06em;direction:ltr;unicode-bidi:isolate}
+.katex-display{margin:.6em 0;overflow-x:auto;overflow-y:hidden;padding:2px 0}
+.katex-display>.katex{white-space:normal}
+.eq{border:1px solid var(--line);border-radius:9px;background:var(--bg3);
+  padding:10px 14px;margin:.8em 0;text-align:center;overflow-x:auto}
+.eq .katex-display{margin:0}
+/* ===== מעבדות חופשיות ===== */
+.lab-tabs{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px}
+.lab-panel{border:1px solid var(--accent);border-radius:var(--radius);
+  background:var(--bg2);padding:16px 18px}
+.lab-panel h3{margin:0 0 13px;font-size:19px}
+.lab-controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+.lab-seg{display:flex;gap:5px;flex-wrap:wrap}
+.lab-sep{flex-basis:100%;height:0}
+.lab-input{width:104px;border:1px solid var(--line2);border-radius:8px;padding:7px 11px;
+  font:600 14px var(--mono);background:var(--bg);color:var(--fg)}
+.lab-input.sm{width:58px}
+.lab-input:focus{outline:2px solid var(--accent);outline-offset:-2px}
+.lab-lbl{font-size:13.5px;font-weight:600;color:var(--fg2);display:flex;align-items:center;gap:6px}
+.lab-slider{flex:1;min-width:190px;accent-color:var(--accent)}
+.lab-stage{border:1px solid var(--line);border-radius:var(--radius);background:var(--bg);
+  padding:20px 16px;min-height:130px;display:flex;align-items:center;justify-content:center}
+.lab-empty{color:var(--fg3);font-size:14px}
+.lab-msg{margin-top:13px;border-inline-start:3px solid var(--accent);background:var(--accent2);
+  padding:11px 15px;border-radius:0 8px 8px 0;font-size:14.5px;line-height:1.65}
+.lab-rule{margin-top:9px;font-size:13px;color:var(--fg2);line-height:1.7}
+/* גרף הסיבוכיות */
+.cx-chart{display:flex;flex-direction:column;gap:7px}
+.cx-row{display:flex;align-items:center;gap:11px;cursor:pointer;padding:5px 9px;
+  border-radius:8px;border:1px solid transparent}
+.cx-row:hover{background:var(--bg3)}
+.cx-row.on{border-color:var(--accent);background:var(--accent2)}
+.cx-name{flex:none;width:92px;font:700 13.5px var(--mono);color:var(--fg)}
+.cx-bar{flex:1;height:19px;background:var(--bg3);border-radius:99px;overflow:hidden}
+.cx-bar i{display:block;height:100%;background:var(--accent);border-radius:99px}
+.cx-row.on .cx-bar i{background:var(--amber)}
+.cx-num{flex:none;min-width:82px;text-align:left;font:600 13px var(--mono);color:var(--fg2)}
+/* ===== בורר המבחנים ===== */
+.exam-picker{display:flex;flex-direction:column;gap:14px;margin-bottom:16px}
+.exam-year-row{display:flex;align-items:stretch;gap:14px}
+.exam-year-tag{flex:none;width:74px;display:flex;align-items:center;justify-content:center;
+  font:800 25px var(--sans);color:var(--fg3);background:var(--bg3);
+  border-radius:var(--radius);letter-spacing:-.02em}
+.exam-cards{flex:1;display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:11px}
+.exam-card{display:flex;flex-direction:column;align-items:flex-start;gap:5px;
+  text-align:right;background:var(--bg2);border:1.5px solid var(--line2);
+  border-radius:var(--radius);padding:15px 17px;cursor:pointer;font-family:var(--sans);
+  transition:border-color .12s,transform .12s}
+.exam-card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.exam-card.newest{border-color:var(--accent);background:var(--accent2)}
+.exam-term{font-size:19px;font-weight:800;color:var(--fg)}
+.exam-meta{font-size:13px;color:var(--fg2)}
+.exam-flag{font-size:11.5px;font-weight:700;color:var(--accent-fg);background:var(--accent);
+  border-radius:99px;padding:2px 10px}
+.exam-go{margin-top:5px;font-size:13px;font-weight:700;color:var(--accent)}
+/* ===== כותרת המבחן הפתוח ===== */
+.exam-head{display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+  border:1px solid var(--accent);border-radius:var(--radius);background:var(--bg2);
+  padding:14px 17px;margin-bottom:14px}
+.exam-head-title h2{margin:0;font-size:22px}
+.exam-head-title span{font-size:13.5px;color:var(--fg2)}
+.exam-siblings{margin-inline-start:auto;display:flex;gap:7px;flex-wrap:wrap}
+.quiz-btn.back{font-weight:700}
+@media (max-width:620px){
+  .exam-year-row{flex-direction:column;gap:7px}
+  .exam-year-tag{width:auto;padding:5px 0;font-size:19px}
+}
+.wt-intro{border:1px solid var(--accent);border-radius:var(--radius);padding:16px;
+  background:var(--bg2);margin-bottom:14px}
+.wt-intro h2{margin-top:0}
+.wt-tabs{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}
+.wt-card{border:1px solid var(--line2);border-radius:var(--radius);background:var(--bg2);
+  margin-bottom:10px;overflow:hidden}
+.wt-card.open{border-color:var(--accent)}
+.wt-head{display:flex;align-items:center;gap:11px;width:100%;text-align:right;
+  background:transparent;border:0;cursor:pointer;padding:13px 16px;
+  font:600 15px var(--sans);color:var(--fg);flex-wrap:wrap}
+.wt-head:hover{background:var(--bg3)}
+.wt-card.open .wt-head{background:var(--accent2);border-bottom:1px solid var(--line)}
+.wt-num{font-weight:800;color:var(--accent)}
+.wt-topic{color:var(--fg2);font-size:14px}
+.wt-steps{margin-inline-start:auto;font-size:12.5px;color:var(--fg3)}
+.wt-body{padding:16px}
+.wt-idea{border-inline-start:3px solid var(--blue);background:var(--blue-bg);
+  padding:10px 14px;border-radius:0 8px 8px 0;margin:13px 0;font-size:14.5px}
+.wt-stage{border:1px solid var(--line);border-radius:var(--radius);padding:15px;
+  background:var(--bg);margin:13px 0;min-height:150px}
+.wt-visual{margin-top:15px;display:flex;justify-content:center}
+.wt-answer{border:1px solid var(--accent);background:var(--accent2);border-radius:var(--radius);
+  padding:11px 15px;margin-top:14px;font-size:15px}
+.wt-traps{border:1px solid var(--red);background:var(--red-bg);border-radius:var(--radius);
+  padding:11px 15px;margin-top:11px;font-size:14px}
+.wt-traps ul{margin:6px 0 0;padding-inline-start:20px}
+.stepper{margin-top:16px;border-top:1px dashed var(--line2);padding-top:13px}
+.stepper-title{font-weight:700;font-size:14px;color:var(--accent);margin-bottom:9px}
+.topic-link{display:inline-block;margin-inline-start:10px;font-size:12.5px;font-weight:700;
+  color:var(--blue);text-decoration:none;border:1px solid var(--blue);border-radius:99px;
+  padding:2px 11px;background:var(--blue-bg)}
+.topic-link:hover{opacity:.85}
+.sim-switch{display:flex;gap:8px;margin:14px 0}
+.sim-switch .quiz-btn{font-size:15px;padding:10px 18px}
+.sim-intro{border:1px solid var(--accent);border-radius:var(--radius);padding:18px;background:var(--bg2)}
+.sim-intro h2{margin-top:0}
+.quiz-btn.big{font-size:16px;padding:12px 26px}
+.sim-bar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;position:sticky;top:0;z-index:40;
+  background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);
+  padding:10px 14px;margin-bottom:10px}
+.sim-clock{font-family:var(--mono);font-size:20px;font-weight:700;color:var(--accent);
+  font-variant-numeric:tabular-nums}
+.sim-clock.danger{color:var(--red)}
+.sim-progress{font-size:13px;color:var(--fg2);margin-inline-start:auto}
+.sim-pills{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.sim-pill{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);
+  background:var(--bg2);color:var(--fg2);font:700 14px var(--sans);cursor:pointer}
+.sim-pill.done{border-color:var(--accent);color:var(--accent);background:var(--accent2)}
+.sim-pill.on{background:var(--accent);border-color:var(--accent);color:var(--accent-fg)}
+.bank-card.conceal details.sol{display:none}
+.sim-open-note{border:1px dashed var(--amber);border-radius:var(--radius);background:var(--amber-bg);
+  padding:10px 14px;margin:12px 0;font-size:14px}
+.sim-summary{border:1px solid var(--accent);border-radius:var(--radius);padding:16px;
+  background:var(--bg2);margin-bottom:16px}
+.sim-summary h2{margin-top:0}
+.sim-actions{display:flex;gap:8px;margin-top:12px}
+.sim-review-card{border:1px solid var(--line2);border-radius:var(--radius);padding:14px 16px;
+  background:var(--bg2);margin-bottom:14px}
+.sim-review-card h3{margin-top:0}
+.sim-steps{margin-top:12px;border-top:1px solid var(--line);padding-top:10px}
+.quiz-explain{display:none;border-top:1px solid var(--line);background:var(--bg);padding:16px 18px}
+.quiz-explain.open{display:block}
+.quiz-verdict{font-weight:800;margin-bottom:8px}
+.quiz-verdict.good{color:var(--accent)}
+.quiz-verdict.bad{color:var(--red)}
+.quiz-rule{border-right:4px solid var(--amber);background:var(--amber-bg);padding:10px 12px;border-radius:7px}
+.quiz-mistake{border-right:4px solid var(--red);background:var(--red-bg);padding:11px 13px;border-radius:7px;margin-top:11px}
+.quiz-similar{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-top:10px}
+.solution-lab{
+  margin:18px 0 4px;border:1px solid var(--accent);border-radius:14px;
+  background:var(--bg2);overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.06);
+}
+.solution-lab-head{
+  display:flex;align-items:flex-start;justify-content:space-between;gap:12px;
+  padding:15px 16px;background:linear-gradient(135deg,var(--accent2),var(--bg2));
+  border-bottom:1px solid var(--line);
+}
+.solution-lab-head h3{margin:7px 0 3px;font-size:20px}
+.solution-lab-head p{margin:0;color:var(--fg2);font-size:13px}
+.formula-title{padding:12px 16px 5px;font-size:12px;font-weight:800;color:var(--fg2)}
+.formula-strip{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:8px;padding:5px 16px 14px;
+}
+.formula-card{
+  min-width:0;border:1px solid var(--line2);border-radius:9px;background:var(--bg);
+  padding:9px 11px;text-align:center;
+}
+.formula-card small{display:block;color:var(--fg3);font-size:11px;margin-bottom:5px}
+.formula-card div{font:700 14px/1.5 var(--mono);unicode-bidi:isolate;overflow-wrap:anywhere}
+.solution-stage{min-height:220px;padding:0 16px 14px}
+.solution-step{
+  min-height:190px;border:1px solid var(--line2);border-radius:12px;background:var(--bg);
+  padding:17px;animation:solutionEnter .32s ease-out;
+}
+.solution-step-number{
+  display:inline-block;background:var(--accent);color:var(--accent-fg);
+  border-radius:99px;padding:3px 9px;font-size:11px;font-weight:800;
+}
+.solution-step h4{font-size:19px;margin:10px 0 6px}
+.solution-step p{font-size:15px;line-height:1.75;margin:0 0 12px}
+.solution-equation{
+  border:1px solid var(--line);border-radius:9px;background:var(--bg3);
+  padding:12px;text-align:center;font:750 16px/1.6 var(--mono);
+  unicode-bidi:isolate;overflow-x:auto;-webkit-overflow-scrolling:touch;
+}
+.solution-controls{
+  display:flex;align-items:center;gap:9px;flex-wrap:wrap;padding:12px 16px;
+  border-top:1px solid var(--line);background:var(--bg3);
+}
+.solution-dots{display:flex;align-items:center;gap:6px;margin-inline:auto}
+.solution-dot{
+  width:11px;height:11px;padding:0;border-radius:99px;border:1px solid var(--line2);
+  background:var(--bg2);cursor:pointer;
+}
+.solution-dot.on{width:25px;background:var(--accent);border-color:var(--accent)}
+.solution-position{font-size:12px;font-weight:750;color:var(--fg2)}
+@keyframes solutionEnter{
+  from{opacity:.2;transform:translateY(10px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.quiz-nav{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:11px 14px;border-top:1px solid var(--line);background:var(--bg3)}
+.quiz-nav .quiz-position{margin-inline-start:auto;color:var(--fg2);font-size:13px;font-weight:700}
+.quiz-empty{padding:28px;text-align:center;color:var(--fg2)}
+.source-proof{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin:9px 0 13px;font-size:13px}
+.source-proof a{color:var(--accent);font-weight:700;text-decoration:none}
+.source-proof a:hover{text-decoration:underline}
+.question-source{max-width:100%;white-space:normal;line-height:1.45;padding:6px 10px}
+.tag.difficulty{background:var(--amber-bg);color:var(--fg);border:1px solid var(--amber)}
+.tag.mastery{background:var(--accent2);color:var(--accent);border:1px solid var(--line2)}
+.tag.generated{background:var(--bg3);color:var(--fg2);border:1px solid var(--line2)}
+.adaptive-coach{
+  border:1px solid var(--accent);border-radius:16px;background:var(--bg2);
+  padding:18px;margin:16px 0;box-shadow:0 7px 24px rgba(0,0,0,.06);
+}
+.adaptive-coach-head{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.adaptive-coach h2{font-size:22px;margin:0}
+.adaptive-coach p{color:var(--fg2);margin:.35em 0 0}
+.coach-summary{border:1px solid var(--line);background:var(--bg);border-radius:10px;padding:12px;margin:13px 0}
+.coach-skills,.coach-next{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:8px}
+.coach-next{font-size:13px;color:var(--fg2)}
+.weakness-map{display:grid;gap:7px}
+.weakness-row{
+  display:grid;grid-template-columns:minmax(150px,1fr) minmax(120px,1.4fr) auto;
+  align-items:center;gap:10px;border-top:1px solid var(--line);padding-top:7px;
+}
+.weakness-row:first-child{border-top:0}
+.weakness-row small{display:block;color:var(--fg3);font-size:11.5px}
+.weakness-bar{height:9px;border:1px solid var(--line);border-radius:99px;background:var(--bg3);overflow:hidden}
+.weakness-bar i{display:block;height:100%;background:var(--accent);border-radius:99px}
+.mistake-book{border:1px solid var(--line2);border-radius:14px;background:var(--bg2);padding:17px;margin:18px 0}
+.mistake-book h2{margin-top:0;font-size:21px}
+.mistake-summary{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 13px}
+.mistake-list{display:grid;gap:8px}
+.mistake-row{display:grid;grid-template-columns:minmax(110px,.55fr) minmax(220px,1.7fr) auto;gap:10px;align-items:center;border-top:1px solid var(--line);padding:10px 0}
+.mistake-row:first-child{border-top:0}
+.mistake-row .rule{font-size:13px;color:var(--fg2)}
+.mistake-row.mastered{opacity:.68}
+.mistake-empty{color:var(--fg2);padding:8px 0}
+.today{box-shadow:inset 0 0 0 2px var(--accent);position:relative}
+.today::after{content:"היום";position:absolute;top:10px;left:12px;background:var(--accent);color:var(--accent-fg);border-radius:99px;padding:2px 9px;font-size:11px;font-weight:800}
+.ipad-ready{
+  display:flex;gap:12px;align-items:flex-start;justify-content:space-between;
+  border-right:4px solid var(--accent);background:var(--accent2);
+  padding:12px 15px;border-radius:9px;margin:1em 0 1.4em;
+}
+.ipad-ready .status{
+  flex:none;display:inline-flex;align-items:center;min-height:28px;padding:0 9px;
+  border:1px solid var(--line2);border-radius:99px;background:var(--bg2);
+  color:var(--fg2);font-size:12px;font-weight:700;white-space:nowrap;
+}
+.ipad-ready .status.offline{color:var(--amber);background:var(--amber-bg)}
+</style>
+</head>
+<body>
+
+<!-- ============ סרגל הניווט ============
+     כפתור לכל מקטע. data-go = ה-id של ה-<section>.
+     .grp = כותרת קבוצה. .cta = הכפתור הבולט. -->
+<nav class="tabs">
+<button class="cta" data-go="practice">🎯 מרכז התרגול</button>
+
+<span class="grp">התחלה</span>
+<button data-go="home">עמוד הבית</button>
+<button data-go="map">מפת המבחן</button>
+
+<span class="grp">יסודות</span>
+<button data-go="d01">משוואת הגלים ופתרון כללי</button>
+<button data-go="d02">גלים הרמוניים</button>
+
+<span class="grp">נושאי המבחן — לפי סדר השאלות</span>
+<button data-go="d04"><span class="qn">1</span>מיתר מונע בקצה</button>
+<button data-go="d03"><span class="qn">2</span>דלמבר — תנאי התחלה</button>
+<button data-go="d06"><span class="qn">3</span>צומת אימפדנסים</button>
+<button data-go="d07"><span class="qn">4</span>מיתר רתום ופורייה</button>
+
+<span class="grp">חוצה-שאלות</span>
+<button data-go="d05">אנרגיה והספק</button>
+<button data-go="d08">קווי תמסורת</button>
+
+<span class="grp">חומרי עזר</span>
+<button onclick="window.open('formulas.html','_blank')">📄 דף נוסחאות</button>
+
+<button class="th" onclick="toggleTheme()" title="מצב כהה / בהיר">◐</button>
+</nav>
+
+<div class="wrap">
+
+<!-- ============ עמוד הבית ============ -->
+<section class="pg" id="home">
+<h1>גלים 90929 — הכנה למועד ב'</h1>
+<p class="lead">המבחן: <b>4 שעות · 4 שאלות × 25 נק'</b> · מותר להביא <b>6 עמודי דף נוסחאות</b>.
+נבנה מניתוח 30 שאלוני עבר (2020–2026) והפתרונות הרשמיים.</p>
+
+<div class="grid">
+  <a class="deck" href="#practice" style="border-color:var(--accent);background:var(--accent2)">
+    <div class="n">🎯 הכי חשוב</div>
+    <div class="t">מרכז התרגול</div>
+    <div class="d">כל השאלות, מאמן אישי, סימולטור ופתרונות מונפשים.</div>
+  </a>
+  <a class="deck" href="#map" style="border-color:var(--accent)">
+    <div class="n">התחל כאן</div>
+    <div class="t">מפת המבחן</div>
+    <div class="d">מה באמת נשאל, לפי ניתוח שאלוני העבר.</div>
+  </a>
+</div>
+
+<h2>נושאי הלימוד — לפי תדירות ההופעה במבחנים</h2>
+<p><span class="dot p1"></span> מופיע בכל מבחן &nbsp;·&nbsp;
+<span class="dot p2"></span> מופיע ברוב המבחנים &nbsp;·&nbsp;
+<span class="dot p3"></span> רקע / משני</p>
+
+<div class="decks">
+  <a class="deck" href="#d04">
+    <div class="n">שאלה 1</div>
+    <div class="t">מיתר מונע בקצה</div>
+    <div class="d">מנוע בקצה מיתר חצי-אינסופי: מהנתון אל הגל, הכוח והעבודה.</div>
+    <div class="m"><span class="dot p1"></span><span class="tag exam">בכל מבחן · שאלה 1</span></div>
+  </a>
+  <a class="deck" href="#d03">
+    <div class="n">שאלה 2</div>
+    <div class="t">דלמבר — תנאי התחלה</div>
+    <div class="d">מ-y(x,0) ו-v(x,0) אל y(x,t): פיצול לשני גלים, חד-כיווניות.</div>
+    <div class="m"><span class="dot p1"></span><span class="tag exam">בכל מבחן · שאלה 2</span></div>
+  </a>
+  <a class="deck" href="#d06">
+    <div class="n">שאלה 3</div>
+    <div class="t">צומת אימפדנסים</div>
+    <div class="d">פולס פוגע בצומת: R ו-τ, מתיחת רוחב, מאזן אנרגיה.</div>
+    <div class="m"><span class="dot p1"></span><span class="tag exam">בכל מבחן · שאלה 3</span></div>
+  </a>
+  <a class="deck" href="#d07">
+    <div class="n">שאלה 4</div>
+    <div class="t">מיתר רתום — גלים עומדים ופורייה</div>
+    <div class="d">אופנים, מקדמים ופאזות, אנרגיה לכל הרמוניה.</div>
+    <div class="m"><span class="dot p1"></span><span class="tag exam">בכל מבחן · שאלה 4</span></div>
+  </a>
+  <a class="deck" href="#d05">
+    <div class="n">חוצה-שאלות</div>
+    <div class="t">אנרגיה והספק</div>
+    <div class="d">צפיפויות אנרגיה, P=−T·y<sub>x</sub>·y<sub>t</sub>, ממוצעים — סעיף בכל שאלה.</div>
+    <div class="m"><span class="dot p1"></span><span class="tag hot">סעיף בכל שאלה</span></div>
+  </a>
+  <a class="deck" href="#d08">
+    <div class="n">משני</div>
+    <div class="t">קווי תמסורת</div>
+    <div class="d">אותה פיזיקה בשמות אחרים: V↔y, I↔v, טלגרף, קו מקוצר/מנותק.</div>
+    <div class="m"><span class="dot p2"></span><span class="tag">הופיע ב-2023, 2025 · לא ב-2026 מועד א'</span></div>
+  </a>
+  <a class="deck" href="#d01">
+    <div class="n">יסודות</div>
+    <div class="t">משוואת הגלים ופתרון כללי</div>
+    <div class="d">f(x−vt)+g(x+vt), זיהוי גל, מהירות גל מול מהירות חומרית.</div>
+    <div class="m"><span class="dot p2"></span><span class="tag">הבסיס לכל השאלות</span></div>
+  </a>
+  <a class="deck" href="#d02">
+    <div class="n">יסודות</div>
+    <div class="t">גלים הרמוניים</div>
+    <div class="d">k, ω, λ, T — הקשרים וכיוון ההתקדמות.</div>
+    <div class="m"><span class="dot p2"></span><span class="tag">הבסיס לכל השאלות</span></div>
+  </a>
+</div>
+</section>
+
+<!-- ============ מרכז התרגול ============ -->
+<section class="pg" id="practice">
+<h1>מרכז התרגול</h1>
+<p class="lead">כל שאלות התרגול במקום אחד: מאמן אישי שבוחר את השאלה הבאה לפי
+הטעויות שלך, סימולטור מבחן, ופתרונות מונפשים שלב-אחר-שלב.</p>
+
+<div class="sim-switch" role="tablist" aria-label="מצב תרגול">
+  <button class="quiz-btn primary on" id="modeTrainer">🎯 תרגול חופשי</button>
+  <button class="quiz-btn" id="modeSim">⏱️ סימולטור מבחן מלא</button>
+  <button class="quiz-btn" id="modeWalk">📚 פתרונות מבחנים מונפשים</button>
+  <button class="quiz-btn" id="modeLabs">🔬 מעבדות חופשיות</button>
+</div>
+
+<section id="simulator" style="display:none" aria-label="סימולטור מבחן"></section>
+<section id="walkthroughs" style="display:none" aria-label="פתרונות מבחן מונפשים"></section>
+<section id="labs" style="display:none" aria-label="מעבדות חופשיות"></section>
+
+<div id="trainerParts">
+<div class="quiz-hero">
+  <b>איך לעבוד נכון:</b> התחל ב“מאמן אישי”, פתור בלי להציץ וקרא את ההסבר גם כשצדקת.
+  טעות חוזרת אוטומטית אחרי לפחות 3 שאלות אחרות; שלוש הצלחות בונות שליטה מלאה.
+  אחרי הבחירה, הפעל את הפתרון האוטומטי או התקדם ידנית בין השלבים. מקשי 1–4 בוחרים תשובה.
+  <div class="quiz-stats" aria-label="סטטיסטיקת תרגול">
+    <div class="quiz-stat"><b id="quizAnswered">0</b><span>שאלות שנבדקו</span></div>
+    <div class="quiz-stat"><b id="quizCorrect">0</b><span>ניסיונות נכונים</span></div>
+    <div class="quiz-stat"><b id="quizAccuracy">—</b><span>דיוק</span></div>
+    <div class="quiz-stat"><b id="quizRemaining">0</b><span>טרם נבדקו</span></div>
+    <div class="quiz-stat"><b id="quizDue">0</b><span>מוכנות לחזרה</span></div>
+    <div class="quiz-stat"><b id="quizMastered">0</b><span>נשלטו</span></div>
+  </div>
+  <div class="quiz-progress" aria-label="התקדמות"><i id="quizProgress"></i></div>
+</div>
+
+<section class="adaptive-coach" aria-labelledby="coachTitle">
+  <div class="adaptive-coach-head">
+    <div>
+      <h2 id="coachTitle">המאמן האישי</h2>
+      <p>בוחר את השאלה הבאה לפי טעויות, זמן חזרה, חולשות ורמת מבחני 2023–2025.</p>
+    </div>
+    <button class="quiz-btn primary" id="quizAdaptive">פתח את השאלה המומלצת</button>
+  </div>
+  <div class="coach-summary" id="coachSummary">מנתח את ההתקדמות…</div>
+  <div class="weakness-map" id="weaknessMap" aria-label="מפת חוזקות וחולשות"></div>
+</section>
+
+<div class="quiz-controls">
+  <input id="quizSearch" type="search" placeholder="חיפוש בשאלה, בקוד או בהסבר…" aria-label="חיפוש במאגר השאלות">
+  <select id="quizMode" aria-label="מצב תרגול">
+    <option value="adaptive">מאמן אישי — מומלץ</option>
+    <option value="due">מוכנות לחזרה</option>
+    <option value="all">כל השאלות</option>
+    <option value="unanswered">רק שאלות שלא נענו</option>
+    <option value="wrong">טעויות שעדיין לא נשלטו</option>
+    <option value="correct">התשובה האחרונה נכונה</option>
+    <option value="mastered">שאלות שנשלטו</option>
+  </select>
+  <select id="quizOrigin" aria-label="סינון לפי מקור השאלה">
+    <option value="all">כל המקורות</option>
+    <option value="recent">מבחני 2023–2025</option>
+    <option value="official">מבחן מקורי שאומת</option>
+    <option value="homework">מטלות HW1–HW4</option>
+    <option value="generated">שאלות Codex — לא ממבחן</option>
+    <option value="bank">מאגר השאלות הפתוחות</option>
+  </select>
+  <button class="quiz-btn" id="quizRandom">שאלה אקראית</button>
+  <button class="quiz-btn" id="quizRetry">נסה שוב את השאלה</button>
+  <button class="quiz-btn" id="quizReset">איפוס התרגול</button>
+</div>
+
+<div class="quiz-pills" id="quizCategories" aria-label="קטגוריות"></div>
+
+<div class="quiz-shell" id="quizShell" aria-live="polite">
+  <div class="quiz-empty">טוען את מאגר השאלות…</div>
+</div>
+
+<section class="mistake-book" aria-labelledby="mistakeTitle">
+  <h2 id="mistakeTitle">מחברת טעויות חכמה</h2>
+  <p>טעויות נשמרות גם אחרי תיקון. המאמן מחזיר אותן במרווחים,
+  מציע שאלות עם אותה מיומנות ומסמן שליטה רק לאחר שלוש הצלחות.</p>
+  <div id="mistakeNotebook" class="mistake-empty">עדיין אין טעויות שמורות.</div>
+</section>
+
+<div class="note">
+<b>שקיפות מקור:</b> לכל אחת מ-150 השאלות יש תווית קבועה וגלויה:
+מבחן ושנה/מועד, מספר מטלה, או <b>“שאלת Codex · לא ממבחן”</b>.
+“נוסח מותאם” פירושו שהרעיון הגיע מהמקור, אבל השאלה נוסחה מחדש לתרגול.
+ההתקדמות נשמרת מקומית במכשיר, ולכן לכל חבר שתשלח לו את הקישור תהיה התקדמות נפרדת.
+</div>
+</div>
+</section>
+<!-- ============ מפת המבחן ============ -->
+<section class="pg" id="map">
+<h1>מפת המבחן</h1>
+<p class="lead">נבנתה מ-30 שאלוני עבר (2020–2026) + הפתרונות הרשמיים + מרתון החזרה.
+המבנה קבוע: <b>4 שאלות × 25 נק'</b>, סעיפים א–ד, 4 שעות, 6 עמודי נוסחאות.</p>
+
+<h2>ארבע המשבצות</h2>
+<div class="tw"><table>
+<thead><tr><th>משבצת</th><th>נושא</th><th>הסעיפים הקבועים</th><th>וריאציות אחרונות (2024–2026)</th></tr></thead>
+<tbody>
+<tr><td><b>שאלה 1</b></td><td>מיתר מונע בקצה</td>
+<td dir="rtl">v ו-Z ← פונקציית הגל (u=x−vt) ← F<sub>D</sub>(t)=Z·v<sub>y</sub>(0,t) ← עבודה/הספק</td>
+<td>נתון פרופיל מהירות ברגע מאוחר v<sub>y</sub>(x,t₀) ומשחזרים אחורה — כך היה ב-2026 מועד א'</td></tr>
+<tr><td><b>שאלה 2</b></td><td>דלמבר ותנאי התחלה</td>
+<td dir="rtl">y(x,t) בדלמבר ← תנאי חד-כיווניות ← נקודות הספק אפס ← אנרגיה</td>
+<td>ב-2026: A,B מחולצים מאנרגיה כוללת ויחס קינטית/פוטנציאלית; זמן הפרדת פולסים</td></tr>
+<tr><td><b>שאלה 3</b></td><td>צומת אימפדנסים</td>
+<td dir="rtl">v₁,v₂ מרוחב+זמן ← Z₁,Z₂ ← R,τ ← גבהים ורוחבים ← אחוזי אנרגיה</td>
+<td>"הנדסה הפוכה": ρ₂ לא ידוע, משוחזר מהגל החוזר/עובר או מיחס אנרגיות</td></tr>
+<tr><td><b>שאלה 4</b></td><td>מיתר רתום — פורייה</td>
+<td dir="rtl">ω<sub>n</sub>, k<sub>n</sub> ← מקדמים c<sub>n</sub> ופאזות φ<sub>n</sub> ← אנרגיה כוללת ← אחוז בהרמוניה 1</td>
+<td>מתחלף לפעמים עם קו תמסורת סופי (2023, 2025). לא הופיע ב-2026 מועד א' — ייתכן שיחזור</td></tr>
+</tbody></table></div>
+
+<h2>שמונה המלכודות מהפתרונות הרשמיים</h2>
+<div class="warn"><b>1 · סימן הגל החוזר.</b> היפוך רק כש-Z₂&gt;Z₁ (אז R&lt;0). ביחס אימפדנסים תמיד יוצאות שתי אפשרויות מתמטיות — בוחרים לפי הסימן/הגודל הנתונים.</div>
+<div class="warn"><b>2 · רוחב פולס עובר נמתח</b> ביחס v₂/v₁. רוחב הפולס החוזר <b>לא</b> משתנה.</div>
+<div class="warn"><b>3 · תחומי תוקף.</b> ב-2026 כל שאלה דרשה כתיבה מדויקת של החלונות (0≤t≤t₀, "חלון נע" ב-x). לכתוב תמיד את התחום ליד כל ענף.</div>
+<div class="warn"><b>4 · קבועי אינטגרציה</b> בשחזור y מ-v<sub>y</sub> — נקבעים מתנאי ההתחלה וממשוואת הגלים (h(x)=Ax+B ⇒ A=B=0 בד"כ).</div>
+<div class="warn"><b>5 · תנאי התחלה על חצי תחום</b> ⇒ כל ההרמוניות קיימות, לא רק חלקן.</div>
+<div class="warn"><b>6 · גל שמאלה:</b> v<sub>y</sub>=+v·y<sub>x</sub> (ובקו תמסורת V₀=−ZI₀). הסימנים מתהפכים ביחס לגל ימינה.</div>
+<div class="warn"><b>7 · השרטוטים להמחשה בלבד</b> — אסור למדוד מהם אורכים.</div>
+<div class="warn"><b>8 · אנרגיה של גל הרמוני אינסופי אינה מוגדרת</b> — רק צפיפות אנרגיה או אנרגיה בקטע.</div>
+</section>
+
+<!-- ============ עמודי הנושא (התוכן מוזרק בשלב 1) ============ -->
+<section class="pg" id="d01"><h1>משוואת הגלים ופתרון כללי</h1><p class="lead">בבנייה…</p>
+<div class="eq">$$\frac{\partial^2 y}{\partial t^2}=v^2\frac{\partial^2 y}{\partial x^2},\qquad v=\sqrt{T/\rho}$$</div>
+<p>בדיקת ויזואל: פולס פוגע בצומת ב-\(x=0\) עם \(Z_2>Z_1\):</p>
+<div id="d01_demo"></div>
+</section>
+<section class="pg" id="d02"><h1>גלים הרמוניים</h1><p class="lead">בבנייה…</p></section>
+<section class="pg" id="d03"><h1>דלמבר — תנאי התחלה</h1><p class="lead">בבנייה…</p></section>
+<section class="pg" id="d04"><h1>מיתר מונע בקצה ואימפדנס</h1><p class="lead">בבנייה…</p></section>
+<section class="pg" id="d05"><h1>אנרגיה והספק</h1><p class="lead">בבנייה…</p></section>
+<section class="pg" id="d06"><h1>צמתים — החזרה והעברה</h1><p class="lead">בבנייה…</p></section>
+<section class="pg" id="d07"><h1>מיתר רתום — גלים עומדים ופורייה</h1><p class="lead">בבנייה…</p></section>
+<section class="pg" id="d08"><h1>קווי תמסורת</h1><p class="lead">בבנייה…</p></section>
+
+</div>
+
+<!-- ============ הקבצים ============
+     הסדר קריטי: קונפיג ⟵ נתונים ⟵ מנועים -->
+<script src="config.js"></script>
+
+<!-- נתונים (נוצרים בשלבים 2, 6, 7) -->
+<script src="questions.js"></script>
+<!-- <script src="walkthrough-2025.js"></script> -->
+<!-- <script src="bank-walk-a.js"></script> -->
+
+<!-- מנועים — לא לערוך -->
+<script src="viz.js"></script>
+<script src="adaptive-quiz.js"></script>
+<script src="walkthrough-ui.js"></script>
+<script src="exam-sim.js"></script>
+
+<script>
+/* ---- מצב כהה/בהיר ---- */
+(function () {
+  var KEY = (window.COURSE.storagePrefix || "course-") + "theme";
+  var saved = null;
+  try { saved = localStorage.getItem(KEY); } catch (e) {}
+  if (saved) document.documentElement.setAttribute("data-theme", saved);
+  window.toggleTheme = function () {
+    var cur = document.documentElement.getAttribute("data-theme");
+    if (!cur) cur = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    var next = cur === "dark" ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", next);
+    try { localStorage.setItem(KEY, next); } catch (e) {}
+  };
+})();
+
+/* ---- ניווט בין מקטעים ---- */
+(function () {
+  var btns = [].slice.call(document.querySelectorAll("nav.tabs button[data-go]"));
+  function go(id) {
+    var t = document.getElementById(id); if (!t) return;
+    [].slice.call(document.querySelectorAll(".pg")).forEach(function (s) { s.classList.remove("on"); });
+    t.classList.add("on");
+    btns.forEach(function (b) { b.classList.toggle("on", b.dataset.go === id); });
+    [].slice.call(t.querySelectorAll(".player")).forEach(function (p) { if (p.__redraw) p.__redraw(); });
+    window.scrollTo(0, 0);
+    if (location.hash.slice(1) !== id) history.replaceState(null, "", "#" + id);
+  }
+  btns.forEach(function (b) { b.onclick = function () { go(b.dataset.go); }; });
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest('a[href^="#"]'); if (!a) return;
+    var id = a.getAttribute("href").slice(1);
+    var el = document.getElementById(id);
+    if (el && el.classList.contains("pg")) { e.preventDefault(); go(id); }
+  });
+  window.addEventListener("hashchange", function () { go(location.hash.slice(1) || "home"); });
+  go(location.hash.slice(1) || "home");
+})();
+
+/* ---- נגן שלבים לעמודי הנושא ---- */
+function mountPlayer(id, frames) {
+  var root = document.getElementById(id); if (!root) return;
+  var i = 0;
+  root.className = "player";
+  root.innerHTML = '<div class="stage"></div><div class="cap"></div>' +
+    '<div class="bar"><button class="sec" data-a="first">⏮ להתחלה</button>' +
+    '<button data-a="prev">הקודם</button><button data-a="next">הבא ▸</button>' +
+    '<span class="pos"></span></div>';
+  var stage = root.querySelector(".stage"), cap = root.querySelector(".cap"),
+      pos = root.querySelector(".pos"),
+      bPrev = root.querySelector("[data-a=prev]"), bNext = root.querySelector("[data-a=next]");
+  function draw() {
+    stage.innerHTML = frames[i].html;
+    cap.innerHTML = frames[i].cap || "";
+    pos.textContent = (i + 1) + " / " + frames.length;
+    bPrev.disabled = i === 0;
+    bNext.disabled = i === frames.length - 1;
+  }
+  root.__redraw = draw;
+  root.querySelector("[data-a=first]").onclick = function () { i = 0; draw(); };
+  bPrev.onclick = function () { if (i > 0) { i--; draw(); } };
+  bNext.onclick = function () { if (i < frames.length - 1) { i++; draw(); } };
+  draw();
+}
+
+/* ---- נגני עמודי נושא (הנתונים בקובצי topic-*.js) ---- */
+(window.TOPIC_PLAYERS || []).forEach(function (p) {
+  mountPlayer(p.id, p.frames.map(function (f) {
+    return { html: f.viz ? window.renderViz(f.viz) : (f.html || ""), cap: f.cap };
+  }));
+});
+
+/* ---- בדיקת מנוע הגלים (זמני) ---- */
+(function () {
+  var el = document.getElementById("d01_demo");
+  if (!el) return;
+  el.innerHTML = window.renderViz({
+    type: "wave", xmin: -4, xmax: 4, ymax: 1.3,
+    regions: [{ from: -4, to: 0, label: "ρ₁", c: "info" }, { from: 0, to: 4, label: "ρ₂", c: "hot" }],
+    markers: [{ x: 0, label: "צומת" }],
+    curves: [
+      { shape: "halfsin", A: 1, from: -3, to: -1, c: "info", label: "פוגע" },
+      { shape: "halfsin", A: -0.33, from: -1, to: -3, c: "bad", label: "חוזר", dash: true },
+      { shape: "halfsin", A: 0.67, from: 0.5, to: 1.5, c: "good", label: "עובר" }
+    ],
+    arrows: [
+      { x: -2, y: 1.1, dir: "right", c: "info", label: "v₁" },
+      { x: 1, y: 0.85, dir: "right", c: "good", label: "v₂" }
+    ],
+    caption: "פולס חצי-סינוס בצומת: Z₂>Z₁ ⇒ החוזר הפוך, העובר צר יותר"
+  });
+})();
+
+/* ---- רינדור מתמטיקה (KaTeX) — אוטומטי, כולל תוכן שמוזרק דינמית ---- */
+(function () {
+  var OPTS = {
+    delimiters: [
+      { left: "$$", right: "$$", display: true },
+      { left: "\\(", right: "\\)", display: false },
+      { left: "\\[", right: "\\]", display: true }
+    ],
+    throwOnError: false
+  };
+  var pending = false;
+  function renderAll() {
+    if (typeof renderMathInElement !== "function") return;
+    try { renderMathInElement(document.body, OPTS); } catch (e) {}
+  }
+  function schedule() {
+    if (pending) return;
+    pending = true;
+    requestAnimationFrame(function () { pending = false; renderAll(); });
+  }
+  function boot() {
+    renderAll();
+    new MutationObserver(function (muts) {
+      for (var i = 0; i < muts.length; i++) {
+        var t = muts[i].target;
+        if (t && t.closest && t.closest(".katex")) continue;
+        schedule();
+        return;
+      }
+    }).observe(document.body, { childList: true, subtree: true });
+  }
+  if (typeof renderMathInElement === "function") boot();
+  else window.addEventListener("load", boot);
+})();
+
+/* ---- הפעלת מרכז התרגול ---- */
+var courseNameEl = document.getElementById("courseName");
+if (courseNameEl) courseNameEl.textContent = window.COURSE.code || "";
+if (window.mountCodexQuiz) window.mountCodexQuiz();
+</script>
+</body>
+</html>
