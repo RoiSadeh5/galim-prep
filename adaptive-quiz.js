@@ -154,6 +154,7 @@
     var category = "all";
     var mode = "adaptive";
     var originFilter = "all";
+    var typeFilter = "all";        /* all | choice | open */
     var query = "";
     var visible = [];
     var position = 0;
@@ -257,9 +258,15 @@
       return !!record && record.lastCorrect === false && !isDue(question);
     }
 
+    function isChoiceQuestion(question) {
+      return !!(question.opts && question.opts.length && typeof question.ans === "number");
+    }
+
     function matchesScope(question) {
       if (category !== "all" && question.cat !== category) return false;
       if (originFilter !== "all" && question.origin !== originFilter) return false;
+      if (typeFilter === "choice" && !isChoiceQuestion(question)) return false;
+      if (typeFilter === "open" && isChoiceQuestion(question)) return false;
       if (query) {
         var haystack = [
           question.prompt,
@@ -887,7 +894,10 @@
       category = "all";
       mode = "all";
       originFilter = "all";
+      typeFilter = "all";
       query = "";
+      var qt = document.getElementById("quizType");
+      if (qt) qt.value = "all";
       document.getElementById("quizMode").value = "all";
       document.getElementById("quizOrigin").value = "all";
       document.getElementById("quizSearch").value = "";
@@ -904,7 +914,10 @@
       mode = "adaptive";
       category = "all";
       originFilter = "all";
+      typeFilter = "all";
       query = "";
+      var qt = document.getElementById("quizType");
+      if (qt) qt.value = "all";
       document.getElementById("quizMode").value = "adaptive";
       document.getElementById("quizOrigin").value = "all";
       document.getElementById("quizSearch").value = "";
@@ -1013,6 +1026,25 @@
     document.getElementById("quizMode").addEventListener("change", function (event) {
       mode = event.target.value;
       renderAll(false);
+    });
+
+    var quizTypeEl = document.getElementById("quizType");
+    if (quizTypeEl) {
+      /* מספרי אמת בתוויות, כדי שיהיה ברור כמה שאלות יש מכל סוג */
+      var nChoice = questions.filter(isChoiceQuestion).length;
+      var labels = { all: "כל סוגי השאלות (" + questions.length + ")",
+                     choice: "🔘 אמריקאיות — בחר תשובה ואבדוק (" + nChoice + ")",
+                     open: "✍️ פתוחות — פתרון עצמי (" + (questions.length - nChoice) + ")" };
+      [].forEach.call(quizTypeEl.options, function (opt) {
+        if (labels[opt.value]) opt.textContent = labels[opt.value];
+      });
+    }
+    if (quizTypeEl) quizTypeEl.addEventListener("change", function (event) {
+      typeFilter = event.target.value;
+      position = 0;
+      refreshVisible(false);
+      renderCategories();
+      renderQuestion();
     });
 
     document.getElementById("quizOrigin").addEventListener("change", function (event) {
