@@ -1,0 +1,1 @@
+window.CODEX_ADAPTIVE_QUESTIONS = (window.CODEX_ADAPTIVE_QUESTIONS || []).concat([]);
