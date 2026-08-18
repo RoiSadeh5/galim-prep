@@ -4,10 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>גלים 90929 — דף נוסחאות 6 עמודים</title>
+<link rel="stylesheet" href="katex/katex.min.css">
+<script defer src="katex/katex.min.js"></script>
 <style>
 @page{size:A4 portrait;margin:0}
 *{box-sizing:border-box}
 :root{
+  --s:1.23;            /* קנה מידה גלובלי — נקבע במדידה, לא בניחוש */
+  --gap:2.5mm;
   --ink:#152528;--muted:#54676b;--line:#b9c9cb;--soft:#eef6f6;
   --cyan:#087f8c;--blue:#285b8f;--amber:#9a6100;--red:#a13c2d;
   --mono:"SF Mono",Menlo,Consolas,"DejaVu Sans Mono",monospace;
@@ -27,26 +31,29 @@ html,body{margin:0;background:#d8e0e1;color:var(--ink);font-family:var(--sans)}
 .sheet-head h1{font-size:17pt;line-height:1;margin:0;color:var(--cyan);letter-spacing:-.03em}
 .sheet-head p{margin:1.2mm 0 0;color:var(--muted);font-size:7.6pt;line-height:1.2}
 .page-no{font:900 20pt/1 var(--mono);color:#b4cbce}
-.cols{flex:1;min-height:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2.8mm;
-  padding-top:2.8mm;direction:rtl}
-.col{height:100%;min-height:0;display:flex;flex-direction:column;justify-content:space-between;
-  gap:3.3mm;overflow:visible}
-.box{border:.45mm solid var(--line);border-radius:2mm;padding:3.2mm 3.3mm;break-inside:avoid;background:#fff}
+.cols{flex:1;min-height:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2.5mm;
+  padding-top:2.2mm;direction:rtl}
+.col{height:100%;min-height:0;display:flex;flex-direction:column;justify-content:flex-start;
+  gap:var(--gap);overflow:visible}
+.box{border:.4mm solid var(--line);border-radius:1.8mm;padding:calc(2.7mm*var(--s)) calc(2.9mm*var(--s));break-inside:avoid;background:#fff}
 .box.soft{background:var(--soft);border-color:#9fc6c9}.box.hot{border-color:#d4ae70;background:#fff9ed}
 .box.warn{border-color:#d9a499;background:#fff5f2}.box.blue{border-color:#9db8d3;background:#f3f7fb}
-.box h2{margin:0 0 1.8mm;font-size:12pt;line-height:1.17;color:var(--cyan)}
-.box h3{margin:1.8mm 0 1mm;font-size:10.3pt;line-height:1.2;color:var(--blue)}
-.box p,.box li,.box td,.box th{font-size:9.75pt;line-height:1.43}
-.box p{margin:1.1mm 0}.box ul,.box ol{margin:1.1mm 0;padding-right:4.8mm}.box li{margin:.8mm 0}
-.eq{direction:ltr;unicode-bidi:isolate;text-align:center;font:700 9.35pt/1.52 var(--mono);
-  background:#f5f7f7;border-radius:1.3mm;padding:1.5mm 1.6mm;margin:1.1mm 0;overflow-wrap:anywhere}
-.eq.left{text-align:left}.eq + .eq{margin-top:.6mm}
-.rule{display:grid;grid-template-columns:1fr auto;gap:1.5mm;border-bottom:.2mm solid #dce5e6;
-  padding:1mm 0;align-items:start;font-size:9.5pt;line-height:1.35}
+.box h2{margin:0 0 1.4mm;font-size:calc(11.6pt*var(--s));line-height:1.14;color:var(--cyan)}
+.box h3{margin:1.3mm 0 .8mm;font-size:calc(9.9pt*var(--s));line-height:1.16;color:var(--blue)}
+.box p,.box li,.box td,.box th{font-size:calc(9.5pt*var(--s));line-height:1.34}
+.box p{margin:.85mm 0}.box ul,.box ol{margin:.85mm 0;padding-right:4.4mm}.box li{margin:.55mm 0}
+.eq{direction:ltr;unicode-bidi:isolate;text-align:center;font-size:calc(9.6pt*var(--s));
+  background:#f5f7f7;border-radius:1.1mm;padding:1.05mm 1.3mm;margin:.8mm 0;overflow-wrap:anywhere}
+.eq.left{text-align:left}.eq + .eq{margin-top:.45mm}
+.eq .katex{font-size:1em}.eq.eq-raw{font-family:var(--mono);font-weight:700}
+.rule{display:grid;grid-template-columns:1fr auto;gap:1.3mm;border-bottom:.2mm solid #dce5e6;
+  padding:.72mm 0;align-items:start;font-size:calc(9.3pt*var(--s));line-height:1.28}
 .rule:last-child{border-bottom:0}.rule b{color:var(--cyan)}
-table{border-collapse:collapse;width:100%;margin:.8mm 0}th,td{border:.25mm solid #cbd7d8;padding:.65mm .8mm;vertical-align:top}
+table{border-collapse:collapse;width:100%;margin:.8mm 0}th,td{border:.25mm solid #cbd7d8;padding:.45mm .7mm;vertical-align:top}
 th{background:#e8f2f3;color:#28545a;font-weight:800}
-.ltr{direction:ltr;unicode-bidi:isolate}.tag{display:inline-block;border-radius:99px;background:var(--cyan);
+.ltr{direction:ltr;unicode-bidi:isolate}
+span.ltr{white-space:nowrap;display:inline-block;max-width:100%;vertical-align:baseline}
+td.ltr,th.ltr{display:table-cell;white-space:nowrap}.tag{display:inline-block;border-radius:99px;background:var(--cyan);
   color:#fff;padding:.3mm 1.5mm;font-size:7.4pt;font-weight:800;white-space:nowrap}
 .source{font:750 8.1pt var(--mono);color:var(--amber);direction:ltr;unicode-bidi:isolate}
 .check{font-weight:800;color:var(--red)}.muted{color:var(--muted)}
@@ -79,97 +86,86 @@ th{background:#e8f2f3;color:#28545a;font-weight:800}
 <section class="sheet" data-page="1">
   <header class="sheet-head"><div><h1>יסודות, גל חד־כיווני וד׳אלמבר</h1><p>עמוד ייחוס · הגדרות, זהויות ותנאי התחלה</p></div><div class="page-no">01</div></header>
   <div class="cols">
-    <div class="col">
-      <div class="box soft">
+<div class="col">
+<div class="box soft">
         <h2>משוואת הגלים במיתר</h2>
-        <div class="eq">∂²y/∂t² = v² ∂²y/∂x²</div>
-        <div class="eq">v = √(T/μ)</div>
-        <div class="eq">Z = √(Tμ) = μv = T/v</div>
+        <div class="eq" data-tex="\frac{\partial^{2} y}{\partial t^{2}} = v^{2} \frac{\partial^{2} y}{\partial x^{2}}">∂²y/∂t² = v² ∂²y/∂x²</div>
+        <div class="eq" data-tex="v = \sqrt{T/\mu }">v = √(T/μ)</div>
+        <div class="eq" data-tex="Z = \sqrt{T\mu } = \mu v = T/v">Z = √(Tμ) = μv = T/v</div>
         <table><tr><th>גודל</th><th>יחידות</th></tr>
           <tr><td><span class="ltr">T</span> מתיחות</td><td class="ltr">N</td></tr>
           <tr><td><span class="ltr">μ</span> צפיפות קווית</td><td class="ltr">kg/m</td></tr>
           <tr><td><span class="ltr">v</span> מהירות התפשטות</td><td class="ltr">m/s</td></tr>
           <tr><td><span class="ltr">Z</span> עכבה מכנית</td><td class="ltr">kg/s</td></tr></table>
-      </div>
-      <div class="box">
+      </div><div class="box">
         <h2>גל הרמוני</h2>
-        <div class="eq">y = A cos(kx ∓ ωt + φ)</div>
-        <div class="eq">k = 2π/λ</div>
-        <div class="eq">ω = 2πf = vk</div>
-        <div class="eq">v = λf = ω/k</div>
+        <div class="eq" data-tex="y = A \cos(kx \mp \omega t + \varphi )">y = A cos(kx ∓ ωt + φ)</div>
+        <div class="eq" data-tex="k = 2\pi /\lambda">k = 2π/λ</div>
+        <div class="eq" data-tex="\omega = 2\pi f = vk">ω = 2πf = vk</div>
+        <div class="eq" data-tex="v = \lambda f = \omega /k">v = λf = ω/k</div>
         <p><b>הסימן:</b> <span class="ltr">kx−ωt</span> ימינה; <span class="ltr">kx+ωt</span> שמאלה.</p>
-      </div>
-      <div class="box warn">
+      </div><div class="box warn">
         <h2>שתי מהירויות שונות</h2>
         <div class="rule"><span><b>מהירות גל</b> — תנועת הצורה לאורך <span class="ltr">x</span></span><span class="ltr">v</span></div>
         <div class="rule"><span><b>מהירות חומרית</b> — תנועת נקודת המיתר</span><span class="ltr">v<sub>y</sub>=∂y/∂t</span></div>
         <p class="check">אין להחליף ביניהן גם אם לשתיהן יחידות m/s.</p>
-      </div>
-      <div class="box">
+      </div><div class="box">
         <h2>בדיקת פתרון</h2>
         <ol><li>היחידות של כל גודל נכונות.</li><li>הטיעון של פונקציה טריגונומטרית חסר יחידות.</li><li>תחום התמיכה זז עם הפולס.</li><li>תנאי ההתחלה מתקבלים בהצבת <span class="ltr">t=0</span>.</li></ol>
       </div>
-    </div>
-
-    <div class="col">
-      <div class="box soft">
+</div>
+<div class="col">
+<div class="box soft">
         <h2>גלים חד־כיווניים</h2>
-        <div class="eq">y<sub>+</sub>(x,t) = f(x−vt)</div>
-        <div class="eq">y<sub>−</sub>(x,t) = g(x+vt)</div>
+        <div class="eq" data-tex="y_{+}(x,t) = f(x-vt)">y<sub>+</sub>(x,t) = f(x−vt)</div>
+        <div class="eq" data-tex="y_{-}(x,t) = g(x+vt)">y<sub>−</sub>(x,t) = g(x+vt)</div>
         <h3>קשר נגזרות</h3>
-        <div class="eq">right: ∂y/∂t = −v ∂y/∂x</div>
-        <div class="eq">left: ∂y/∂t = +v ∂y/∂x</div>
+        <div class="eq" data-tex="\text{right: }\frac{\partial y}{\partial t} = -v \frac{\partial y}{\partial x}">right: ∂y/∂t = −v ∂y/∂x</div>
+        <div class="eq" data-tex="\text{left: }\frac{\partial y}{\partial t} = +v \frac{\partial y}{\partial x}">left: ∂y/∂t = +v ∂y/∂x</div>
         <p>הקשר חייב להתקיים <b>בכל המיקומים</b> כדי שהגל כולו יהיה חד־כיווני.</p>
-      </div>
-      <div class="box">
+      </div><div class="box">
         <h2>הזזת צורה ותמיכה</h2>
         <p>אם <span class="ltr">f(u)≠0</span> רק עבור <span class="ltr">a≤u≤b</span>:</p>
-        <div class="eq">right: a+vt ≤ x ≤ b+vt</div>
-        <div class="eq">left: a−vt ≤ x ≤ b−vt</div>
+        <div class="eq" data-tex="\text{right: }a+vt \le x \le b+vt">right: a+vt ≤ x ≤ b+vt</div>
+        <div class="eq" data-tex="\text{left: }a-vt \le x \le b-vt">left: a−vt ≤ x ≤ b−vt</div>
         <p>משך פולס בנקודה: <span class="ltr">Δt = Δx/v</span>.</p>
-      </div>
-      <div class="box blue">
+      </div><div class="box blue">
         <h2>שחזור ממקור בקצה</h2>
         <p>מיתר חצי־אינסופי <span class="ltr">x≥0</span>, גל יוצא בלבד:</p>
-        <div class="eq">y(0,t)=h(t) ⇒ y(x,t)=h(t−x/v)</div>
-        <div class="eq">v<sub>y</sub>(0,t)=u(t) ⇒ h(t)=h(t<sub>0</sub>)+∫<sub>t₀</sub><sup>t</sup>u(τ)dτ</div>
+        <div class="eq" data-tex="y(0,t)=h(t) \Rightarrow y(x,t)=h(t-x/v)">y(0,t)=h(t) ⇒ y(x,t)=h(t−x/v)</div>
+        <div class="eq" data-tex="v_{y}(0,t)=u(t) \Rightarrow h(t)=h(t_{0})+\int_{t_{0}}^{t}u(\tau )d\tau">v<sub>y</sub>(0,t)=u(t) ⇒ h(t)=h(t<sub>0</sub>)+∫<sub>t₀</sub><sup>t</sup>u(τ)dτ</div>
         <p>באינטגרציה קובעים קבוע בעזרת מצב המיתר לפני תחילת ההנעה ורציפות.</p>
-      </div>
-      <div class="box hot">
+      </div><div class="box hot">
         <h2>מלכודות חתכיות</h2>
         <ul><li>להזיז גם את הביטוי וגם את גבולותיו.</li><li>לבדוק מה קרה לפני הגעת חזית הפולס.</li><li>לא לבצע אינטגרציה מעבר לתחום שבו הנתון שונה מאפס.</li></ul>
       </div>
-    </div>
-
-    <div class="col">
-      <div class="box soft">
+</div>
+<div class="col">
+<div class="box soft">
         <h2>נוסחת ד׳אלמבר</h2>
         <p>נתונים <span class="ltr">F(x)=y(x,0)</span> ו־<span class="ltr">G(x)=∂y(x,0)/∂t</span>:</p>
-        <div class="eq">y(x,t) = ½F(x−vt) + ½F(x+vt)</div>
-        <div class="eq">+ (1/2v) ∫<sub>x−vt</sub><sup>x+vt</sup> G(s) ds</div>
+        <div class="eq" data-tex="y(x,t) = \tfrac{1}{2}F(x-vt) + \tfrac{1}{2}F(x+vt)">y(x,t) = ½F(x−vt) + ½F(x+vt)</div>
+        <div class="eq" data-tex="+ \frac{1}{2v} \int_{x-vt}^{x+vt} G(s) ds">+ (1/2v) ∫<sub>x−vt</sub><sup>x+vt</sup> G(s) ds</div>
         <p>ההעתק ההתחלתי יוצר שני חצאי פולס; המהירות ההתחלתית נכנסת כאינטגרל.</p>
-      </div>
-      <div class="box">
+      </div><div class="box">
         <h2>פירוק לשני כיוונים</h2>
-        <div class="eq">y(x,t)=f(x−vt)+g(x+vt)</div>
-        <div class="eq">f′(x)=½[F′(x)−G(x)/v]</div>
-        <div class="eq">g′(x)=½[F′(x)+G(x)/v]</div>
+        <div class="eq" data-tex="y(x,t)=f(x-vt)+g(x+vt)">y(x,t)=f(x−vt)+g(x+vt)</div>
+        <div class="eq" data-tex="f'(x)=\tfrac{1}{2}[F'(x)-G(x)/v]">f′(x)=½[F′(x)−G(x)/v]</div>
+        <div class="eq" data-tex="g'(x)=\tfrac{1}{2}[F'(x)+G(x)/v]">g′(x)=½[F′(x)+G(x)/v]</div>
         <p>קבועי האינטגרציה נקבעים כך שהסכום מחזיר את <span class="ltr">F</span>.</p>
-      </div>
-      <div class="box blue">
+      </div><div class="box blue">
         <h2>אינטגרל עם תמיכה סופית</h2>
         <p>אם <span class="ltr">G(s)</span> נתונה רק ב־<span class="ltr">[a,b]</span>, גבולות העבודה הם:</p>
-        <div class="eq">lower = max(x−vt, a)</div>
-        <div class="eq">upper = min(x+vt, b)</div>
+        <div class="eq" data-tex="\text{lower} = \max(x-vt, a)">lower = max(x−vt, a)</div>
+        <div class="eq" data-tex="\text{upper} = \min(x+vt, b)">upper = min(x+vt, b)</div>
         <p>אם <span class="ltr">lower&gt;upper</span> התרומה אפס.</p>
-      </div>
-      <div class="box warn">
+      </div><div class="box warn">
         <h2>תנאי חד־כיווניות בזמן 0</h2>
-        <div class="eq">right only: G(x)=−vF′(x)</div>
-        <div class="eq">left only: G(x)=+vF′(x)</div>
+        <div class="eq" data-tex="\text{right only: }G(x)=-vF'(x)">right only: G(x)=−vF′(x)</div>
+        <div class="eq" data-tex="\text{left only: }G(x)=+vF'(x)">left only: G(x)=+vF′(x)</div>
         <p>התאמה בנקודה אחת אינה מספיקה; נדרש קשר פונקציונלי בכל התחום.</p>
       </div>
-    </div>
+</div>
   </div>
   <footer class="sheet-foot"><span>גלים 90929 · ייחוס</span><span>1 / 6</span></footer>
 </section>
@@ -177,91 +173,80 @@ th{background:#e8f2f3;color:#28545a;font-weight:800}
 <section class="sheet" data-page="2">
   <header class="sheet-head"><div><h1>אנרגיה, הספק ומנוע</h1><p>עמוד ייחוס · צפיפויות, כיוון זרימה ועבודה בקצה</p></div><div class="page-no">02</div></header>
   <div class="cols">
-    <div class="col">
-      <div class="box soft">
+<div class="col">
+<div class="box soft">
         <h2>צפיפות אנרגיה ליחידת אורך</h2>
-        <div class="eq">u<sub>K</sub> = ½μ(∂y/∂t)²</div>
-        <div class="eq">u<sub>U</sub> = ½T(∂y/∂x)²</div>
-        <div class="eq">u = u<sub>K</sub> + u<sub>U</sub></div>
-        <div class="eq">E[a,b] = ∫<sub>a</sub><sup>b</sup> u(x,t) dx</div>
+        <div class="eq" data-tex="u_{K} = \tfrac{1}{2}\mu (\frac{\partial y}{\partial t})^{2}">u<sub>K</sub> = ½μ(∂y/∂t)²</div>
+        <div class="eq" data-tex="u_{U} = \tfrac{1}{2}T(\frac{\partial y}{\partial x})^{2}">u<sub>U</sub> = ½T(∂y/∂x)²</div>
+        <div class="eq" data-tex="u = u_{K} + u_{U}">u = u<sub>K</sub> + u<sub>U</sub></div>
+        <div class="eq" data-tex="E[a,b] = \int_{a}^{b} u(x,t) dx">E[a,b] = ∫<sub>a</sub><sup>b</sup> u(x,t) dx</div>
         <p>יחידות: <span class="ltr">u [J/m]</span>, <span class="ltr">E [J]</span>.</p>
-      </div>
-      <div class="box">
+      </div><div class="box">
         <h2>שימור אנרגיה מקומי</h2>
-        <div class="eq">∂u/∂t + ∂P/∂x = 0</div>
-        <div class="eq">P = −T(∂y/∂x)(∂y/∂t)</div>
+        <div class="eq" data-tex="\frac{\partial u}{\partial t} + \frac{\partial P}{\partial x} = 0">∂u/∂t + ∂P/∂x = 0</div>
+        <div class="eq" data-tex="P = -T(\frac{\partial y}{\partial x})(\frac{\partial y}{\partial t})">P = −T(∂y/∂x)(∂y/∂t)</div>
         <p><span class="ltr">P&gt;0</span> פירושו זרימת אנרגיה לכיוון <span class="ltr">+x</span>; הספק יכול להיות שלילי, צפיפות אנרגיה לא.</p>
-      </div>
-      <div class="box blue">
+      </div><div class="box blue">
         <h2>אנרגיה באזור משתנה</h2>
-        <div class="eq">dE[a,b]/dt = P(a,t) − P(b,t)</div>
+        <div class="eq" data-tex="dE[a,b]/dt = P(a,t) - P(b,t)">dE[a,b]/dt = P(a,t) − P(b,t)</div>
         <p>ההספק שנכנס דרך הגבול השמאלי פחות ההספק שיוצא דרך הימני.</p>
-      </div>
-      <div class="box warn">
+      </div><div class="box warn">
         <h2>בדיקות סימן</h2>
         <ul><li>ימינה: ההספק של גל יחיד חיובי.</li><li>שמאלה: ההספק של גל יחיד שלילי.</li><li>בסופרפוזיציה ההספק הרגעי עשוי לשנות סימן.</li><li>ממוצע הספק בגל עומד אידאלי הוא אפס.</li></ul>
       </div>
-    </div>
-
-    <div class="col">
-      <div class="box soft">
+</div>
+<div class="col">
+<div class="box soft">
         <h2>גל חד־כיווני</h2>
-        <div class="eq">u<sub>K</sub> = u<sub>U</sub></div>
-        <div class="eq">u = μ(∂y/∂t)² = T(∂y/∂x)²</div>
-        <div class="eq">|P| = Zu<sub>y</sub>² = v u</div>
+        <div class="eq" data-tex="u_{K} = u_{U}">u<sub>K</sub> = u<sub>U</sub></div>
+        <div class="eq" data-tex="u = \mu (\frac{\partial y}{\partial t})^{2} = T(\frac{\partial y}{\partial x})^{2}">u = μ(∂y/∂t)² = T(∂y/∂x)²</div>
+        <div class="eq" data-tex="|P| = Zu_{y}^{2} = v u">|P| = Zu<sub>y</sub>² = v u</div>
         <p>כאן <span class="ltr">u<sub>y</sub>=∂y/∂t</span>; כיוון הגל קובע את סימן <span class="ltr">P</span>.</p>
-      </div>
-      <div class="box">
+      </div><div class="box">
         <h2>גל הרמוני חד־כיווני</h2>
-        <div class="eq">y = A cos(kx−ωt+φ)</div>
-        <div class="eq">⟨P⟩ = ½Zω²A²</div>
-        <div class="eq">⟨u⟩ = ½μω²A²</div>
+        <div class="eq" data-tex="y = A \cos(kx-\omega t+\varphi )">y = A cos(kx−ωt+φ)</div>
+        <div class="eq" data-tex="\langle P\rangle = \tfrac{1}{2}Z\omega^{2}A^{2}">⟨P⟩ = ½Zω²A²</div>
+        <div class="eq" data-tex="\langle u\rangle = \tfrac{1}{2}\mu \omega^{2}A^{2}">⟨u⟩ = ½μω²A²</div>
         <p>ממוצע בזמן משתמש ב־<span class="ltr">⟨sin²⟩=⟨cos²⟩=½</span>.</p>
-      </div>
-      <div class="box blue">
+      </div><div class="box blue">
         <h2>אנרגיית פולס חד־כיווני</h2>
-        <div class="eq">E = ∫ μ(∂y/∂t)² dx</div>
-        <div class="eq">E = ∫ T(∂y/∂x)² dx</div>
-        <div class="eq">E = ∫ P(t) dt</div>
+        <div class="eq" data-tex="E = \int \mu (\frac{\partial y}{\partial t})^{2} dx">E = ∫ μ(∂y/∂t)² dx</div>
+        <div class="eq" data-tex="E = \int T(\frac{\partial y}{\partial x})^{2} dx">E = ∫ T(∂y/∂x)² dx</div>
+        <div class="eq" data-tex="E = \int P(t) dt">E = ∫ P(t) dt</div>
         <p>בחר את האינטגרל שמתאים לנתון הפשוט ביותר: צורת הפולס, מהירות חומרית או הספק מקור.</p>
-      </div>
-      <div class="box hot">
+      </div><div class="box hot">
         <h2>יחס קינטית/פוטנציאלית</h2>
         <p>אם נתונים <span class="ltr">K/U=r</span> ו־<span class="ltr">E=K+U</span>:</p>
-        <div class="eq">U = E/(r+1)</div>
-        <div class="eq">K = rE/(r+1)</div>
+        <div class="eq" data-tex="U = E/(r+1)">U = E/(r+1)</div>
+        <div class="eq" data-tex="K = rE/(r+1)">K = rE/(r+1)</div>
       </div>
-    </div>
-
-    <div class="col">
-      <div class="box soft">
+</div>
+<div class="col">
+<div class="box soft">
         <h2>כוח והספק בקצה</h2>
         <p>בגל יוצא בלבד, גדלים בערך מוחלט:</p>
-        <div class="eq">F<sub>D</sub>(t) = Z v<sub>y</sub>(0,t)</div>
-        <div class="eq">P<sub>D</sub>(t) = F<sub>D</sub>v<sub>y</sub> = Z v<sub>y</sub>²</div>
-        <div class="eq">W<sub>D</sub> = ∫ P<sub>D</sub>(t) dt</div>
+        <div class="eq" data-tex="F_{D}(t) = Z v_{y}(0,t)">F<sub>D</sub>(t) = Z v<sub>y</sub>(0,t)</div>
+        <div class="eq" data-tex="P_{D}(t) = F_{D}v_{y} = Z v_{y}^{2}">P<sub>D</sub>(t) = F<sub>D</sub>v<sub>y</sub> = Z v<sub>y</sub>²</div>
+        <div class="eq" data-tex="W_{D} = \int P_{D}(t) dt">W<sub>D</sub> = ∫ P<sub>D</sub>(t) dt</div>
         <p>סימן הכוח תלוי בשאלה אם מתארים כוח המנוע על המיתר או כוח המיתר על המנוע.</p>
-      </div>
-      <div class="box">
+      </div><div class="box">
         <h2>מעבר בין נתוני קצה</h2>
         <div class="flow"><span>העתק <span class="ltr">y</span></span><i>⇄</i><span>מהירות <span class="ltr">v<sub>y</sub></span></span><i>⇄</i><span>כוח <span class="ltr">F</span></span><i>⇄</i><span>הספק <span class="ltr">P</span></span></div>
-        <div class="eq">v<sub>y</sub> = dy/dt</div>
-        <div class="eq">F = Zv<sub>y</sub></div>
-        <div class="eq">P = Fv<sub>y</sub></div>
+        <div class="eq" data-tex="v_{y} = dy/dt">v<sub>y</sub> = dy/dt</div>
+        <div class="eq" data-tex="F = Zv_{y}">F = Zv<sub>y</sub></div>
+        <div class="eq" data-tex="P = Fv_{y}">P = Fv<sub>y</sub></div>
         <p>אם מתחילים מהספק: <span class="ltr">|v<sub>y</sub>|=√(P/Z)</span>; סימן המהירות נקבע מן התנועה.</p>
-      </div>
-      <div class="box blue">
+      </div><div class="box blue">
         <h2>מקור פעיל בזמן סופי</h2>
         <p>אם המקור פועל רק עבור <span class="ltr">t<sub>0</sub>≤t≤t<sub>1</sub></span>:</p>
-        <div class="eq">vt<sub>0</sub> ≤ vt−x ≤ vt<sub>1</sub></div>
-        <div class="eq">v(t−t<sub>1</sub>) ≤ x ≤ v(t−t<sub>0</sub>)</div>
+        <div class="eq" data-tex="vt_{0} \le vt-x \le vt_{1}">vt<sub>0</sub> ≤ vt−x ≤ vt<sub>1</sub></div>
+        <div class="eq" data-tex="v(t-t_{1}) \le x \le v(t-t_{0})">v(t−t<sub>1</sub>) ≤ x ≤ v(t−t<sub>0</sub>)</div>
         <p>זהו תחום הפולס במיתר בזמן <span class="ltr">t</span>.</p>
-      </div>
-      <div class="box warn">
+      </div><div class="box warn">
         <h2>מלכודות מנוע</h2>
         <ul><li>עבודה אינה כוח כפול זמן.</li><li>הספק תלוי בריבוע המהירות בגל יוצא.</li><li>אחרי אינטגרציית מהירות צריך קבוע ורציפות.</li><li>אין להניח גל יוצא אם יש החזרה מן הקצה השני.</li></ul>
       </div>
-    </div>
+</div>
   </div>
   <footer class="sheet-foot"><span>גלים 90929 · ייחוס</span><span>2 / 6</span></footer>
 </section>
@@ -269,87 +254,76 @@ th{background:#e8f2f3;color:#28545a;font-weight:800}
 <section class="sheet" data-page="3">
   <header class="sheet-head"><div><h1>החזרה והעברה בצומת</h1><p>עמוד ייחוס · אמפליטודה, רוחב, הספק ואנרגיה</p></div><div class="page-no">03</div></header>
   <div class="cols">
-    <div class="col">
-      <div class="box soft">
+<div class="col">
+<div class="box soft">
         <h2>נתוני שני התווכים</h2>
-        <div class="eq">v<sub>i</sub> = √(T/μ<sub>i</sub>)</div>
-        <div class="eq">Z<sub>i</sub> = √(Tμ<sub>i</sub>) = T/v<sub>i</sub></div>
+        <div class="eq" data-tex="v_{i} = \sqrt{T/\mu_{i}}">v<sub>i</sub> = √(T/μ<sub>i</sub>)</div>
+        <div class="eq" data-tex="Z_{i} = \sqrt{T\mu_{i}} = T/v_{i}">Z<sub>i</sub> = √(Tμ<sub>i</sub>) = T/v<sub>i</sub></div>
         <p>במיתר רציף המתיחות משותפת; צפיפות גדולה יותר נותנת מהירות קטנה ועכבה גדולה.</p>
-      </div>
-      <div class="box">
+      </div><div class="box">
         <h2>תנאי הצומת</h2>
-        <div class="eq">y<sub>i</sub>(0,t)+y<sub>r</sub>(0,t)=y<sub>t</sub>(0,t)</div>
-        <div class="eq">T∂<sub>x</sub>(y<sub>i</sub>+y<sub>r</sub>) = T∂<sub>x</sub>y<sub>t</sub></div>
+        <div class="eq" data-tex="y_{i}(0,t)+y_{r}(0,t)=y_{t}(0,t)">y<sub>i</sub>(0,t)+y<sub>r</sub>(0,t)=y<sub>t</sub>(0,t)</div>
+        <div class="eq" data-tex="T\partial_{x}(y_{i}+y_{r}) = T\partial_{x}y_{t}">T∂<sub>x</sub>(y<sub>i</sub>+y<sub>r</sub>) = T∂<sub>x</sub>y<sub>t</sub></div>
         <p>הראשון הוא רציפות ההעתק; השני מאזן הכוח הרוחבי.</p>
-      </div>
-      <div class="box blue">
+      </div><div class="box blue">
         <h2>מקדמי העתק</h2>
-        <div class="eq">r = A<sub>r</sub>/A<sub>i</sub> = (Z<sub>1</sub>−Z<sub>2</sub>)/(Z<sub>1</sub>+Z<sub>2</sub>)</div>
-        <div class="eq">τ = A<sub>t</sub>/A<sub>i</sub> = 2Z<sub>1</sub>/(Z<sub>1</sub>+Z<sub>2</sub>)</div>
-        <div class="eq">τ = 1+r</div>
+        <div class="eq" data-tex="r = A_{r}/A_{i} = (Z_{1}-Z_{2})/(Z_{1}+Z_{2})">r = A<sub>r</sub>/A<sub>i</sub> = (Z<sub>1</sub>−Z<sub>2</sub>)/(Z<sub>1</sub>+Z<sub>2</sub>)</div>
+        <div class="eq" data-tex="\tau = A_{t}/A_{i} = 2Z_{1}/(Z_{1}+Z_{2})">τ = A<sub>t</sub>/A<sub>i</sub> = 2Z<sub>1</sub>/(Z<sub>1</sub>+Z<sub>2</sub>)</div>
+        <div class="eq" data-tex="\tau = 1+r">τ = 1+r</div>
         <p>הגל פוגע מתווך 1. הסימן של <span class="ltr">r</span> קובע אם ההחזרה מתהפכת.</p>
-      </div>
-      <div class="box warn">
+      </div><div class="box warn">
         <h2>כיוון וסימן</h2>
         <table><tr><th>מצב</th><th>החזרה</th></tr>
           <tr><td class="ltr">Z₂&gt;Z₁</td><td><span class="ltr">r&lt;0</span> · היפוך</td></tr>
           <tr><td class="ltr">Z₂&lt;Z₁</td><td><span class="ltr">r&gt;0</span> · ללא היפוך</td></tr>
           <tr><td class="ltr">Z₂=Z₁</td><td><span class="ltr">r=0</span> · התאמה</td></tr></table>
       </div>
-    </div>
-
-    <div class="col">
-      <div class="box soft">
+</div>
+<div class="col">
+<div class="box soft">
         <h2>יחסי אנרגיה והספק</h2>
-        <div class="eq">R = E<sub>r</sub>/E<sub>i</sub> = P̄<sub>r</sub>/P̄<sub>i</sub> = r²</div>
-        <div class="eq">𝒯 = E<sub>t</sub>/E<sub>i</sub> = 4Z<sub>1</sub>Z<sub>2</sub>/(Z<sub>1</sub>+Z<sub>2</sub>)²</div>
-        <div class="eq">R + 𝒯 = 1</div>
+        <div class="eq" data-tex="R = E_{r}/E_{i} = \bar{P}_{r}/\bar{P}_{i} = r^{2}">R = E<sub>r</sub>/E<sub>i</sub> = P̄<sub>r</sub>/P̄<sub>i</sub> = r²</div>
+        <div class="eq" data-tex="\mathcal{T} = E_{t}/E_{i} = 4Z_{1}Z_{2}/(Z_{1}+Z_{2})^{2}">𝒯 = E<sub>t</sub>/E<sub>i</sub> = 4Z<sub>1</sub>Z<sub>2</sub>/(Z<sub>1</sub>+Z<sub>2</sub>)²</div>
+        <div class="eq" data-tex="R + \mathcal{T} = 1">R + 𝒯 = 1</div>
         <p>יחס האנרגיה של הגל העובר אינו בדרך כלל <span class="ltr">τ²</span>; יש גורם עכבה.</p>
-      </div>
-      <div class="box">
+      </div><div class="box">
         <h2>אמפליטודת מהירות וכוח</h2>
-        <div class="eq">v<sub>y</sub> amplitude ∝ ωA</div>
-        <div class="eq">P̄ = ½Zω²A²</div>
+        <div class="eq" data-tex="v_{y} \text{amplitude} \propto \omega A">v<sub>y</sub> amplitude ∝ ωA</div>
+        <div class="eq" data-tex="\bar{P} = \tfrac{1}{2}Z\omega^{2}A^{2}">P̄ = ½Zω²A²</div>
         <p>באותו תדר, מעבר אמפליטודת ההעתק ליחס הספק דורש הכפלה ב־<span class="ltr">Z₂/Z₁</span>.</p>
-      </div>
-      <div class="box blue">
+      </div><div class="box blue">
         <h2>רוחב פולס</h2>
         <p>משך הפולס בצומת נשמר: <span class="ltr">Δt</span> זהה לשלושת הגלים.</p>
-        <div class="eq">w<sub>i</sub> = v<sub>1</sub>Δt</div>
-        <div class="eq">w<sub>r</sub> = w<sub>i</sub></div>
-        <div class="eq">w<sub>t</sub> = (v<sub>2</sub>/v<sub>1</sub>)w<sub>i</sub></div>
-      </div>
-      <div class="box hot">
+        <div class="eq" data-tex="w_{i} = v_{1}\Delta t">w<sub>i</sub> = v<sub>1</sub>Δt</div>
+        <div class="eq" data-tex="w_{r} = w_{i}">w<sub>r</sub> = w<sub>i</sub></div>
+        <div class="eq" data-tex="w_{t} = (v_{2}/v_{1})w_{i}">w<sub>t</sub> = (v<sub>2</sub>/v<sub>1</sub>)w<sub>i</sub></div>
+      </div><div class="box hot">
         <h2>זמן מעבר הצומת</h2>
-        <div class="eq">Δt<sub>cross</sub> = w<sub>i</sub>/v<sub>1</sub></div>
+        <div class="eq" data-tex="\Delta t_{\text{cross}} = w_{i}/v_{1}">Δt<sub>cross</sub> = w<sub>i</sub>/v<sub>1</sub></div>
         <p>מן הרגע שבו חזית הפולס מגיעה עד שהזנב מסיים לעבור.</p>
       </div>
-    </div>
-
-    <div class="col">
-      <div class="box soft">
+</div>
+<div class="col">
+<div class="box soft">
         <h2>גבולות שימושיים</h2>
         <table><tr><th>גבול</th><th class="ltr">r</th><th class="ltr">τ</th></tr>
           <tr><td>קצה רתום <span class="ltr">Z₂→∞</span></td><td class="ltr">−1</td><td class="ltr">0</td></tr>
           <tr><td>קצה חופשי <span class="ltr">Z₂→0</span></td><td class="ltr">+1</td><td class="ltr">2</td></tr>
           <tr><td>התאמה <span class="ltr">Z₂=Z₁</span></td><td class="ltr">0</td><td class="ltr">1</td></tr></table>
         <p><span class="ltr">τ=2</span> בקצה חופשי הוא העתק הצומת; אין אנרגיה עוברת לתווך שעכבתו אפס.</p>
-      </div>
-      <div class="box">
+      </div><div class="box">
         <h2>שחזור יחס עכבות</h2>
         <p>אם ידוע <span class="ltr">r</span>:</p>
-        <div class="eq">Z<sub>2</sub>/Z<sub>1</sub> = (1−r)/(1+r)</div>
+        <div class="eq" data-tex="Z_{2}/Z_{1} = (1-r)/(1+r)">Z<sub>2</sub>/Z<sub>1</sub> = (1−r)/(1+r)</div>
         <p>אם נתון רק <span class="ltr">R=r²</span>, סימן <span class="ltr">r</span> נקבע מהיפוך או מאי־היפוך ההחזרה.</p>
-      </div>
-      <div class="box blue">
+      </div><div class="box blue">
         <h2>אלגוריתם קבוע לצומת</h2>
         <ol><li>חשב <span class="ltr">v₁,v₂,Z₁,Z₂</span>.</li><li>חשב <span class="ltr">r,τ</span> וסימן.</li><li>הכפל גובה ב־<span class="ltr">r</span> או <span class="ltr">τ</span>.</li><li>עדכן רוחב באמצעות המהירות.</li><li>חשב אנרגיה עם <span class="ltr">r²</span> ו־<span class="ltr">1−r²</span>.</li><li>שרטט במיקומים הנכונים ובכיוונים הנכונים.</li></ol>
-      </div>
-      <div class="box warn">
+      </div><div class="box warn">
         <h2>ארבע מלכודות</h2>
         <ul><li>לא להעלות את <span class="ltr">τ</span> בריבוע בלי יחס עכבות.</li><li>היפוך סימן אינו אנרגיה שלילית.</li><li>רוחב עובר משתנה גם כשמשך הפולס לא.</li><li>להגדיר במפורש מאיזה צד הגל פוגע.</li></ul>
       </div>
-    </div>
+</div>
   </div>
   <footer class="sheet-foot"><span>גלים 90929 · ייחוס</span><span>3 / 6</span></footer>
 </section>
@@ -357,69 +331,61 @@ th{background:#e8f2f3;color:#28545a;font-weight:800}
 <section class="sheet" data-page="4">
   <header class="sheet-head"><div><h1>מיתר סופי, קו תמסורת ונספח ארכיון</h1><p>עמוד ייחוס · אופנים, תנאי שפה והמקבילה החשמלית</p></div><div class="page-no">04</div></header>
   <div class="cols">
-    <div class="col">
-      <div class="box soft">
+<div class="col">
+<div class="box soft">
         <h2>מיתר רתום בשני קצותיו</h2>
-        <div class="eq">y(0,t)=y(L,t)=0</div>
-        <div class="eq">k<sub>n</sub>=nπ/L</div>
-        <div class="eq">ω<sub>n</sub>=vk<sub>n</sub></div>
-        <div class="eq">f<sub>n</sub>=nv/(2L)</div>
+        <div class="eq" data-tex="y(0,t)=y(L,t)=0">y(0,t)=y(L,t)=0</div>
+        <div class="eq" data-tex="k_{n}=n\pi /L">k<sub>n</sub>=nπ/L</div>
+        <div class="eq" data-tex="\omega_{n}=vk_{n}">ω<sub>n</sub>=vk<sub>n</sub></div>
+        <div class="eq" data-tex="f_{n}=nv/(2L)">f<sub>n</sub>=nv/(2L)</div>
         <p><span class="ltr">n=1,2,3,…</span>; הפונקציות המרחביות הן <span class="ltr">sin(k<sub>n</sub>x)</span>.</p>
-      </div>
-      <div class="box">
+      </div><div class="box">
         <h2>פתרון מתנאי התחלה</h2>
-        <div class="eq">y = Σ[A<sub>n</sub>cos(ω<sub>n</sub>t)+B<sub>n</sub>sin(ω<sub>n</sub>t)]sin(k<sub>n</sub>x)</div>
-        <div class="eq">A<sub>n</sub> = (2/L)∫<sub>0</sub><sup>L</sup>F(x)sin(k<sub>n</sub>x)dx</div>
-        <div class="eq">B<sub>n</sub> = (2/Lω<sub>n</sub>)∫<sub>0</sub><sup>L</sup>G(x)sin(k<sub>n</sub>x)dx</div>
-      </div>
-      <div class="box blue">
+        <div class="eq" data-tex="y = \sum [A_{n}\cos(\omega_{n}t)+B_{n}\sin(\omega_{n}t)]\sin(k_{n}x)">y = Σ[A<sub>n</sub>cos(ω<sub>n</sub>t)+B<sub>n</sub>sin(ω<sub>n</sub>t)]sin(k<sub>n</sub>x)</div>
+        <div class="eq" data-tex="A_{n} = (2/L)\int_{0}^{L}F(x)\sin(k_{n}x)dx">A<sub>n</sub> = (2/L)∫<sub>0</sub><sup>L</sup>F(x)sin(k<sub>n</sub>x)dx</div>
+        <div class="eq" data-tex="B_{n} = (2/L\omega_{n})\int_{0}^{L}G(x)\sin(k_{n}x)dx">B<sub>n</sub> = (2/Lω<sub>n</sub>)∫<sub>0</sub><sup>L</sup>G(x)sin(k<sub>n</sub>x)dx</div>
+      </div><div class="box blue">
         <h2>אמפליטודה, פאזה ואנרגיה</h2>
-        <div class="eq">C<sub>n</sub> = √(A<sub>n</sub>²+B<sub>n</sub>²)</div>
-        <div class="eq">A<sub>n</sub>=C<sub>n</sub>cosφ<sub>n</sub></div>
-        <div class="eq">B<sub>n</sub>=−C<sub>n</sub>sinφ<sub>n</sub></div>
-        <div class="eq">E<sub>n</sub> = ¼μLω<sub>n</sub>²C<sub>n</sub>²</div>
+        <div class="eq" data-tex="C_{n} = \sqrt{A_{n}^{2}+B_{n}^{2}}">C<sub>n</sub> = √(A<sub>n</sub>²+B<sub>n</sub>²)</div>
+        <div class="eq" data-tex="A_{n}=C_{n}cos\varphi_{n}">A<sub>n</sub>=C<sub>n</sub>cosφ<sub>n</sub></div>
+        <div class="eq" data-tex="B_{n}=-C_{n}sin\varphi_{n}">B<sub>n</sub>=−C<sub>n</sub>sinφ<sub>n</sub></div>
+        <div class="eq" data-tex="E_{n} = \tfrac{1}{4}\mu L\omega_{n}^{2}C_{n}^{2}">E<sub>n</sub> = ¼μLω<sub>n</sub>²C<sub>n</sub>²</div>
         <p>הסימן ב־<span class="ltr">B<sub>n</sub></span> מתאים לכתיבה <span class="ltr">cos(ωt+φ)</span>.</p>
-      </div>
-      <div class="box hot">
+      </div><div class="box hot">
         <h2>מחזור של סכום אופנים</h2>
-        <div class="eq">T<sub>1</sub>=2L/v</div>
-        <div class="eq">T = T<sub>1</sub>/gcd(n active)</div>
+        <div class="eq" data-tex="T_{1}=2L/v">T<sub>1</sub>=2L/v</div>
+        <div class="eq" data-tex="T = T_{1}/\gcd(n \text{active})">T = T<sub>1</sub>/gcd(n active)</div>
         <p>כאשר האופן היסודי פעיל, המחזור הכללי הוא <span class="ltr">T₁</span>.</p>
       </div>
-    </div>
-
-    <div class="col">
-      <div class="box soft">
+</div>
+<div class="col">
+<div class="box soft">
         <h2>קו תמסורת חסר הפסדים</h2>
-        <div class="eq">∂V/∂x = −L′ ∂I/∂t</div>
-        <div class="eq">∂I/∂x = −C′ ∂V/∂t</div>
-        <div class="eq">v = 1/√(L′C′)</div>
-        <div class="eq">Z<sub>0</sub> = √(L′/C′)</div>
-      </div>
-      <div class="box">
+        <div class="eq" data-tex="\frac{\partial V}{\partial x} = -L' \frac{\partial I}{\partial t}">∂V/∂x = −L′ ∂I/∂t</div>
+        <div class="eq" data-tex="\frac{\partial I}{\partial x} = -C' \frac{\partial V}{\partial t}">∂I/∂x = −C′ ∂V/∂t</div>
+        <div class="eq" data-tex="v = 1/\sqrt{L'C'}">v = 1/√(L′C′)</div>
+        <div class="eq" data-tex="Z_{0} = \sqrt{L'/C'}">Z<sub>0</sub> = √(L′/C′)</div>
+      </div><div class="box">
         <h2>פירוק מתח וזרם</h2>
-        <div class="eq">V(x,t)=V<sup>+</sup>(x−vt)+V<sup>−</sup>(x+vt)</div>
-        <div class="eq">I(x,t)=[V<sup>+</sup>(x−vt)−V<sup>−</sup>(x+vt)]/Z<sub>0</sub></div>
-        <div class="eq">V<sup>+</sup>(x)=½[V(x,0)+Z<sub>0</sub>I(x,0)]</div>
-        <div class="eq">V<sup>−</sup>(x)=½[V(x,0)−Z<sub>0</sub>I(x,0)]</div>
-      </div>
-      <div class="box blue">
+        <div class="eq" data-tex="V(x,t)=V^{+}(x-vt)+V^{-}(x+vt)">V(x,t)=V<sup>+</sup>(x−vt)+V<sup>−</sup>(x+vt)</div>
+        <div class="eq" data-tex="I(x,t)=[V^{+}(x-vt)-V^{-}(x+vt)]/Z_{0}">I(x,t)=[V<sup>+</sup>(x−vt)−V<sup>−</sup>(x+vt)]/Z<sub>0</sub></div>
+        <div class="eq" data-tex="V^{+}(x)=\tfrac{1}{2}[V(x,0)+Z_{0}I(x,0)]">V<sup>+</sup>(x)=½[V(x,0)+Z<sub>0</sub>I(x,0)]</div>
+        <div class="eq" data-tex="V^{-}(x)=\tfrac{1}{2}[V(x,0)-Z_{0}I(x,0)]">V<sup>−</sup>(x)=½[V(x,0)−Z<sub>0</sub>I(x,0)]</div>
+      </div><div class="box blue">
         <h2>אנרגיה והספק בקו</h2>
-        <div class="eq">u = ½C′V² + ½L′I²</div>
-        <div class="eq">P = VI</div>
+        <div class="eq" data-tex="u = \tfrac{1}{2}C'V^{2} + \tfrac{1}{2}L'I^{2}">u = ½C′V² + ½L′I²</div>
+        <div class="eq" data-tex="P = VI">P = VI</div>
         <p>בגל מתקדם יחיד: <span class="ltr">I=V/Z₀</span>; בגל חוזר יחיד: <span class="ltr">I=−V/Z₀</span>.</p>
-      </div>
-      <div class="box warn">
+      </div><div class="box warn">
         <h2>תנאי קצה</h2>
         <table><tr><th>קצה</th><th>תנאי</th><th class="ltr">Γ<sub>V</sub></th></tr>
           <tr><td>קצר</td><td class="ltr">V=0</td><td class="ltr">−1</td></tr>
           <tr><td>פתוח</td><td class="ltr">I=0</td><td class="ltr">+1</td></tr>
           <tr><td>עומס</td><td class="ltr">Z<sub>L</sub></td><td class="ltr">(Z<sub>L</sub>−Z₀)/(Z<sub>L</sub>+Z₀)</td></tr></table>
       </div>
-    </div>
-
-    <div class="col">
-      <div class="box soft">
+</div>
+<div class="col">
+<div class="box soft">
         <h2>מפת ההקבלה</h2>
         <table><tr><th>מיתר</th><th>קו תמסורת</th></tr>
           <tr><td>העתק/מהירות חומרית</td><td>מתח/זרם</td></tr>
@@ -428,30 +394,27 @@ th{background:#e8f2f3;color:#28545a;font-weight:800}
           <tr><td class="ltr">P=−Ty<sub>x</sub>y<sub>t</sub></td><td class="ltr">P=VI</td></tr>
           <tr><td>רתום</td><td>קצר</td></tr>
           <tr><td>חופשי</td><td>פתוח</td></tr></table>
-      </div>
-      <div class="box">
+      </div><div class="box">
         <h2>אופנים בקו סופי</h2>
         <p><b>קצר–קצר:</b> מתח סינוס ומתאפס בקצוות; זרם קוסינוס.</p>
         <p><b>פתוח–פתוח:</b> זרם סינוס ומתאפס בקצוות; מתח קוסינוס.</p>
-        <div class="eq">ω<sub>n</sub>=nπv/L</div>
+        <div class="eq" data-tex="\omega_{n}=n\pi v/L">ω<sub>n</sub>=nπv/L</div>
         <p><b>קצה מעורב:</b> אופנים אי־זוגיים של רבע גל.</p>
-      </div>
-      <div class="box blue">
+      </div><div class="box blue">
         <h2>אקוסטיקה — ארכיון</h2>
-        <div class="eq">c = √(γP<sub>0</sub>/ρ<sub>0</sub>)</div>
-        <div class="eq">Z<sub>a</sub> = ρ<sub>0</sub>c</div>
-        <div class="eq">p′ = ρ<sub>0</sub>c u<sub>∥</sub></div>
-        <div class="eq">I_vector = p′ u_vector</div>
-        <div class="eq">⟨I⟩ = p<sub>m</sub>²/(2ρ<sub>0</sub>c)</div>
-      </div>
-      <div class="box hot">
+        <div class="eq" data-tex="c = \sqrt{\gamma P_{0}/\rho_{0}}">c = √(γP<sub>0</sub>/ρ<sub>0</sub>)</div>
+        <div class="eq" data-tex="Z_{a} = \rho_{0}c">Z<sub>a</sub> = ρ<sub>0</sub>c</div>
+        <div class="eq" data-tex="p' = \rho_{0}c u_{\parallel }">p′ = ρ<sub>0</sub>c u<sub>∥</sub></div>
+        <div class="eq" data-tex="\vec{I} = p' \vec{u}">I_vector = p′ u_vector</div>
+        <div class="eq" data-tex="\langle I\rangle = p_{m}^{2}/(2\rho_{0}c)">⟨I⟩ = p<sub>m</sub>²/(2ρ<sub>0</sub>c)</div>
+      </div><div class="box hot">
         <h2>אלקטרומגנטיות — ארכיון</h2>
-        <div class="eq">k = ω/c</div>
-        <div class="eq">B = (1/c) k_hat × E</div>
-        <div class="eq">S = (1/μ<sub>0</sub>) E × B</div>
-        <div class="eq">⟨S⟩ = E<sub>0</sub>²/(2μ<sub>0</sub>c)</div>
+        <div class="eq" data-tex="k = \omega /c">k = ω/c</div>
+        <div class="eq" data-tex="B = (1/c) \hat{k} \times E">B = (1/c) k_hat × E</div>
+        <div class="eq" data-tex="S = (1/\mu_{0}) E \times B">S = (1/μ<sub>0</sub>) E × B</div>
+        <div class="eq" data-tex="\langle S\rangle = E_{0}^{2}/(2\mu_{0}c)">⟨S⟩ = E<sub>0</sub>²/(2μ<sub>0</sub>c)</div>
       </div>
-    </div>
+</div>
   </div>
   <footer class="sheet-foot"><span>גלים 90929 · ייחוס</span><span>4 / 6</span></footer>
 </section>
@@ -462,92 +425,83 @@ th{background:#e8f2f3;color:#28545a;font-weight:800}
 <section class="sheet" data-page="5">
   <header class="sheet-head"><div><h1>תבניות פתרון — שאלות 1–2</h1><p>דוגמאות בחינה קצרות ועומדות בפני עצמן · בלי חומר ייחוס חדש</p></div><div class="page-no">05</div></header>
   <div class="cols">
-    <div class="col">
-      <div class="box ex soft">
+<div class="col">
+<div class="box ex soft">
         <h2><span>מהירות ועכבה</span><span class="source">[2026 X·Q1]</span></h2>
         <div class="ask"><b>ש:</b> מיתר חצי־אינסופי במתיחות <span class="ltr">180 N</span> ובצפיפות <span class="ltr">0.2 kg/m</span>. מצא מהירות ועכבה.</div>
-        <div class="eq">v=√(180/0.2)=30 m/s</div>
-        <div class="eq">Z=√(180·0.2)=6 kg/s</div>
+        <div class="eq" data-tex="v=\sqrt{180/0.2}=30\ \text{m/s}">v=√(180/0.2)=30 m/s</div>
+        <div class="eq" data-tex="Z=\sqrt{180\cdot 0.2}=6\ \text{kg/s}">Z=√(180·0.2)=6 kg/s</div>
         <div class="trick"><b>טריק:</b> מנה נותנת מהירות; מכפלה נותנת עכבה. בדיקת יחידות מונעת החלפה.</div>
-      </div>
-      <div class="box ex">
+      </div><div class="box ex">
         <h2><span>מקור מתוך מהירות קצה</span><span class="source">[2025 Y·Q1]</span></h2>
         <div class="ask"><b>ש:</b> נתונה מהירות קצה <span class="ltr">u(t)</span> של מיתר חצי־אינסופי. מצא גל, כוח, הספק ועבודה עד זמן <span class="ltr">t</span>.</div>
-        <div class="eq">h(t)=∫<sub>−∞</sub><sup>t</sup>u(τ)dτ</div>
-        <div class="eq">y(x,t)=h(t−x/v)</div>
-        <div class="eq">F(t)=Zu(t)</div>
-        <div class="eq">P(t)=Zu²(t)</div>
-        <div class="eq">W(t)=∫<sub>−∞</sub><sup>t</sup>P(τ)dτ</div>
+        <div class="eq" data-tex="h(t)=\int_{-\infty }^{t}u(\tau )d\tau">h(t)=∫<sub>−∞</sub><sup>t</sup>u(τ)dτ</div>
+        <div class="eq" data-tex="y(x,t)=h(t-x/v)">y(x,t)=h(t−x/v)</div>
+        <div class="eq" data-tex="F(t)=Zu(t)">F(t)=Zu(t)</div>
+        <div class="eq" data-tex="P(t)=Zu^{2}(t)">P(t)=Zu²(t)</div>
+        <div class="eq" data-tex="W(t)=\int_{-\infty }^{t}P(\tau )d\tau">W(t)=∫<sub>−∞</sub><sup>t</sup>P(τ)dτ</div>
         <div class="trick"><b>טריק:</b> קודם סוגרים את פונקציית הקצה ואת תחום הזמן; רק אז מזיזים ב־<span class="ltr">x/v</span>.</div>
-      </div>
-      <div class="box ex blue">
+      </div><div class="box ex blue">
         <h2><span>משך ומיקום פולס</span><span class="source">[2026 X·Q1]</span></h2>
         <div class="ask"><b>ש:</b> המנוע פעיל בין <span class="ltr">t=1</span> ל־<span class="ltr">t=3 s</span>, ומהירות הגל <span class="ltr">30 m/s</span>. היכן הפולס בזמן <span class="ltr">t=5 s</span>?</div>
-        <div class="eq">x<sub>front</sub>=v(5−1)=120 m</div>
-        <div class="eq">x<sub>tail</sub>=v(5−3)=60 m</div>
-        <div class="eq">60≤x≤120 m</div>
+        <div class="eq" data-tex="x_{\text{front}}=v(5-1)=120\ \text{m}">x<sub>front</sub>=v(5−1)=120 m</div>
+        <div class="eq" data-tex="x_{\text{tail}}=v(5-3)=60\ \text{m}">x<sub>tail</sub>=v(5−3)=60 m</div>
+        <div class="eq" data-tex="60\le x\le 120\ \text{m}">60≤x≤120 m</div>
         <div class="trick"><b>טריק:</b> תחילת ההנעה היא החזית; סוף ההנעה הוא הזנב.</div>
       </div>
-    </div>
-
-    <div class="col">
-      <div class="box ex soft">
+</div>
+<div class="col">
+<div class="box ex soft">
         <h2><span>ד׳אלמבר מתנאי התחלה</span><span class="source">[2026 X·Q2]</span></h2>
         <div class="ask"><b>ש:</b> במיתר אינסופי נתונים <span class="ltr">y(x,0)=F(x)</span>, <span class="ltr">y<sub>t</sub>(x,0)=G(x)</span>. כתוב את הגל ובדוק את התחלה.</div>
-        <div class="eq">y=½F(x−vt)+½F(x+vt)</div>
-        <div class="eq">+(1/2v)∫<sub>x−vt</sub><sup>x+vt</sup>G(s)ds</div>
-        <div class="eq">t=0 ⇒ y=F(x)</div>
-        <div class="eq">∂<sub>t</sub>y|<sub>0</sub>=G(x)</div>
+        <div class="eq" data-tex="y=\tfrac{1}{2}F(x-vt)+\tfrac{1}{2}F(x+vt)">y=½F(x−vt)+½F(x+vt)</div>
+        <div class="eq" data-tex="+\frac{1}{2v}\int_{x-vt}^{x+vt}G(s)ds">+(1/2v)∫<sub>x−vt</sub><sup>x+vt</sup>G(s)ds</div>
+        <div class="eq" data-tex="t=0 \Rightarrow y=F(x)">t=0 ⇒ y=F(x)</div>
+        <div class="eq" data-tex="\partial_{t}y|_{0}=G(x)">∂<sub>t</sub>y|<sub>0</sub>=G(x)</div>
         <div class="trick"><b>טריק:</b> גזור גם את הגבולות של האינטגרל לפי כלל לייבניץ.</div>
-      </div>
-      <div class="box ex">
+      </div><div class="box ex">
         <h2><span>אינטגרל חתוך</span><span class="source">[2025 Y·Q2]</span></h2>
         <div class="ask"><b>ש:</b> <span class="ltr">G(s)</span> שונה מאפס רק ב־<span class="ltr">[a,b]</span>. מצא את תרומתה בנקודה <span class="ltr">(x,t)</span>.</div>
-        <div class="eq">ℓ=max(x−vt,a)</div>
-        <div class="eq">r=min(x+vt,b)</div>
-        <div class="eq">y<sub>G</sub>=(1/2v)∫<sub>ℓ</sub><sup>r</sup>G(s)ds</div>
-        <div class="eq">ℓ&gt;r ⇒ y<sub>G</sub>=0</div>
+        <div class="eq" data-tex="\ell =\max(x-vt,a)">ℓ=max(x−vt,a)</div>
+        <div class="eq" data-tex="r=\min(x+vt,b)">r=min(x+vt,b)</div>
+        <div class="eq" data-tex="y_{G}=\frac{1}{2v}\int_{\ell }^{r}G(s)ds">y<sub>G</sub>=(1/2v)∫<sub>ℓ</sub><sup>r</sup>G(s)ds</div>
+        <div class="eq" data-tex="\ell &gt;r \Rightarrow y_{G}=0">ℓ&gt;r ⇒ y<sub>G</sub>=0</div>
         <div class="trick"><b>טריק:</b> צייר שני צירים: חלון ד׳אלמבר ותחום הנתון; האינטגרל הוא החיתוך.</div>
-      </div>
-      <div class="box ex blue">
+      </div><div class="box ex blue">
         <h2><span>פיצול אנרגיה</span><span class="source">[2026 X·Q2]</span></h2>
         <div class="ask"><b>ש:</b> האנרגיה הכוללת <span class="ltr">7.2 J</span> ו־<span class="ltr">K/U=2</span>. מצא <span class="ltr">K,U</span>.</div>
-        <div class="eq">K=2U</div>
-        <div class="eq">K+U=7.2 ⇒ 3U=7.2</div>
-        <div class="eq">U=2.4 J</div>
-        <div class="eq">K=4.8 J</div>
+        <div class="eq" data-tex="K=2U">K=2U</div>
+        <div class="eq" data-tex="K+U=7.2 \Rightarrow 3U=7.2">K+U=7.2 ⇒ 3U=7.2</div>
+        <div class="eq" data-tex="U=2.4\ \text{J}">U=2.4 J</div>
+        <div class="eq" data-tex="K=4.8\ \text{J}">K=4.8 J</div>
         <div class="trick"><b>טריק:</b> היחס יוצר “שלושה חלקים”; שניים לקינטית ואחד לפוטנציאלית.</div>
       </div>
-    </div>
-
-    <div class="col">
-      <div class="box ex soft">
+</div>
+<div class="col">
+<div class="box ex soft">
         <h2><span>אנרגיה של גל יוצא</span><span class="source">[2025 X·Q1]</span></h2>
         <div class="ask"><b>ש:</b> מנוע יוצר מהירות קצה <span class="ltr">u(t)</span> במשך <span class="ltr">0≤t≤τ</span>. מצא את האנרגיה שהוזרמה למיתר.</div>
-        <div class="eq">P<sub>D</sub>(t)=Zu²(t)</div>
-        <div class="eq">E=W<sub>D</sub>=Z∫<sub>0</sub><sup>τ</sup>u²(t)dt</div>
+        <div class="eq" data-tex="P_{D}(t)=Zu^{2}(t)">P<sub>D</sub>(t)=Zu²(t)</div>
+        <div class="eq" data-tex="E=W_{D}=Z\int_{0}^{\tau }u^{2}(t)dt">E=W<sub>D</sub>=Z∫<sub>0</sub><sup>τ</sup>u²(t)dt</div>
         <div class="trick"><b>טריק:</b> אין צורך למצוא קודם את <span class="ltr">y(x,t)</span> אם נתונה מהירות המקור.</div>
-      </div>
-      <div class="box ex">
+      </div><div class="box ex">
         <h2><span>זמן התרוקנות אזור</span><span class="source">[2024 S1·Q2]</span></h2>
         <div class="ask"><b>ש:</b> תנאי התחלה נתמך ב־<span class="ltr">[a,b]</span>. מתי אזור זה מתרוקן לאחר שהפולסים נפרדים ונעים החוצה?</div>
-        <div class="eq">width=b−a</div>
-        <div class="eq">t<sub>clear</sub>=width/v</div>
+        <div class="eq" data-tex="\text{width}=b-a">width=b−a</div>
+        <div class="eq" data-tex="t_{\text{clear}}=\text{width}/v">t<sub>clear</sub>=width/v</div>
         <div class="trick"><b>טריק:</b> עקוב אחרי הזנב האחרון, לא אחרי חזית הפולס הראשונה.</div>
-      </div>
-      <div class="box ex blue">
+      </div><div class="box ex blue">
         <h2><span>הספק בנקודה</span><span class="source">[2025 X·Q4]</span></h2>
         <div class="ask"><b>ש:</b> נתון גל כללי <span class="ltr">y(x,t)</span>. חשב את ההספק הרגעי וממוצעו בנקודה <span class="ltr">x=x₀</span>.</div>
-        <div class="eq">y<sub>x</sub>=∂y/∂x</div>
-        <div class="eq">y<sub>t</sub>=∂y/∂t</div>
-        <div class="eq">P(x₀,t)=−Ty<sub>x</sub>(x₀,t)y<sub>t</sub>(x₀,t)</div>
-        <div class="eq">P̄=(1/T<sub>0</sub>)∫<sub>0</sub><sup>T₀</sup>Pdt</div>
+        <div class="eq" data-tex="y_{x}=\frac{\partial y}{\partial x}">y<sub>x</sub>=∂y/∂x</div>
+        <div class="eq" data-tex="y_{t}=\frac{\partial y}{\partial t}">y<sub>t</sub>=∂y/∂t</div>
+        <div class="eq" data-tex="P(x_{0},t)=-Ty_{x}(x_{0},t)y_{t}(x_{0},t)">P(x₀,t)=−Ty<sub>x</sub>(x₀,t)y<sub>t</sub>(x₀,t)</div>
+        <div class="eq" data-tex="\bar{P}=(1/T_{0})\int_{0}^{T_{0}}Pdt">P̄=(1/T<sub>0</sub>)∫<sub>0</sub><sup>T₀</sup>Pdt</div>
         <div class="trick"><b>טריק:</b> אל תשתמש ב־<span class="ltr">Zv<sub>y</sub>²</span> אם הגל אינו חד־כיווני.</div>
-      </div>
-      <div class="box warn mini">
+      </div><div class="box warn mini">
         <b>סדר כתיבה במבחן:</b> מודל → תחומי פונקציה → נגזרות/אינטגרלים → יחידות → בדיקת תנאי התחלה. כל קפיצה על שלב מסתירה בדרך כלל טעות סימן או תחום.
       </div>
-    </div>
+</div>
   </div>
   <footer class="sheet-foot"><span>גלים 90929 · תבניות שאלות 1–2</span><span>5 / 6</span></footer>
 </section>
@@ -555,91 +509,82 @@ th{background:#e8f2f3;color:#28545a;font-weight:800}
 <section class="sheet" data-page="6">
   <header class="sheet-head"><div><h1>תבניות פתרון — שאלות 3–4 וקו תמסורת</h1><p>דוגמאות בחינה קצרות ועומדות בפני עצמן · מקור בכל כרטיס</p></div><div class="page-no">06</div></header>
   <div class="cols">
-    <div class="col">
-      <div class="box ex soft">
+<div class="col">
+<div class="box ex soft">
         <h2><span>צומת מספרי</span><span class="source">[2026 X·Q3]</span></h2>
         <div class="ask"><b>ש:</b> גל פוגע מתווך שעכבתו <span class="ltr">Z₁=6 kg/s</span> לתווך שעכבתו <span class="ltr">Z₂=12 kg/s</span>. מצא אמפליטודות ויחסי אנרגיה.</div>
-        <div class="eq">r=(6−12)/(6+12)=−1/3</div>
-        <div class="eq">τ=2·6/(6+12)=2/3</div>
-        <div class="eq">R=r²=1/9</div>
-        <div class="eq">𝒯=1−R=8/9</div>
+        <div class="eq" data-tex="r=(6-12)/(6+12)=-\frac{1}{3}">r=(6−12)/(6+12)=−1/3</div>
+        <div class="eq" data-tex="\tau =2\cdot 6/(6+12)=\frac{2}{3}">τ=2·6/(6+12)=2/3</div>
+        <div class="eq" data-tex="R=r^{2}=\frac{1}{9}">R=r²=1/9</div>
+        <div class="eq" data-tex="\mathcal{T} =1-R=\frac{8}{9}">𝒯=1−R=8/9</div>
         <div class="trick"><b>טריק:</b> מינוס אומר היפוך בלבד; האנרגיה המוחזרת היא חיובית.</div>
-      </div>
-      <div class="box ex">
+      </div><div class="box ex">
         <h2><span>רוחב וגובה פולס</span><span class="source">[2025 Y·Q3]</span></h2>
         <div class="ask"><b>ש:</b> פולס בגובה <span class="ltr">A</span> וברוחב <span class="ltr">w</span> מגיע מצדו הראשון. כתוב את הגלים מיד אחרי המעבר.</div>
-        <div class="eq">A<sub>r</sub>=rA</div>
-        <div class="eq">A<sub>t</sub>=τA</div>
-        <div class="eq">w<sub>r</sub>=w</div>
-        <div class="eq">w<sub>t</sub>=(v₂/v₁)w</div>
+        <div class="eq" data-tex="A_{r}=rA">A<sub>r</sub>=rA</div>
+        <div class="eq" data-tex="A_{t}=\tau A">A<sub>t</sub>=τA</div>
+        <div class="eq" data-tex="w_{r}=w">w<sub>r</sub>=w</div>
+        <div class="eq" data-tex="w_{t}=(v_{2}/v_{1})w">w<sub>t</sub>=(v₂/v₁)w</div>
         <div class="trick"><b>טריק:</b> הגובה נקבע מעכבות; הרוחב נקבע ממהירויות.</div>
-      </div>
-      <div class="box ex blue">
+      </div><div class="box ex blue">
         <h2><span>יחס עכבות מהחזרה</span><span class="source">[2021 S1·Q4]</span></h2>
         <div class="ask"><b>ש:</b> ידוע שיחס האנרגיה המוחזרת הוא <span class="ltr">R</span> והפולס החוזר הפוך. מצא <span class="ltr">Z₂/Z₁</span>.</div>
-        <div class="eq">r=−√R</div>
-        <div class="eq">Z₂/Z₁=(1−r)/(1+r)</div>
+        <div class="eq" data-tex="r=-\sqrt R">r=−√R</div>
+        <div class="eq" data-tex="Z_{2}/Z_{1}=(1-r)/(1+r)">Z₂/Z₁=(1−r)/(1+r)</div>
         <div class="trick"><b>טריק:</b> סימן <span class="ltr">r</span> מגיע מהשרטוט; אי אפשר לשחזרו מ־<span class="ltr">R</span> בלבד.</div>
       </div>
-    </div>
-
-    <div class="col">
-      <div class="box ex soft">
+</div>
+<div class="col">
+<div class="box ex soft">
         <h2><span>תדרי מיתר רתום</span><span class="source">[2026 X·Q4]</span></h2>
         <div class="ask"><b>ש:</b> מיתר באורך <span class="ltr">L=6 m</span> ומהירות <span class="ltr">v=150 m/s</span>. מצא <span class="ltr">ωₙ</span> ואת מחזור היסוד.</div>
-        <div class="eq">k<sub>n</sub>=nπ/6</div>
-        <div class="eq">ω<sub>n</sub>=150·nπ/6=25πn rad/s</div>
-        <div class="eq">T₁=2π/ω₁=0.08 s</div>
+        <div class="eq" data-tex="k_{n}=n\pi /6">k<sub>n</sub>=nπ/6</div>
+        <div class="eq" data-tex="\omega_{n}=150\cdot n\pi /6=25\pi n rad/s">ω<sub>n</sub>=150·nπ/6=25πn rad/s</div>
+        <div class="eq" data-tex="T_{1}=2\pi /\omega_{1}=0.08\ \text{s}">T₁=2π/ω₁=0.08 s</div>
         <div class="trick"><b>טריק:</b> מחזור הוא <span class="ltr">2π/ω</span>, לא <span class="ltr">1/ω</span>.</div>
-      </div>
-      <div class="box ex">
+      </div><div class="box ex">
         <h2><span>מקדמים משני תנאי התחלה</span><span class="source">[2024 X·Q4]</span></h2>
         <div class="ask"><b>ש:</b> נתונים <span class="ltr">F(x)=y(x,0)</span> ו־<span class="ltr">G(x)=y<sub>t</sub>(x,0)</span> במיתר רתום. מצא אמפליטודה ופאזה של אופן <span class="ltr">n</span>.</div>
-        <div class="eq">A<sub>n</sub>=(2/L)∫F sin(k<sub>n</sub>x)dx</div>
-        <div class="eq">B<sub>n</sub>=(2/Lω<sub>n</sub>)∫G sin(k<sub>n</sub>x)dx</div>
-        <div class="eq">C<sub>n</sub>=√(A<sub>n</sub>²+B<sub>n</sub>²)</div>
-        <div class="eq">φ<sub>n</sub>=atan2(−B<sub>n</sub>,A<sub>n</sub>)</div>
+        <div class="eq" data-tex="A_{n}=(2/L)\int F \sin(k_{n}x)dx">A<sub>n</sub>=(2/L)∫F sin(k<sub>n</sub>x)dx</div>
+        <div class="eq" data-tex="B_{n}=(2/L\omega_{n})\int G \sin(k_{n}x)dx">B<sub>n</sub>=(2/Lω<sub>n</sub>)∫G sin(k<sub>n</sub>x)dx</div>
+        <div class="eq" data-tex="C_{n}=\sqrt{A_{n}^{2}+B_{n}^{2}}">C<sub>n</sub>=√(A<sub>n</sub>²+B<sub>n</sub>²)</div>
+        <div class="eq" data-tex="\varphi_{n}=\operatorname{atan2}(-B_{n},A_{n})">φ<sub>n</sub>=atan2(−B<sub>n</sub>,A<sub>n</sub>)</div>
         <div class="trick"><b>טריק:</b> ההעתק קובע קוסינוס בזמן; המהירות קובעת סינוס ומביאה גורם <span class="ltr">ωₙ</span>.</div>
-      </div>
-      <div class="box ex blue">
+      </div><div class="box ex blue">
         <h2><span>אנרגיית אופן</span><span class="source">[2026 X·Q4]</span></h2>
         <div class="ask"><b>ש:</b> אמפליטודת אופן <span class="ltr">n</span> היא <span class="ltr">Cₙ</span>. מצא את תרומתו לאנרגיה הכוללת.</div>
-        <div class="eq">E<sub>n</sub>=¼μLω<sub>n</sub>²C<sub>n</sub>²</div>
-        <div class="eq">E=ΣE<sub>n</sub></div>
+        <div class="eq" data-tex="E_{n}=\tfrac{1}{4}\mu L\omega_{n}^{2}C_{n}^{2}">E<sub>n</sub>=¼μLω<sub>n</sub>²C<sub>n</sub>²</div>
+        <div class="eq" data-tex="E=\sum E_{n}">E=ΣE<sub>n</sub></div>
         <div class="trick"><b>טריק:</b> אורתוגונליות מאפסת איברים מעורבים בין אופנים שונים.</div>
       </div>
-    </div>
-
-    <div class="col">
-      <div class="box ex soft">
+</div>
+<div class="col">
+<div class="box ex soft">
         <h2><span>פירוק בקו תמסורת</span><span class="source">[2025 X·Q2]</span></h2>
         <div class="ask"><b>ש:</b> בקו אינסופי נתונים <span class="ltr">V(x,0)=V₀(x)</span> ו־<span class="ltr">I(x,0)=I₀(x)</span>. מצא מתח וזרם בכל זמן.</div>
-        <div class="eq">V<sup>+</sup>=½(V₀+Z₀I₀)</div>
-        <div class="eq">V<sup>−</sup>=½(V₀−Z₀I₀)</div>
-        <div class="eq">V(x,t)=V<sup>+</sup>(x−vt)+V<sup>−</sup>(x+vt)</div>
-        <div class="eq">I(x,t)=[V<sup>+</sup>(x−vt)−V<sup>−</sup>(x+vt)]/Z₀</div>
+        <div class="eq" data-tex="V^{+}=\tfrac{1}{2}(V_{0}+Z_{0}I_{0})">V<sup>+</sup>=½(V₀+Z₀I₀)</div>
+        <div class="eq" data-tex="V^{-}=\tfrac{1}{2}(V_{0}-Z_{0}I_{0})">V<sup>−</sup>=½(V₀−Z₀I₀)</div>
+        <div class="eq" data-tex="V(x,t)=V^{+}(x-vt)+V^{-}(x+vt)">V(x,t)=V<sup>+</sup>(x−vt)+V<sup>−</sup>(x+vt)</div>
+        <div class="eq" data-tex="I(x,t)=[V^{+}(x-vt)-V^{-}(x+vt)]/Z_{0}">I(x,t)=[V<sup>+</sup>(x−vt)−V<sup>−</sup>(x+vt)]/Z₀</div>
         <div class="trick"><b>טריק:</b> הסימן של הזרם מתהפך בגל השמאלי.</div>
-      </div>
-      <div class="box ex">
+      </div><div class="box ex">
         <h2><span>קו סופי פתוח</span><span class="source">[2025 Y·Q4]</span></h2>
         <div class="ask"><b>ש:</b> קו באורך <span class="ltr">L</span> פתוח בשני קצותיו. איזה בסיס מרחבי מתאים למתח ולזרם?</div>
-        <div class="eq">I(0,t)=I(L,t)=0</div>
-        <div class="eq">I<sub>n</sub>(x) ∝ sin(nπx/L)</div>
-        <div class="eq">V<sub>n</sub>(x) ∝ cos(nπx/L)</div>
-        <div class="eq">ω<sub>n</sub>=nπv/L</div>
+        <div class="eq" data-tex="I(0,t)=I(L,t)=0">I(0,t)=I(L,t)=0</div>
+        <div class="eq" data-tex="I_{n}(x) \propto \sin(n\pi x/L)">I<sub>n</sub>(x) ∝ sin(nπx/L)</div>
+        <div class="eq" data-tex="V_{n}(x) \propto \cos(n\pi x/L)">V<sub>n</sub>(x) ∝ cos(nπx/L)</div>
+        <div class="eq" data-tex="\omega_{n}=n\pi v/L">ω<sub>n</sub>=nπv/L</div>
         <div class="trick"><b>טריק:</b> פתוח מאפס זרם, לא מתח; לכן הזרם הוא פונקציית הסינוס.</div>
-      </div>
-      <div class="box ex blue">
+      </div><div class="box ex blue">
         <h2><span>אנרגיה בקו</span><span class="source">[2023 Y·Q2]</span></h2>
         <div class="ask"><b>ש:</b> נתונים <span class="ltr">V(x,t),I(x,t)</span>. מצא אנרגיה כוללת בקטע <span class="ltr">[a,b]</span> והספק דרך נקודה.</div>
-        <div class="eq">E=∫<sub>a</sub><sup>b</sup>[½C′V²+½L′I²]dx</div>
-        <div class="eq">P(x,t)=V(x,t)I(x,t)</div>
+        <div class="eq" data-tex="E=\int_{a}^{b}[\tfrac{1}{2}C'V^{2}+\tfrac{1}{2}L'I^{2}]dx">E=∫<sub>a</sub><sup>b</sup>[½C′V²+½L′I²]dx</div>
+        <div class="eq" data-tex="P(x,t)=V(x,t)I(x,t)">P(x,t)=V(x,t)I(x,t)</div>
         <div class="trick"><b>טריק:</b> בדוק גם את סימן הזרם; הוא קובע את כיוון זרימת האנרגיה.</div>
-      </div>
-      <div class="box warn mini">
+      </div><div class="box warn mini">
         <b>בדיקת סוף:</b> צומת — אמפליטודה ≠ אנרגיה. מיתר סופי — גם צורה וגם מהירות קובעות מופע. קו — גל שמאלה נושא זרם בסימן ההפוך למתח.
       </div>
-    </div>
+</div>
   </div>
   <footer class="sheet-foot"><span>גלים 90929 · תבניות שאלות 3–4</span><span>6 / 6</span></footer>
 </section>
@@ -669,6 +614,26 @@ th{background:#e8f2f3;color:#28545a;font-weight:800}
   }
   window.addEventListener("load", measure);
   window.addEventListener("beforeprint", measure);
+})();
+</script>
+
+<script>
+/* מרנדר כל .eq[data-tex] דרך KaTeX. אם נוסחה נכשלת — היוניקוד המקורי נשאר,
+   כך שהדף אף פעם לא נראה גרוע יותר ממה שהיה. */
+(function(){
+  function go(){
+    if(typeof katex==="undefined"){setTimeout(go,50);return;}
+    var bad=0,ok=0;
+    document.querySelectorAll(".eq[data-tex]").forEach(function(el){
+      var tex=el.getAttribute("data-tex"), keep=el.innerHTML;
+      try{ katex.render(tex,el,{throwOnError:true,displayMode:false,strict:false}); ok++; }
+      catch(e){ el.innerHTML=keep; el.classList.add("eq-raw"); bad++;
+                console.error("KATEX_FAIL:: "+tex+" :: "+e.message); }
+    });
+    console.log("KATEX_DONE:: ok="+ok+" failed="+bad);
+    document.documentElement.setAttribute("data-katex","ok="+ok+" failed="+bad);
+  }
+  if(document.readyState!=="loading")go(); else document.addEventListener("DOMContentLoaded",go);
 })();
 </script>
 </body>
