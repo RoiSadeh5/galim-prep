@@ -1,0 +1,1 @@
+window.BANK_WALKTHROUGHS = window.BANK_WALKTHROUGHS || {};

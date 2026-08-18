@@ -67,9 +67,30 @@
   };
 
   /* ---- פתרון מונפש לשאלת מאגר, אם הוכן לה ---- */
+  /* מזהה שאלת מאגר -> מזהה שאלה בשאלון: EX-2024X-Q3 -> 2024X-q3, EX-2026A-Q1 -> 2026X-q1 */
+  function examKeyOf(id) {
+    return String(id || "").replace(/^EX-/, "").replace(/-Q(\d)/, "-q$1")
+      .replace(/^(\d{4})A-/, "$1X-");
+  }
+
+  /* שאלות שכבר יש להן פתרון מונפש בשאלון עצמו — נשלף משם ולא משוכפל,
+     כדי שתיקון בפתרון המבחן יופיע מיד גם במרכז התרגול. */
+  function examWalkthroughFor(question) {
+    var all = window.EXAM_WALKTHROUGHS || {};
+    var want = examKeyOf(question.id);
+    var found = null;
+    Object.keys(all).forEach(function (k) {
+      (all[k].questions || []).forEach(function (q) {
+        if (q.id === want) found = { title: q.num ? q.num + " — פתרון מלא" : "הפתרון שלב-אחר-שלב",
+                                     steps: q.steps || [] };
+      });
+    });
+    return found;
+  }
+
   window.bankStepperHtml = function (question) {
     var bank = window.BANK_WALKTHROUGHS || {};
-    var entry = bank[String(question.id || question.n)];
+    var entry = bank[String(question.id || question.n)] || examWalkthroughFor(question);
     if (!entry || !entry.steps || !entry.steps.length || !window.renderStepper) return "";
     return window.renderStepper("bank-" + (question.id || question.n), entry.steps, {
       title: "🎬 " + (entry.title || "הפתרון שלב-אחר-שלב") +
@@ -788,6 +809,7 @@
           "</div>" +
           (question.rule ? '<div class="quiz-rule"><b>כלל:</b> ' + question.rule + "</div>" : "") +
           (question.why ? "<p>" + question.why + "</p>" : "") + examSolutionHtml(question) +
+          window.bankStepperHtml(question) +
           mistakeHelp + "</div>";
       }
 
