@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>גלים 90929 — הכנה למבחן</title>
-<link rel="stylesheet" href="katex/katex.min.css?v=5ae2871">
-<script defer src="katex/katex.min.js?v=5ae2871"></script>
-<script defer src="katex/auto-render.min.js?v=5ae2871"></script>
+<link rel="stylesheet" href="katex/katex.min.css?v=5277cdc">
+<script defer src="katex/katex.min.js?v=5277cdc"></script>
+<script defer src="katex/auto-render.min.js?v=5277cdc"></script>
 <style>
 /* ===== מערכת עיצוב משותפת — הכנה למבחן 10804 ===== */
 :root{
@@ -727,6 +727,22 @@ td.v-info{background:var(--blue-bg);border-color:var(--blue);color:var(--blue)}
 }
 .ipad-ready .status.offline{color:var(--amber);background:var(--amber-bg)}
 
+/* ===== hero של עמוד הבית (מיובא מ-waves-prep) ===== */
+.wave-hero{
+  position:relative;overflow:hidden;border:1px solid var(--line2);border-radius:22px;
+  background:linear-gradient(145deg,var(--bg2),var(--accent2));padding:clamp(24px,5vw,46px);
+  margin:24px 0 22px;box-shadow:0 18px 55px rgba(8,127,140,.10)
+}
+.wave-hero::after{
+  content:"\223F  \223F  \223F";position:absolute;left:-24px;bottom:-42px;color:var(--accent);
+  opacity:.10;font:800 clamp(100px,23vw,210px)/1 var(--sans);letter-spacing:-.18em;
+  direction:ltr;white-space:nowrap;pointer-events:none
+}
+.wave-hero>*{position:relative;z-index:1}
+.eyebrow{font-size:12px;font-weight:850;letter-spacing:.08em;color:var(--accent)}
+.wave-hero h1{font-size:clamp(34px,6.4vw,60px);max-width:760px;margin:.18em 0;letter-spacing:-.045em;line-height:1.05}
+.wave-hero .lead{max-width:700px;font-size:clamp(16px,2.4vw,20px);color:var(--fg2)}
+
 /* ===== ארכיון המבחנים ודף הנוסחאות (מיובא מ-waves-prep) ===== */
 .topic-kicker{color:var(--accent);font-size:12px;font-weight:850;letter-spacing:.05em;margin-top:16px}
 .hero-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:20px}
@@ -807,9 +823,28 @@ td.v-info{background:var(--blue-bg);border-color:var(--blue);color:var(--blue)}
 
 <!-- ============ עמוד הבית ============ -->
 <section class="pg" id="home">
-<h1>גלים 90929 — הכנה למועד ב'</h1>
-<p class="lead">המבחן: <b>4 שעות · 4 שאלות × 25 נק'</b> · מותר להביא <b>6 עמודי דף נוסחאות</b>.
-נבנה מניתוח 30 שאלוני עבר (2020–2026) והפתרונות הרשמיים.</p>
+
+<div class="wave-hero">
+  <div class="eyebrow">גלים 90929 · מועד ב' · מפת 2020–2026</div>
+  <h1>לא ללמוד הכול באותו משקל.</h1>
+  <p class="lead">האתר בנוי לפי ארבע התבניות שחוזרות בכל מבחן: לזהות את סוג השאלה,
+  לבחור את כלי הפתרון הנכון, ולתרגל עד שהדרך הופכת אוטומטית.</p>
+  <div class="hero-actions">
+    <a class="primary" href="#practice">התחל לתרגל</a>
+    <a class="secondary" href="#map">ראה את מפת המבחן</a>
+    <a class="secondary" href="#archive">פתח 21 מבחנים מלאים</a>
+  </div>
+</div>
+
+<div class="metric-grid" aria-label="מבנה המבחן">
+  <div class="metric"><b>4</b><span>שאלות במבחן</span></div>
+  <div class="metric"><b>25</b><span>נקודות לשאלה</span></div>
+  <div class="metric"><b>240</b><span>דקות</span></div>
+  <div class="metric"><b>6</b><span>עמודי נוסחאות</span></div>
+</div>
+
+<div class="ok"><b>הכול מחובר:</b> 166 שאלות תרגול, 28 פתרונות מבחן מונפשים
+(330 שלבים), 21 מבחנים מלאים בארכיון ודף נוסחאות בן 6 עמודים — עובד גם ללא אינטרנט.</div>
 
 <div class="grid">
   <a class="deck" href="#practice" style="border-color:var(--accent);background:var(--accent2)">
@@ -839,13 +874,13 @@ td.v-info{background:var(--blue-bg);border-color:var(--blue);color:var(--blue)}
   <a class="deck" href="#d03">
     <div class="n">שאלה 2</div>
     <div class="t">דלמבר — תנאי התחלה</div>
-    <div class="d">מ-y(x,0) ו-v(x,0) אל y(x,t): פיצול לשני גלים, חד-כיווניות.</div>
+    <div class="d">מ-\(y(x,0)\) ו-\(v_y(x,0)\) אל \(y(x,t)\): פיצול לשני גלים, חד-כיווניות.</div>
     <div class="m"><span class="dot p1"></span><span class="tag exam">בכל מבחן · שאלה 2</span></div>
   </a>
   <a class="deck" href="#d06">
     <div class="n">שאלה 3</div>
     <div class="t">צומת אימפדנסים</div>
-    <div class="d">פולס פוגע בצומת: R ו-τ, מתיחת רוחב, מאזן אנרגיה.</div>
+    <div class="d">פולס פוגע בצומת: \(R\) ו-\(\tau\), מתיחת רוחב, מאזן אנרגיה.</div>
     <div class="m"><span class="dot p1"></span><span class="tag exam">בכל מבחן · שאלה 3</span></div>
   </a>
   <a class="deck" href="#d07">
@@ -857,7 +892,7 @@ td.v-info{background:var(--blue-bg);border-color:var(--blue);color:var(--blue)}
   <a class="deck" href="#d05">
     <div class="n">חוצה-שאלות</div>
     <div class="t">אנרגיה והספק</div>
-    <div class="d">צפיפויות אנרגיה, P=−T·y<sub>x</sub>·y<sub>t</sub>, ממוצעים — סעיף בכל שאלה.</div>
+    <div class="d">צפיפויות אנרגיה, \(P=-T\,y_x y_t\), ממוצעים — סעיף בכל שאלה.</div>
     <div class="m"><span class="dot p1"></span><span class="tag hot">סעיף בכל שאלה</span></div>
   </a>
   <a class="deck" href="#d08">
@@ -869,13 +904,13 @@ td.v-info{background:var(--blue-bg);border-color:var(--blue);color:var(--blue)}
   <a class="deck" href="#d01">
     <div class="n">יסודות</div>
     <div class="t">משוואת הגלים ופתרון כללי</div>
-    <div class="d">f(x−vt)+g(x+vt), זיהוי גל, מהירות גל מול מהירות חומרית.</div>
+    <div class="d">\(f(x-vt)+g(x+vt)\), זיהוי גל, מהירות גל מול מהירות חומרית.</div>
     <div class="m"><span class="dot p2"></span><span class="tag">הבסיס לכל השאלות</span></div>
   </a>
   <a class="deck" href="#d02">
     <div class="n">יסודות</div>
     <div class="t">גלים הרמוניים</div>
-    <div class="d">k, ω, λ, T — הקשרים וכיוון ההתקדמות.</div>
+    <div class="d">\(k,\ \omega,\ \lambda,\ T\) — הקשרים וכיוון ההתקדמות.</div>
     <div class="m"><span class="dot p2"></span><span class="tag">הבסיס לכל השאלות</span></div>
   </a>
 </div>
@@ -1037,11 +1072,11 @@ td.v-info{background:var(--blue-bg);border-color:var(--blue);color:var(--blue)}
 <td dir="rtl">v ו-Z ← פונקציית הגל (u=x−vt) ← F<sub>D</sub>(t)=Z·v<sub>y</sub>(0,t) ← עבודה/הספק</td>
 <td>נתון פרופיל מהירות ברגע מאוחר v<sub>y</sub>(x,t₀) ומשחזרים אחורה — כך היה ב-2026 מועד א'</td></tr>
 <tr><td><b>שאלה 2</b></td><td>דלמבר ותנאי התחלה</td>
-<td dir="rtl">y(x,t) בדלמבר ← תנאי חד-כיווניות ← נקודות הספק אפס ← אנרגיה</td>
+<td dir="rtl">\(y(x,t)\) בדלמבר ← תנאי חד-כיווניות ← נקודות הספק אפס ← אנרגיה</td>
 <td>ב-2026: A,B מחולצים מאנרגיה כוללת ויחס קינטית/פוטנציאלית; זמן הפרדת פולסים</td></tr>
 <tr><td><b>שאלה 3</b></td><td>צומת אימפדנסים</td>
-<td dir="rtl">v₁,v₂ מרוחב+זמן ← Z₁,Z₂ ← R,τ ← גבהים ורוחבים ← אחוזי אנרגיה</td>
-<td>"הנדסה הפוכה": ρ₂ לא ידוע, משוחזר מהגל החוזר/עובר או מיחס אנרגיות</td></tr>
+<td dir="rtl">\(v_1,v_2\) מרוחב+זמן ← \(Z_1,Z_2\) ← \(R,\tau\) ← גבהים ורוחבים ← אחוזי אנרגיה</td>
+<td>"הנדסה הפוכה": \(\rho_2\) לא ידוע, משוחזר מהגל החוזר/עובר או מיחס אנרגיות</td></tr>
 <tr><td><b>שאלה 4</b></td><td>מיתר רתום — פורייה</td>
 <td dir="rtl">ω<sub>n</sub>, k<sub>n</sub> ← מקדמים c<sub>n</sub> ופאזות φ<sub>n</sub> ← אנרגיה כוללת ← אחוז בהרמוניה 1</td>
 <td>מתחלף לפעמים עם קו תמסורת סופי (2023, 2025). לא הופיע ב-2026 מועד א' — ייתכן שיחזור</td></tr>
@@ -1050,7 +1085,7 @@ td.v-info{background:var(--blue-bg);border-color:var(--blue);color:var(--blue)}
 <h2>שמונה המלכודות מהפתרונות הרשמיים</h2>
 <div class="warn"><b>1 · סימן הגל החוזר.</b> היפוך רק כש-Z₂&gt;Z₁ (אז R&lt;0). ביחס אימפדנסים תמיד יוצאות שתי אפשרויות מתמטיות — בוחרים לפי הסימן/הגודל הנתונים.</div>
 <div class="warn"><b>2 · רוחב פולס עובר נמתח</b> ביחס v₂/v₁. רוחב הפולס החוזר <b>לא</b> משתנה.</div>
-<div class="warn"><b>3 · תחומי תוקף.</b> ב-2026 כל שאלה דרשה כתיבה מדויקת של החלונות (0≤t≤t₀, "חלון נע" ב-x). לכתוב תמיד את התחום ליד כל ענף.</div>
+<div class="warn"><b>3 · תחומי תוקף.</b> ב-2026 כל שאלה דרשה כתיבה מדויקת של החלונות (\(0\le t\le t_0\), "חלון נע" ב-x). לכתוב תמיד את התחום ליד כל ענף.</div>
 <div class="warn"><b>4 · קבועי אינטגרציה</b> בשחזור y מ-v<sub>y</sub> — נקבעים מתנאי ההתחלה וממשוואת הגלים (h(x)=Ax+B ⇒ A=B=0 בד"כ).</div>
 <div class="warn"><b>5 · תנאי התחלה על חצי תחום</b> ⇒ כל ההרמוניות קיימות, לא רק חלקן.</div>
 <div class="warn"><b>6 · גל שמאלה:</b> v<sub>y</sub>=+v·y<sub>x</sub> (ובקו תמסורת V₀=−ZI₀). הסימנים מתהפכים ביחס לגל ימינה.</div>
@@ -1775,38 +1810,38 @@ td.v-info{background:var(--blue-bg);border-color:var(--blue);color:var(--blue)}
 
 <!-- ============ הקבצים ============
      הסדר קריטי: קונפיג ⟵ נתונים ⟵ מנועים -->
-<script src="config.js?v=5ae2871"></script>
+<script src="config.js?v=5277cdc"></script>
 
 <!-- נתונים -->
-<script src="questions.js?v=5ae2871"></script>
-<script src="questions-2021-2022.js?v=5ae2871"></script>
-<script src="questions-2023-2024.js?v=5ae2871"></script>
-<script src="questions-2025-2026.js?v=5ae2871"></script>
-<script src="questions-samples.js?v=5ae2871"></script>
-<script src="questions-mc.js?v=5ae2871"></script>
-<script src="questions-diagnostic.js?v=5ae2871"></script>
-<script src="questions-mc-a.js?v=5ae2871"></script>
-<script src="questions-mc-b.js?v=5ae2871"></script>
-<script src="questions-mc-c.js?v=5ae2871"></script>
-<script src="exam-archive.js?v=5ae2871"></script>
-<script src="walkthrough-2023.js?v=5ae2871"></script>
-<script src="walkthrough-2024.js?v=5ae2871"></script>
-<script src="walkthrough-2025.js?v=5ae2871"></script>
-<script src="walkthrough-2026.js?v=5ae2871"></script>
-<script src="topic-d01.js?v=5ae2871"></script>
-<script src="topic-d02.js?v=5ae2871"></script>
-<script src="topic-d03.js?v=5ae2871"></script>
-<script src="topic-d04.js?v=5ae2871"></script>
-<script src="topic-d05.js?v=5ae2871"></script>
-<script src="topic-d06.js?v=5ae2871"></script>
-<script src="topic-d07.js?v=5ae2871"></script>
-<script src="topic-d08.js?v=5ae2871"></script>
+<script src="questions.js?v=5277cdc"></script>
+<script src="questions-2021-2022.js?v=5277cdc"></script>
+<script src="questions-2023-2024.js?v=5277cdc"></script>
+<script src="questions-2025-2026.js?v=5277cdc"></script>
+<script src="questions-samples.js?v=5277cdc"></script>
+<script src="questions-mc.js?v=5277cdc"></script>
+<script src="questions-diagnostic.js?v=5277cdc"></script>
+<script src="questions-mc-a.js?v=5277cdc"></script>
+<script src="questions-mc-b.js?v=5277cdc"></script>
+<script src="questions-mc-c.js?v=5277cdc"></script>
+<script src="exam-archive.js?v=5277cdc"></script>
+<script src="walkthrough-2023.js?v=5277cdc"></script>
+<script src="walkthrough-2024.js?v=5277cdc"></script>
+<script src="walkthrough-2025.js?v=5277cdc"></script>
+<script src="walkthrough-2026.js?v=5277cdc"></script>
+<script src="topic-d01.js?v=5277cdc"></script>
+<script src="topic-d02.js?v=5277cdc"></script>
+<script src="topic-d03.js?v=5277cdc"></script>
+<script src="topic-d04.js?v=5277cdc"></script>
+<script src="topic-d05.js?v=5277cdc"></script>
+<script src="topic-d06.js?v=5277cdc"></script>
+<script src="topic-d07.js?v=5277cdc"></script>
+<script src="topic-d08.js?v=5277cdc"></script>
 
 <!-- מנועים — לא לערוך -->
-<script src="viz.js?v=5ae2871"></script>
-<script src="adaptive-quiz.js?v=5ae2871"></script>
-<script src="walkthrough-ui.js?v=5ae2871"></script>
-<script src="exam-sim.js?v=5ae2871"></script>
+<script src="viz.js?v=5277cdc"></script>
+<script src="adaptive-quiz.js?v=5277cdc"></script>
+<script src="walkthrough-ui.js?v=5277cdc"></script>
+<script src="exam-sim.js?v=5277cdc"></script>
 
 <script>
 /* ---- מצב כהה/בהיר ---- */
