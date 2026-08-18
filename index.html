@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>גלים 90929 — הכנה למבחן</title>
-<link rel="stylesheet" href="katex/katex.min.css?v=28108aa">
-<script defer src="katex/katex.min.js?v=28108aa"></script>
-<script defer src="katex/auto-render.min.js?v=28108aa"></script>
+<link rel="stylesheet" href="katex/katex.min.css?v=010205c">
+<script defer src="katex/katex.min.js?v=010205c"></script>
+<script defer src="katex/auto-render.min.js?v=010205c"></script>
 <style>
 /* ===== מערכת עיצוב משותפת — הכנה למבחן 10804 ===== */
 :root{
@@ -726,6 +726,30 @@ td.v-info{background:var(--blue-bg);border-color:var(--blue);color:var(--blue)}
   color:var(--fg2);font-size:12px;font-weight:700;white-space:nowrap;
 }
 .ipad-ready .status.offline{color:var(--amber);background:var(--amber-bg)}
+
+/* ===== מעבדות חופשיות ===== */
+.lab-tabs{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px}
+.lab-wrap{border:1px solid var(--line);border-radius:var(--radius);background:var(--bg2);padding:18px}
+.lab-wrap h2{margin:0 0 6px;font-size:21px}
+.lab-wrap .lead{margin:0 0 12px;font-size:14.5px;color:var(--fg2)}
+#labCanvas{display:block;width:100%;height:260px;border:1px solid var(--line);
+  border-radius:10px;background:var(--bg);margin:12px 0}
+.lab-bar{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
+.lab-bar .muted{font-size:12.5px;color:var(--fg3)}
+.lab-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:16px}
+.lab-params{display:flex;flex-direction:column;gap:11px}
+.lab-param{display:flex;flex-direction:column;gap:5px;font-size:13.5px}
+.lab-param span{color:var(--fg2)}
+.lab-param b{color:var(--accent);font-family:var(--mono)}
+.lab-param input[type=range]{width:100%;accent-color:var(--accent);direction:ltr}
+.lab-derived{border:1px solid var(--line);border-radius:10px;background:var(--bg3);padding:11px 13px;
+  align-self:start}
+.lab-row{display:flex;justify-content:space-between;gap:12px;align-items:baseline;
+  padding:5px 0;border-bottom:1px solid var(--line);font-size:13.5px}
+.lab-row:last-child{border-bottom:0}
+.lab-row span{color:var(--fg2)}
+.lab-row b{font-family:var(--mono);color:var(--fg);white-space:nowrap;direction:ltr}
+@media(max-width:760px){.lab-grid{grid-template-columns:1fr}}
 
 /* ===== hero של עמוד הבית (מיובא מ-waves-prep) ===== */
 .wave-hero{
@@ -1810,38 +1834,39 @@ td.v-info{background:var(--blue-bg);border-color:var(--blue);color:var(--blue)}
 
 <!-- ============ הקבצים ============
      הסדר קריטי: קונפיג ⟵ נתונים ⟵ מנועים -->
-<script src="config.js?v=28108aa"></script>
+<script src="config.js?v=010205c"></script>
 
 <!-- נתונים -->
-<script src="questions.js?v=28108aa"></script>
-<script src="questions-2021-2022.js?v=28108aa"></script>
-<script src="questions-2023-2024.js?v=28108aa"></script>
-<script src="questions-2025-2026.js?v=28108aa"></script>
-<script src="questions-samples.js?v=28108aa"></script>
-<script src="questions-mc.js?v=28108aa"></script>
-<script src="questions-diagnostic.js?v=28108aa"></script>
-<script src="questions-mc-a.js?v=28108aa"></script>
-<script src="questions-mc-b.js?v=28108aa"></script>
-<script src="questions-mc-c.js?v=28108aa"></script>
-<script src="exam-archive.js?v=28108aa"></script>
-<script src="walkthrough-2023.js?v=28108aa"></script>
-<script src="walkthrough-2024.js?v=28108aa"></script>
-<script src="walkthrough-2025.js?v=28108aa"></script>
-<script src="walkthrough-2026.js?v=28108aa"></script>
-<script src="topic-d01.js?v=28108aa"></script>
-<script src="topic-d02.js?v=28108aa"></script>
-<script src="topic-d03.js?v=28108aa"></script>
-<script src="topic-d04.js?v=28108aa"></script>
-<script src="topic-d05.js?v=28108aa"></script>
-<script src="topic-d06.js?v=28108aa"></script>
-<script src="topic-d07.js?v=28108aa"></script>
-<script src="topic-d08.js?v=28108aa"></script>
+<script src="questions.js?v=010205c"></script>
+<script src="questions-2021-2022.js?v=010205c"></script>
+<script src="questions-2023-2024.js?v=010205c"></script>
+<script src="questions-2025-2026.js?v=010205c"></script>
+<script src="questions-samples.js?v=010205c"></script>
+<script src="questions-mc.js?v=010205c"></script>
+<script src="questions-diagnostic.js?v=010205c"></script>
+<script src="questions-mc-a.js?v=010205c"></script>
+<script src="questions-mc-b.js?v=010205c"></script>
+<script src="questions-mc-c.js?v=010205c"></script>
+<script src="exam-archive.js?v=010205c"></script>
+<script src="walkthrough-2023.js?v=010205c"></script>
+<script src="walkthrough-2024.js?v=010205c"></script>
+<script src="walkthrough-2025.js?v=010205c"></script>
+<script src="walkthrough-2026.js?v=010205c"></script>
+<script src="topic-d01.js?v=010205c"></script>
+<script src="topic-d02.js?v=010205c"></script>
+<script src="topic-d03.js?v=010205c"></script>
+<script src="topic-d04.js?v=010205c"></script>
+<script src="topic-d05.js?v=010205c"></script>
+<script src="topic-d06.js?v=010205c"></script>
+<script src="topic-d07.js?v=010205c"></script>
+<script src="topic-d08.js?v=010205c"></script>
 
 <!-- מנועים — לא לערוך -->
-<script src="viz.js?v=28108aa"></script>
-<script src="adaptive-quiz.js?v=28108aa"></script>
-<script src="walkthrough-ui.js?v=28108aa"></script>
-<script src="exam-sim.js?v=28108aa"></script>
+<script src="viz.js?v=010205c"></script>
+<script src="adaptive-quiz.js?v=010205c"></script>
+<script src="walkthrough-ui.js?v=010205c"></script>
+<script src="labs.js?v=010205c"></script>
+<script src="exam-sim.js?v=010205c"></script>
 
 <script>
 /* ---- מצב כהה/בהיר ---- */
